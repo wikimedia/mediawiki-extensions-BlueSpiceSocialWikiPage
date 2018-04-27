@@ -1,0 +1,79 @@
+{
+	"name": "BlueSpiceSocialWikiPage",
+	"version": "3.0.0-alpha",
+	"url": "https://help.bluespice.com/index.php/BlueSpiceSocial",
+	"author": "Patric Wirth",
+	"descriptionmsg": "bs-socialwikipage-desc",
+	"type": "bluespice",
+	"attributes": {
+		"BlueSpiceFoundation": {
+			"Extensions": {
+				"BlueSpiceSocialWikiPage": {
+					"className": "\\BlueSpice\\Social\\WikiPage\\Extension",
+					"extPath": "/BlueSpiceSocialWikiPage",
+					"status": "beta",
+					"package": "BlueSpiceSocial"
+				}
+			},
+			"EntityRegistry": {
+				"wikipage": "\\BlueSpice\\Social\\WikiPage\\EntityConfig\\WikiPage"
+			}
+		}
+	},
+	"SpecialPages": {
+		"Tags": "SpecialTags"
+	},
+	"MessagesDirs": {
+		"BlueSpiceSocialWikiPage": [
+			"i18n"
+		]
+	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
+	"AutoloadNamespaces": {
+		"BlueSpice\\Social\\WikiPage\\": "src/"
+	},
+	"ResourceModules": {
+		"ext.bluespice.social.articles.styles": {
+			"targets": [ "desktop", "mobile" ],
+			"styles": [
+				"bluespice.social.wikipage.css"
+			]
+		},
+		"ext.bluespice.social.articles": {
+			"dependencies": [
+				"ext.bluespice.social.timeline"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/Dialog/AddArticle.js",
+				"bluespice.social.wikipage.js"
+			],
+			"messages": [
+				"bs-socialwikipage-label",
+				"bs-socialwikipage-dialog-label"
+			]
+		},
+		"ext.bluespice.social.entity.wikipage": {
+			"dependencies": [
+				"ext.bluespice.social.entity",
+				"ext.bluespice.oojs"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"entities/bluespice.social.Entity.WikiPage.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "BlueSpiceSocialWikiPage/resources"
+	},
+	"Hooks": {
+		"BSSocialModuleDepths": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSSocialModuleDepths\\AddModules::callback",
+		"PageContentSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageContentSaveComplete\\CreateWikiPageEntity::callback"
+	},
+	"load_composer_autoloader" : true,
+	"manifest_version": 2
+}

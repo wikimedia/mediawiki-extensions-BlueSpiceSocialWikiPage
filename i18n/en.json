@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patric Wirth <wirth@hallowelt.com>"
+		]
+	},
+	"bs-socialwikipage-desc": "BSSocial",
+	"bs-socialwikipage-label": "Article",
+	"bs-socialwikipage-dialog-label": "Add article",
+	"bs-socialwikipage-type": "Article",
+	"bs-socialwikipage-entitywikipage-header": "[[$5:$3|$6]]"
+}

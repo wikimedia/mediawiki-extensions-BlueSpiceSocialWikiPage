@@ -1,0 +1,8 @@
+.bs-social-entitylist-menu-item.bs-entitylist-menu-item-addarticles .bs-social-entitylist-menu-item-actions-btn:before,
+.bs-social-entityspawner-article:before {
+	font-family: 'entypo';
+	content: '\e900';
+}
+.bs-social-entityspawner-article:before {
+	margin-right: 8px;
+}
