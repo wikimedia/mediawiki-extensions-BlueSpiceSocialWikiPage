@@ -1,8 +1,11 @@
 {
-	"name": "mediawiki/blue-spice-social-wikipage",
+	"name": "bluespice/socialwikipage",
 	"type": "mediawiki-extension",
 	"description": "WikiPage entity and functionality for social",
 	"license": "GPL-3.0",
+	"extra": {
+        "installer-name": "BlueSpiceSocialWikiPage"
+	},
 	"require": {
 		"composer/installers": "~1.0"
 	}
