@@ -14,7 +14,6 @@ namespace BlueSpice\Social\WikiPage\EntityOutput;
 
 use MediaWiki\MediaWikiServices;
 use BlueSpice\Social\EntityOutput;
-use BlueSpice\Social\Entities;
 use BlueSpice\Social\Entity;
 use BlueSpice\DynamicFileDispatcher\Params;
 use BlueSpice\DynamicFileDispatcher\ArticlePreviewImage;
@@ -37,22 +36,7 @@ class WikiPage extends EntityOutput{
 		if( $sType !== 'Page' ) {
 			return '';//parent::render_children( $mVal, $sType );
 		}
-return;
-		if( !$this->getEntity()->exists() ) {
-			return '';
-		}
-
-		$sOut = Entities::makeList(
-			[],
-			[
-				'type' => ['wikipage'],
-				'wikipagetitleid' => $this->getEntity()->getRelatedTitle()->getArticleID(),
-			],
-			0,
-			[],
-			$this->getEntity()
-		);
-		return $sOut;
+		return '';
 	}
 
 	public function render_userimage( $mVal, $sType = 'Default' ) {
