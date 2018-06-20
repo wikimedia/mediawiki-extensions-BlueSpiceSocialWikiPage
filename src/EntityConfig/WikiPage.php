@@ -47,9 +47,11 @@ class WikiPage extends Page {
 	public function get_EntityClass() {
 		return "\\BlueSpice\\Social\\WikiPage\\Entity\\WikiPage";
 	}
-	protected function get_OutputClass() {
-		return '\\BlueSpice\\Social\\WikiPage\\EntityOutput\\WikiPage';
+
+	protected function get_Renderer() {
+		return 'socialentitywikipage';
 	}
+
 	protected function get_EntityTemplateDefault() {
 		return 'BlueSpiceSocialWikiPage.Entity.WikiPage.Default';
 	}
