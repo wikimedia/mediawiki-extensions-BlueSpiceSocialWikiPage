@@ -27,7 +27,7 @@ class WikiPage extends \BlueSpice\Social\Renderer\Entity\Page {
 		$title = $this->getEntity()->getRelatedTitle();
 		$params = [
 			DFDParams::MODULE => 'articlepreviewimage',
-			ArticlePreviewImage::WIDTH=> $iSize,
+			ArticlePreviewImage::WIDTH => $iSize,
 			ArticlePreviewImage::TITLETEXT => $title->getFullText(),
 		];
 		$dfdUrlBuilder = $this->getServices()->getService(
