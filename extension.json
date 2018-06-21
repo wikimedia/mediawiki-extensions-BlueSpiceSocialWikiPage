@@ -17,6 +17,9 @@
 			},
 			"EntityRegistry": {
 				"wikipage": "\\BlueSpice\\Social\\WikiPage\\EntityConfig\\WikiPage"
+			},
+			"RendererRegistry": {
+				"socialentitywikipage": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\WikiPage"
 			}
 		}
 	},
