@@ -1,6 +1,7 @@
 {
 	"name": "BlueSpiceSocialWikiPage",
 	"version": "3.0.0-alpha",
+	"license-name": "GPL-3.0-only",
 	"url": "https://help.bluespice.com/index.php/BlueSpiceSocial",
 	"author": "Patric Wirth",
 	"descriptionmsg": "bs-socialwikipage-desc",
@@ -17,6 +18,9 @@
 			},
 			"EntityRegistry": {
 				"wikipage": "\\BlueSpice\\Social\\WikiPage\\EntityConfig\\WikiPage"
+			},
+			"RendererRegistry": {
+				"socialentitywikipage": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\WikiPage"
 			}
 		}
 	},
