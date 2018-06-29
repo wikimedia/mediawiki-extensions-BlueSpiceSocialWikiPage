@@ -32,7 +32,7 @@ class Extension extends \BlueSpice\Extension {
 
 	public static function isTrackedNamespace( $iNamespace = 0 ) {
 		return !in_array( $iNamespace, [
-			NS_BSSOCIAL,
+			NS_SOCIALENTITY,
 			NS_USER,
 			NS_MEDIAWIKI,
 			NS_FILE
