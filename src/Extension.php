@@ -26,9 +26,21 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU Public License v2 or later
  */
 namespace BlueSpice\Social\WikiPage;
-use BlueSpice\Social\WikiPage\Entity\WikiPage;
 
 class Extension extends \BlueSpice\Extension {
+
+	public static function onRegistration() {
+		$GLOBALS['bsgSocialWikiPageTimelineAfterContentNamespaceBlackList'] = array_merge(
+			$GLOBALS['bsgSocialWikiPageTimelineAfterContentNamespaceBlackList'],
+			[
+				NS_MEDIA,
+				NS_MEDIAWIKI,
+				NS_SPECIAL,
+				NS_USER,
+				NS_SOCIALENTITY
+			]
+		);
+	}
 
 	public static function isTrackedNamespace( $iNamespace = 0 ) {
 		return !in_array( $iNamespace, [
