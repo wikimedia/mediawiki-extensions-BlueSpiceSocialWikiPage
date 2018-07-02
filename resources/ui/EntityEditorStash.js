@@ -1,3 +1,4 @@
+
 bs.social.EntityEditorStash = function ( config, entity ) {
 	bs.social.EntityEditorText.call( this, config, entity );
 };
@@ -8,6 +9,13 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 	var fields = bs.social.EntityEditorStash.super.prototype.makeFields.apply(
 		this
 	);
+
+console.log( bs.ui.widget.TextInputMultiUpload );
+	if( bs.ui.widget.TextInputMultiUpload ) {
+		fields.dropzone = new bs.ui.widget.TextInputMultiUpload( {
+			field: fields.text
+		});
+	}
 
 	var disabled = false;
 	var wikipageid = this.getEntity().data.get(

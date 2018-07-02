@@ -32,7 +32,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function getLimit() {
-		return 3;
+		return 999;
 	}
 
 	public function getSortProperty() {
@@ -61,7 +61,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	protected function getDiscussionTitleIDFilter() {
 		return (object)[
 			Numeric::KEY_PROPERTY => Stash::ATTR_WIKI_PAGE_ID,
-			Numeric::KEY_VALUE => $this->getTitle()->getTalkPage()->getArticleID(),
+			Numeric::KEY_VALUE => $this->getTitle()->getArticleID(),
 			Numeric::KEY_COMPARISON => Numeric::COMPARISON_EQUALS,
 			Numeric::KEY_TYPE => 'numeric'
 		];
@@ -89,9 +89,13 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 
 	public function getMoreLink() {
 		return Services::getInstance()->getLinkRenderer()->makeKnownLink(
-			$this->getTitle()->getTalkPage(),
+			$this->getTitle(),
 			new \HtmlArmor( $this->getMoreLinkMessage()->text() )
 		);
+	}
+
+	public function showEntityListMore() {
+		return false;
 	}
 
 	public function getPreloadedEntities() {
@@ -113,7 +117,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	protected function getRawStash() {
-		$talkPage = $this->getTitle()->getTalkPage();
+		$talkPage = $this->getTitle();
 		return (object) [
 			Stash::ATTR_TYPE => Stash::TYPE,
 			Stash::ATTR_WIKI_PAGE_ID => $talkPage->getArticleID(),

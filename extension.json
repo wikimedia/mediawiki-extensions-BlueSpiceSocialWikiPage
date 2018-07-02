@@ -73,13 +73,22 @@
 		},
 		"ext.bluespice.social.entity.stash": {
 			"dependencies": [
-				"ext.bluespice.social.entity",
-				"ext.bluespice.oojs"
+				"ext.bluespice.social.entity.text"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"entities/bluespice.social.Entity.Stash.js",
 				"ui/EntityEditorStash.js"
+			]
+		},
+		"ext.bluespice.social.entity.stash.dropzone": {
+			"dependencies": [
+				"ext.bluespice.social.entity.stash",
+				"ext.bluespice.upload"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widget/TextInputMultiUpload.js"
 			]
 		}
 	},

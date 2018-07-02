@@ -3,6 +3,7 @@
 
 namespace BlueSpice\Social\WikiPage\EntityConfig;
 
+use BlueSpice\Services;
 use BlueSpice\Social\EntityConfig\Text;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
@@ -14,9 +15,11 @@ use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
  * @subpackage BSSocial
  */
 class Stash extends Text{
+
 	public function addGetterDefaults() {
 		return [];
 	}
+
 	public function get_EntityClass() {
 		return "\\BlueSpice\\Social\\WikiPage\\Entity\\Stash";
 	}
@@ -26,20 +29,29 @@ class Stash extends Text{
 	}
 
 	protected function get_ModuleScripts() {
+		$dropzone = Services::getInstance()->getBSExtensionFactory()
+			->getExtension( 'BlueSpiceMultiUpload' )
+			? ["ext.bluespice.social.entity.stash.dropzone"]
+			: [];
 		return array_merge(
 			parent::get_ModuleScripts(),
-			[ 'ext.bluespice.social.entity.stash' ]
+			[ 'ext.bluespice.social.entity.stash' ],
+			$dropzone
 		);
 	}
+
 	protected function get_TypeMessageKey() {
 		return 'bs-socialwikipage-stashtype';
 	}
+
 	protected function get_HeaderMessageKeyCreateNew() {
 		return 'bs-socialwikipage-entitystash-header-create';
 	}
+
 	protected function get_HeaderMessageKey() {
 		return 'bs-socialwikipage-entitystash-header';
 	}
+
 	protected function get_VarMessageKeys() {
 		return array_merge(
 			parent::get_VarMessageKeys(),
@@ -48,6 +60,7 @@ class Stash extends Text{
 			]
 		);
 	}
+
 	protected function get_AttributeDefinitions() {
 		return array_merge(
 			parent::get_AttributeDefinitions(),
