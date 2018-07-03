@@ -10,9 +10,20 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 		this
 	);
 
-console.log( bs.ui.widget.TextInputMultiUpload );
 	if( bs.ui.widget.TextInputMultiUpload ) {
 		fields.dropzone = new bs.ui.widget.TextInputMultiUpload( {
+			field: fields.text
+		});
+	}
+
+	if( bs.ui.widget.TextInputFileSelect ) {
+		fields.insertfile = new bs.ui.widget.TextInputFileSelect( {
+			field: fields.text
+		});
+	}
+
+	if( bs.ui.widget.TextInputLinkSelect ) {
+		fields.insertlink = new bs.ui.widget.TextInputLinkSelect( {
 			field: fields.text
 		});
 	}

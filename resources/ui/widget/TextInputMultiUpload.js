@@ -11,7 +11,6 @@ OO.initClass( bs.ui.widget.TextInputMultiUpload );
 OO.inheritClass( bs.ui.widget.TextInputMultiUpload, OO.ui.MultilineTextInputWidget );
 
 bs.ui.widget.TextInputMultiUpload.prototype.init = function() {
-	console.log('here');
 	var me = this;
 	mw.loader.using( [ 'ext.bluespice.upload' ] ).done( function () {
 		var id = me.field.$element.attr( 'id' ) || 'bs-textinput-multiupload';

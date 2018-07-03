@@ -90,6 +90,26 @@
 			"scripts": [
 				"ui/widget/TextInputMultiUpload.js"
 			]
+		},
+		"ext.bluespice.social.entity.stash.insertfile": {
+			"dependencies": [
+				"ext.bluespice.social.entity.stash",
+				"ext.bluespice.insertFile"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widget/TextInputFileSelect.js"
+			]
+		},
+		"ext.bluespice.social.entity.stash.insertlink": {
+			"dependencies": [
+				"ext.bluespice.social.entity.stash",
+				"ext.bluespice.insertlink"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widget/TextInputLinkSelect.js"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {

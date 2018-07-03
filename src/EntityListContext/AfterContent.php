@@ -55,7 +55,10 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function getOutputTypes() {
-		return array_merge( parent::getOutputTypes(), [ Stash::TYPE => 'Short'] );
+		return array_merge(
+			parent::getOutputTypes(),
+			[ Stash::TYPE => 'Default']
+		);
 	}
 
 	protected function getDiscussionTitleIDFilter() {
@@ -100,14 +103,14 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 
 	public function getPreloadedEntities() {
 		$preloaded = parent::getPreloadedEntities();
-		$topic = Services::getInstance()->getBSEntityFactory()->newFromObject(
+		$stash = Services::getInstance()->getBSEntityFactory()->newFromObject(
 			$this->getRawStash()
 		);
-		if( !$topic instanceof Stash ) {
+		if( !$stash instanceof Stash ) {
 			return $preloaded;
 		}
 
-		$status = $topic->userCan( 'create', $this->getUser() );
+		$status = $stash->userCan( 'create', $this->getUser() );
 		if( !$status->isOK() ) {
 			return $preloaded;
 		}
