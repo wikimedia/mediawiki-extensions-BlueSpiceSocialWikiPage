@@ -17,10 +17,12 @@
 				}
 			},
 			"EntityRegistry": {
-				"wikipage": "\\BlueSpice\\Social\\WikiPage\\EntityConfig\\WikiPage"
+				"wikipage": "\\BlueSpice\\Social\\WikiPage\\EntityConfig\\WikiPage",
+				"stash": "\\BlueSpice\\Social\\WikiPage\\EntityConfig\\Stash"
 			},
 			"RendererRegistry": {
-				"socialentitywikipage": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\WikiPage"
+				"socialentitywikipage": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\WikiPage",
+				"socialentitystash": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\Stash"
 			}
 		}
 	},
@@ -68,15 +70,65 @@
 			"scripts": [
 				"entities/bluespice.social.Entity.WikiPage.js"
 			]
+		},
+		"ext.bluespice.social.entity.stash": {
+			"dependencies": [
+				"ext.bluespice.social.entity.text"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"entities/bluespice.social.Entity.Stash.js",
+				"ui/EntityEditorStash.js"
+			]
+		},
+		"ext.bluespice.social.entity.stash.dropzone": {
+			"dependencies": [
+				"ext.bluespice.social.entity.stash",
+				"ext.bluespice.upload"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widget/TextInputMultiUpload.js"
+			]
+		},
+		"ext.bluespice.social.entity.stash.insertfile": {
+			"dependencies": [
+				"ext.bluespice.social.entity.stash",
+				"ext.bluespice.insertFile"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widget/TextInputFileSelect.js"
+			]
+		},
+		"ext.bluespice.social.entity.stash.insertlink": {
+			"dependencies": [
+				"ext.bluespice.social.entity.stash",
+				"ext.bluespice.insertlink"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"ui/widget/TextInputLinkSelect.js"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "resources",
 		"remoteExtPath": "BlueSpiceSocialWikiPage/resources"
 	},
+	"config_prefix": "bsg",
+	"config": {
+		"SocialWikiPageTimelineAfterContentNamespaceBlackList": {
+			"value": []
+		},
+		"SocialWikiPageTimelineAfterContentShow": {
+			"value": true
+		}
+	},
 	"Hooks": {
 		"BSSocialModuleDepths": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSSocialModuleDepths\\AddModules::callback",
-		"PageContentSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageContentSaveComplete\\CreateWikiPageEntity::callback"
+		"PageContentSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageContentSaveComplete\\CreateWikiPageEntity::callback",
+		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\WikiPage\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback"
 	},
 	"load_composer_autoloader" : true,
 	"manifest_version": 2

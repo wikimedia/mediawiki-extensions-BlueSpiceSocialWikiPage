@@ -8,5 +8,7 @@
 	"bs-socialwikipage-label": "Artikel",
 	"bs-socialwikipage-dialog-label": "Artikel hinzufügen",
 	"bs-socialwikipage-type": "Artikel",
-	"bs-socialwikipage-entitywikipage-header": "[[$5:$3|$6]]"
+	"bs-socialwikipage-entitywikipage-header": "[[$5:$3|$6]]",
+	"bs-socialwikipage-stashtype": "Stash",
+	"bs-socialwikipage-entitystash-header": ""
 }
