@@ -1,5 +1,6 @@
 
 bs.social.EntityEditorStash = function ( config, entity ) {
+	config.visualEditor = false; //do not allow visual editor here
 	bs.social.EntityEditorText.call( this, config, entity );
 };
 OO.initClass( bs.social.EntityEditorStash );
