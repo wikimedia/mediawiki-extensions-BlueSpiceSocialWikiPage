@@ -89,6 +89,14 @@ class WikiPage extends Page {
 	protected function get_IsTagable() {
 		return false;
 	}
+	protected function get_VarMessageKeys() {
+		return array_merge(
+			parent::get_VarMessageKeys(),
+			[
+				Entity::ATTR_WIKI_PAGE_ID => 'bs-socialwikipage-var-wikipageid'
+			]
+		);
+	}
 	protected function get_AttributeDefinitions() {
 		return array_merge(
 			parent::get_AttributeDefinitions(),

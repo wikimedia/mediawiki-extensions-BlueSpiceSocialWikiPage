@@ -17,7 +17,7 @@ class Stash extends \BsSpecialPage {
 		$this->checkPermissions();
 
 		$this->getOutput()->setPageTitle(
-			wfMessage( 'bs-socialstash-special-stash-heading' )->plain()
+			wfMessage( 'bs-socialwikipage-special-stash-heading' )->plain()
 		);
 
 		$title = $entiy = null;

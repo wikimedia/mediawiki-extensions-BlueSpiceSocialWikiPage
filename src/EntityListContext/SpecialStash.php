@@ -62,10 +62,7 @@ class SpecialStash extends \BlueSpice\Social\EntityListContext {
 		);
 	}
 
-	protected function getDiscussionTitleIDFilter() {
-		if( !$this->getTitle() || !$this->getTitle()->exists() ) {
-			return [];
-		}
+	protected function getWikiPageIDFilter() {
 		return (object)[
 			Numeric::KEY_PROPERTY => Stash::ATTR_WIKI_PAGE_ID,
 			Numeric::KEY_VALUE => $this->getTitle()->getArticleID(),
@@ -88,9 +85,12 @@ class SpecialStash extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function getFilters() {
+		if( !$this->getTitle() || !$this->getTitle()->exists() ) {
+			parent::getFilters();
+		};
 		return array_merge( 
 			parent::getFilters(),
-			[ $this->getDiscussionTitleIDFilter() ]
+			[ $this->getWikiPageIDFilter() ]
 		);
 	}
 
@@ -117,12 +117,14 @@ class SpecialStash extends \BlueSpice\Social\EntityListContext {
 	}
 
 	protected function getRawStash() {
-		$title = $this->getTitle();
-		return (object) [
+		$stash = [
 			Stash::ATTR_TYPE => Stash::TYPE,
-			Stash::ATTR_WIKI_PAGE_ID => $title->getArticleID(),
-			Stash::ATTR_RELATED_TITLE => $title->getFullText(),
 		];
+		if( $this->getTitle() && $this->getTitle()->exists() ) {
+			$stash[Stash::ATTR_WIKI_PAGE_ID] = $this->getTitle()->getArticleID();
+			$stash[Stash::ATTR_RELATED_TITLE] = $this->getTitle()->getFullText();
+		}
+		return (object) $stash;
 	}
 
 	public function showEntityListMenu() {
