@@ -73,7 +73,7 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 			$this->skin->getTitle()
 		);
 		$renderer = $this->getServices()->getBSRendererFactory()->get(
-			'entitylist',
+			'entitylistattachments',
 			new Params( [ 'context' => $context ])
 		);
 		$item = [

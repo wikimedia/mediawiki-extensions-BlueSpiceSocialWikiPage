@@ -22,12 +22,16 @@
 			},
 			"RendererRegistry": {
 				"socialentitywikipage": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\WikiPage",
-				"socialentitystash": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\Stash"
+				"socialentitystash": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\Stash",
+				"entitylistattachments": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\Attachments"
 			}
 		}
 	},
 	"SpecialPages": {
-		"Tags": "SpecialTags"
+		"WikiPageStash": "\\BlueSpice\\Social\\WikiPage\\Special\\Stash"
+	},
+	"ExtensionMessagesFiles": {
+		"WikiPageStashAlias": "languages/WikiPageStash.alias.php"
 	},
 	"MessagesDirs": {
 		"BlueSpiceSocialWikiPage": [
