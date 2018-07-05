@@ -12,6 +12,7 @@
 	"bs-socialwikipage-stashtype": "Stash",
 	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] stashed",
 	"bs-socialwikipage-entitystash-header-create": "New stash",
-	"bs-socialstash-special-stash-heading": "Wikipage stash",
-	"wikipagestash": "Wikipage stash"
+	"bs-socialwikipage-special-stash-heading": "Wikipage stash",
+	"wikipagestash": "Wikipage stash",
+	"bs-socialwikipage-var-wikipageid": "Article id"
 }

@@ -12,6 +12,7 @@
 	"bs-socialwikipage-stashtype": "Ablage",
 	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] hinterlegte",
 	"bs-socialwikipage-entitystash-header-create": "Neue Ablage",
-	"bs-socialstash-special-stash-heading": "Wikiseitenablage",
-	"wikipagestash": "Wikiseitenablage"
+	"bs-socialwikipage-special-stash-heading": "Wikiseitenablage",
+	"wikipagestash": "Wikiseitenablage",
+	"bs-socialwikipage-var-wikipageid": "Artikelid"
 }
