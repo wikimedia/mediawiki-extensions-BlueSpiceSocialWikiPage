@@ -4,10 +4,11 @@ namespace BlueSpice\Social\WikiPage\EntityListContext;
 
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Numeric;
+use BlueSpice\Social\WikiPage\Entity\WikiPage;
 use BlueSpice\Social\WikiPage\Entity\Stash;
 use BlueSpice\Services;
 
-class AfterContent extends \BlueSpice\Social\EntityListContext {
+class SpecialStash extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
@@ -20,7 +21,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	 * @param \IContextSource $context
 	 * @param \Config $config
 	 */
-	public function __construct( \IContextSource $context, \Config $config, \User $user = null, Entity $entity = null, \Title $title = null ) {
+	public function __construct( \IContextSource $context, \Config $config, \User $user = null, WikiPage $entity = null, \Title $title = null ) {
 		parent::__construct( $context, $config, $user, $entity );
 		if( $title ) {
 			$this->title = $title;
@@ -32,7 +33,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function getLimit() {
-		return 999;
+		return 15;
 	}
 
 	public function getSortProperty() {
@@ -40,7 +41,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function useEndlessScroll() {
-		return false;
+		return true;
 	}
 
 	public function useMoreScroll() {
@@ -62,6 +63,9 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	protected function getDiscussionTitleIDFilter() {
+		if( !$this->getTitle() || !$this->getTitle()->exists() ) {
+			return [];
+		}
 		return (object)[
 			Numeric::KEY_PROPERTY => Stash::ATTR_WIKI_PAGE_ID,
 			Numeric::KEY_VALUE => $this->getTitle()->getArticleID(),
@@ -90,23 +94,8 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		);
 	}
 
-	public function getMoreLink() {
-		$special = \SpecialPage::getTitleFor(
-			'WikiPageStash',
-			$this->getTitle()->getFullText()
-		);
-		return Services::getInstance()->getLinkRenderer()->makeKnownLink(
-			$special,
-			new \HtmlArmor( $this->getMoreLinkMessage()->text() )
-		);
-	}
-
-	protected function getMoreLinkMessage() {
-		return \Message::newFromKey( 'wikipagestash' );
-	}
-
 	public function showEntityListMore() {
-		return true;
+		return false;
 	}
 
 	public function getPreloadedEntities() {
@@ -128,16 +117,16 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	protected function getRawStash() {
-		$talkPage = $this->getTitle();
+		$title = $this->getTitle();
 		return (object) [
 			Stash::ATTR_TYPE => Stash::TYPE,
-			Stash::ATTR_WIKI_PAGE_ID => $talkPage->getArticleID(),
-			Stash::ATTR_RELATED_TITLE => $talkPage->getFullText(),
+			Stash::ATTR_WIKI_PAGE_ID => $title->getArticleID(),
+			Stash::ATTR_RELATED_TITLE => $title->getFullText(),
 		];
 	}
 
 	public function showEntityListMenu() {
-		return false;
+		return true;
 	}
 
 }
