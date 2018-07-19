@@ -145,6 +145,6 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	public function getHeadlineMessageKey() {
-		return 'wikipagestash';
+		return 'bs-socialwikipage-aftercontent-heading';
 	}
 }
