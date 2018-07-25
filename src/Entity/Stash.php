@@ -55,6 +55,9 @@ class Stash extends Text {
 	}
 
 	public function getRelatedTitle() {
+		if( $this->get( static::ATTR_WIKI_PAGE_ID, 0 ) < 1 ) {
+			return parent::getRelatedTitle();
+		}
 		$title = \Title::newFromID(
 			$this->get( static::ATTR_WIKI_PAGE_ID, 0 )
 		);
