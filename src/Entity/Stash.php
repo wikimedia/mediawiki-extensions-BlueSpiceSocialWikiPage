@@ -55,13 +55,18 @@ class Stash extends Text {
 	}
 
 	public function getRelatedTitle() {
+		if( $this->relatedTitle ) {
+			return $this->relatedTitle;
+		}
 		if( $this->get( static::ATTR_WIKI_PAGE_ID, 0 ) < 1 ) {
 			return parent::getRelatedTitle();
 		}
-		$title = \Title::newFromID(
+		$this->relatedTitle = \Title::newFromID(
 			$this->get( static::ATTR_WIKI_PAGE_ID, 0 )
 		);
-		return $title instanceof \Title ? $title : parent::getRelatedTitle();
+		return $this->relatedTitle instanceof \Title
+			? $this->relatedTitle
+			: parent::getRelatedTitle();
 	}
 
 	public function save( \User $user = null, $options = [] ) {

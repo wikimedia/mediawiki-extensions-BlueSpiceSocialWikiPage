@@ -212,10 +212,15 @@ class WikiPage extends Page {
 	}
 
 	public function getRelatedTitle() {
-		$oTitle = \Title::newFromID(
+		if( $this->relatedTitle ) {
+			return $this->relatedTitle;
+		}
+		$this->relatedTitle = \Title::newFromID(
 			$this->get( static::ATTR_WIKI_PAGE_ID, 0 )
 		);
-		return $oTitle instanceof \Title ? $oTitle : parent::getRelatedTitle();
+		return $this->relatedTitle instanceof \Title
+			? $this->relatedTitle
+			: parent::getRelatedTitle();
 	}
 
 	public function save( \User $oUser = null, $aOptions = array() ) {
