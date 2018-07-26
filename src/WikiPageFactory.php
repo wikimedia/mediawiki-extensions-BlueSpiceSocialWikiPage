@@ -27,41 +27,83 @@
 namespace BlueSpice\Social\WikiPage;
 
 use BlueSpice\EntityFactory;
-use BlueSpice\Social\Entities;
 use BlueSpice\Social\WikiPage\Entity\WikiPage;
 
 class WikiPageFactory extends EntityFactory{
 
 	/**
+	 *
+	 * @var WikiPage[] 
+	 */
+	protected $wikiPageInstances = [];
+
+	/**
 	 * @param \Title $title
 	 * @return WikiPage | null
 	 */
-	public function newFromTitle( \Title $title = null ) {
-		if( !$title instanceof \Title || empty( $title->getArticleID() ) ) {
+	public function newFromTitle( \Title $title ) {
+		if( !$title->exists() || $title->isTalkPage() ) {
 			return null;
 		}
 
-		$status = Entities::get(
-			['limit' => 1],
-			[
-				'type' => 'wikipage',
-				'wikipageid' => $title->getArticleID()
-			],
-			0,
-			false
+		if( isset( $this->wikiPageInstances[$title->getArticleID()] ) ) {
+			return $this->wikiPageInstances[$title->getArticleID()];
+		}
+
+		$context = new \BlueSpice\Context(
+			\RequestContext::getMain(),
+			$this->config
 		);
-		if( !$status->isOK() ) {
-			return null;
-		}
-		$entities = $status->getValue();
+		$serviceUser = Services::getInstance()->getBSUtilityFactory()
+			->getMaintenanceUser()->getUser();
 
-		if( empty( $entities[0] ) ) {
-			return $this->newFromObject( (object) [
-				'type' => 'wikipage',
-				'wikipageid' => $title->getArticleID(),
-				'titletext' => $title->getFullText(),
+		$listContext = new SpecialWikiPages(
+			$context,
+			$context->getConfig(),
+			$serviceUser,
+			null
+		);
+		$filters = $listContext->getFilters();
+		$filters[] = (object)[
+			Numeric::KEY_PROPERTY => WikiPage::ATTR_WIKI_PAGE_ID,
+			Numeric::KEY_VALUE => $title->getArticleID(),
+			Numeric::KEY_COMPARISON => Numeric::COMPARISON_EQUALS,
+			Numeric::KEY_TYPE => 'numeric'
+		];
+
+		$instance = null;
+		$params = new ReaderParams([
+			'filter' => $filters,
+			'sort' => $listContext->getSort(),
+			'limit' => 1,
+			'start' => 0,
+		]);
+		$res = $this->getStore( $listContext )->getReader()->read( $params );
+		foreach( $res->getRecords() as $row ) {
+			$instance = $this->newFromObject( $row->getData() );
+		}
+		if( !$instance ) {
+			$instance = $this->newFromObject( (object) [
+				WikiPage::ATTR_WIKI_PAGE_ID => $title->getArticleID(),
+				WikiPage::ATTR_TYPE => WikiPage::TYPE
 			]);
 		}
-		return $entities[0];
+		$this->wikiPageInstances[$title->getArticleID()] = $instance;
+		return $instance;
+	}
+
+	/**
+	 *
+	 * @param SpecialWikiPages $context
+	 * @return \BlueSpice\Social\Data\Entity\Store
+	 * @throws \MWException
+	 */
+	protected function getStore( SpecialWikiPages $context ) {
+		$config = $this->configFactory->newFromType( WikiPage::TYPE );
+		$storeClass = $config->get( 'StoreClass' );
+		if( !class_exists( $storeClass ) ) {
+			throw new \MWException( "Store class '$storeClass' not found" );
+		}
+		return new $storeClass( $context );
 	}
 }
