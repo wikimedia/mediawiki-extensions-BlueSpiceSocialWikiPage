@@ -27,11 +27,15 @@ class Attachments extends \BlueSpice\Social\Renderer\EntityList {
 	 * @return string
 	 */
 	protected function renderEntitiy( Entity $entity, $out = '' ) {
+		if( !$entity->getConfig()->get( 'CanHaveAttachments' ) ) {
+			return $out;
+		}
 		$availableAttachments = $entity->getConfig()->get(
 			'AvailableAttachments'
 		);
 
-		foreach( $entity->getAttachments() as $type => $attachments ) {
+		$attachmentTypes = $entity->get( $entity::ATTR_ATTACHMENTS, [] );
+		foreach( $attachmentTypes as $type => $attachments ) {
 			if( !in_array( $type, $availableAttachments ) ) {
 				continue;
 			}
