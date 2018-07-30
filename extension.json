@@ -27,6 +27,7 @@
 			}
 		}
 	},
+	"callback": "\\BlueSpice\\Social\\WikiPage\\Extension::onRegistration",
 	"SpecialPages": {
 		"WikiPageStash": "\\BlueSpice\\Social\\WikiPage\\Special\\Stash"
 	},
