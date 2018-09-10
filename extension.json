@@ -32,7 +32,8 @@
 		"WikiPageStash": "\\BlueSpice\\Social\\WikiPage\\Special\\Stash"
 	},
 	"ExtensionMessagesFiles": {
-		"WikiPageStashAlias": "languages/WikiPageStash.alias.php"
+		"WikiPageStashAlias": "languages/WikiPageStash.alias.php",
+		"WikiPageStashMagic": "languages/WikiPageStash.i18n.magic.php"
 	},
 	"MessagesDirs": {
 		"BlueSpiceSocialWikiPage": [
@@ -133,7 +134,8 @@
 	"Hooks": {
 		"BSSocialModuleDepths": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSSocialModuleDepths\\AddModules::callback",
 		"PageContentSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageContentSaveComplete\\CreateWikiPageEntity::callback",
-		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\WikiPage\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback"
+		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\WikiPage\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
+		"GetDoubleUnderscoreIDs": "\\BlueSpice\\Social\\WikiPage\\Hook\\GetDoubleUnderscoreIDs\\AddStash::callback"
 	},
 	"load_composer_autoloader" : true,
 	"manifest_version": 2
