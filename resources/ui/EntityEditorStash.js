@@ -125,3 +125,7 @@ bs.social.EntityEditorStash.prototype.addContentFieldsetItems = function() {
 		this
 	);
 };
+
+bs.social.EntityEditorStash.prototype.getShortModeField = function() {
+	return this.dropzone;
+};
