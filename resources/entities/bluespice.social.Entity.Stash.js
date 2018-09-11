@@ -10,23 +10,10 @@ bs.social.EntityStash.prototype.reset = function( data ) {
 };
 
 bs.social.EntityStash.prototype.makeEditor = function() {
-	if( this.editor ) {
-		return this.editor;
-	}
-	this.editor = new bs.social.EntityEditorStash(
+	return new bs.social.EntityEditorStash(
 		this.getEditorConfig(),
 		this
 	);
-	var me = this;
-	this.editor.on( 'submit', function( editor, data ) {
-		me.save( data );
-		return false;
-	});
-	this.editor.on( 'cancel', function( editor, data ) {
-		me.removeEditMode( data );
-		return false;
-	});
-	return this.editor;
 };
 
 bs.social.EntityStash.static.name = "\\BlueSpice\\Social\\WikiPage\\Entity\\Stash";
