@@ -23,6 +23,7 @@ class Stash extends \BsSpecialPage {
 		$title = $entiy = null;
 		if( !empty( $par ) ) {
 			$title = \Title::newFromText( $par );
+			$this->getOutput()->addBacklinkSubtitle( $title );
 			$factory =  Services::getInstance()->getService(
 				'BSSocialWikiPageEntityFactory'
 			);
