@@ -4,7 +4,7 @@
 			"Patric Wirth <wirth@hallowelt.com>"
 		]
 	},
-	"bs-socialwikipage-desc": "BSSocial",
+	"bs-socialwikipage-desc": "WikiPage entity and functionality for BlueSpiceSocial",
 	"bs-socialwikipage-label": "Article",
 	"bs-socialwikipage-dialog-label": "Add article",
 	"bs-socialwikipage-type": "Article",
