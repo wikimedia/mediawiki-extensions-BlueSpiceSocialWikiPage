@@ -15,5 +15,6 @@
 	"bs-socialwikipage-special-stash-heading": "Wikiseitenablage",
 	"bs-socialwikipage-aftercontent-heading": "Siehe auch",
 	"wikipagestash": "Wikiseitenablage",
-	"bs-socialwikipage-var-wikipageid": "Artikelid"
+	"bs-socialwikipage-var-wikipageid": "Artikelid",
+	"bs-socialwikipage-switch-nostash-description": "Die Ablage wird auf dieser Seite nicht angezeigt."
 }
