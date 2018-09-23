@@ -23,7 +23,9 @@
 			"RendererRegistry": {
 				"socialentitywikipage": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\WikiPage",
 				"socialentitystash": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\Stash",
-				"entitylistattachments": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\Attachments"
+				"entitylistattachments": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\Attachments",
+				"socialwikipagecreatenewwikipageentity": "\\BlueSpice\\Social\\WikiPage\\Renderer\\CreateNewWikiPageEntity",
+				"socialwikipageentitylistnewwikipageentity": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\NewWikiPageEntity"
 			}
 		}
 	},
@@ -115,6 +117,16 @@
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widget/TextInputLinkSelect.js"
+			]
+		},
+		"ext.bluespice.social.createwikipageentity": {
+			"dependencies": [
+				"ext.bluespice.social.entity"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"bluespice.social.wikipage.createWikiPageEntity.js",
+				"CreateWikiPageEntity.js"
 			]
 		}
 	},

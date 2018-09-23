@@ -77,6 +77,9 @@ class WikiPage extends Page {
 	protected function get_HeaderMessageKey() {
 		return 'bs-socialwikipage-entitywikipage-header';
 	}
+	protected function get_HeaderMessageKeyCreateNew() {
+		return 'bs-socialwikipage-entitywikipage-header-create';
+	}
 	protected function get_HeaderWithTitleMessageKey() {
 		return 'bs-socialwikipage-entitywikipage-withtitleheader';
 	}

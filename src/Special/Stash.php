@@ -28,6 +28,11 @@ class Stash extends \BsSpecialPage {
 				'BSSocialWikiPageEntityFactory'
 			);
 			$entiy = $factory->newFromTitle( $title );
+			if( !$entiy->exists() ) {
+				$out = $this->renderNewWikiPageEntity( $entiy, $title );
+				$this->getOutput()->addHTML( $out );
+				return;
+			}
 		}
 
 		$context = new SpecialStash(
@@ -47,4 +52,23 @@ class Stash extends \BsSpecialPage {
 
 		$this->getOutput()->addHTML( $renderer->render() );
 	}
+
+	protected function renderNewWikiPageEntity( $entiy, $title ) {
+		$context = new SpecialStash(
+			new Context(
+				$this->getContext(),
+				$this->getConfig()
+			),
+			$this->getConfig(),
+			$this->getContext()->getUser(),
+			$entiy,
+			$title
+		);
+		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+			'socialwikipageentitylistnewwikipageentity',
+			new Params( [ 'context' => $context ])
+		);
+		return $renderer->render();
+	}
+	
 }

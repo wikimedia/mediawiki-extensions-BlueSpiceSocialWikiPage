@@ -9,6 +9,8 @@
 	"bs-socialwikipage-dialog-label": "Artikel hinzufügen",
 	"bs-socialwikipage-type": "Artikel",
 	"bs-socialwikipage-entitywikipage-header": "[[$5:$3|$6]]",
+	"bs-socialwikipage-entitywikipage-header-create": "Neuen Wikiseiteneintrag anlegen",
+	"bs-socialwikipage-nowikipageentity": "Es wurde noch kein Wikiseiteneintrag angelegt.",
 	"bs-socialwikipage-stashtype": "Ablage",
 	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] hinterlegte",
 	"bs-socialwikipage-entitystash-header-create": "Neue Ablage",
