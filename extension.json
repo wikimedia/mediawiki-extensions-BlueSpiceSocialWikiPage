@@ -23,7 +23,9 @@
 			"RendererRegistry": {
 				"socialentitywikipage": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\WikiPage",
 				"socialentitystash": "\\BlueSpice\\Social\\WikiPage\\Renderer\\Entity\\Stash",
-				"entitylistattachments": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\Attachments"
+				"entitylistattachments": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\Attachments",
+				"socialwikipagecreatenewwikipageentity": "\\BlueSpice\\Social\\WikiPage\\Renderer\\CreateNewWikiPageEntity",
+				"socialwikipageentitylistnewwikipageentity": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\NewWikiPageEntity"
 			}
 		}
 	},
@@ -116,6 +118,16 @@
 			"scripts": [
 				"ui/widget/TextInputLinkSelect.js"
 			]
+		},
+		"ext.bluespice.social.createwikipageentity": {
+			"dependencies": [
+				"ext.bluespice.social.entity"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"scripts": [
+				"bluespice.social.wikipage.createWikiPageEntity.js",
+				"CreateWikiPageEntity.js"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -135,7 +147,8 @@
 		"BSSocialModuleDepths": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSSocialModuleDepths\\AddModules::callback",
 		"PageContentSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageContentSaveComplete\\CreateWikiPageEntity::callback",
 		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\WikiPage\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
-		"GetDoubleUnderscoreIDs": "\\BlueSpice\\Social\\WikiPage\\Hook\\GetDoubleUnderscoreIDs\\AddStash::callback"
+		"GetDoubleUnderscoreIDs": "\\BlueSpice\\Social\\WikiPage\\Hook\\GetDoubleUnderscoreIDs\\AddStash::callback",
+		"BSInsertMagicAjaxGetData": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSInsertMagicAjaxGetData\\AddNoStashSwitch::callback"
 	},
 	"load_composer_autoloader" : true,
 	"manifest_version": 2

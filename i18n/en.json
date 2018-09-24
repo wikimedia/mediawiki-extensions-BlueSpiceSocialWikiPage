@@ -9,11 +9,14 @@
 	"bs-socialwikipage-dialog-label": "Add article",
 	"bs-socialwikipage-type": "Article",
 	"bs-socialwikipage-entitywikipage-header": "[[$5:$3|$6]]",
+	"bs-socialwikipage-entitywikipage-header-create": "Create new wikipage entry",
+	"bs-socialwikipage-nowikipageentity": "No wikipage entry has been created yet.",
 	"bs-socialwikipage-stashtype": "Stash",
 	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] stashed",
 	"bs-socialwikipage-entitystash-header-create": "New stash",
 	"bs-socialwikipage-special-stash-heading": "Wikipage stash",
 	"bs-socialwikipage-aftercontent-heading": "See also",
 	"wikipagestash": "Wikipage stash",
-	"bs-socialwikipage-var-wikipageid": "Article id"
+	"bs-socialwikipage-var-wikipageid": "Article id",
+	"bs-socialwikipage-switch-nostash-description": "Hides the stash of this page."
 }

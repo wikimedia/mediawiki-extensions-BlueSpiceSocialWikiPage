@@ -230,12 +230,6 @@ class WikiPage extends Page {
 				$this->getVarMessage( static::ATTR_WIKI_PAGE_ID )->plain()
 			));
 		}
-		if( empty( $this->get( static::ATTR_TITLE_TEXT, '' ) ) ) {
-			return \Status::newFatal( wfMessage(
-				'bs-social-entity-fatalstatus-save-emptyfield',
-				$this->getVarMessage( static::ATTR_TITLE_TEXT )->plain()
-			));
-		}
 		if( !$this->getRelatedTitle()
 			|| $this->getRelatedTitle()->isTalkPage()
 			|| !$this->getRelatedTitle()->exists() ) {
@@ -243,6 +237,10 @@ class WikiPage extends Page {
 				'bs-socialwikipage-entity-fatalstatus-save-novalidpage'
 			));
 		}
+		$this->set(
+			static::ATTR_TITLE_TEXT,
+			$this->getRelatedTitle()->getFullText()
+		);
 		return parent::save( $oUser, $aOptions );
 	}
 }

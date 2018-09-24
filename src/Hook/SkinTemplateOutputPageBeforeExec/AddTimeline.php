@@ -78,10 +78,21 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 			null,
 			$this->skin->getTitle()
 		);
-		$renderer = $this->getServices()->getBSRendererFactory()->get(
-			'entitylistattachments',
-			new Params( [ 'context' => $context ])
+		$factory = $this->getServices()->getService(
+			'BSSocialWikiPageEntityFactory'
 		);
+		$entity = $factory->newFromTitle( $this->skin->getTitle() );
+		if( !$entity->exists() ) {
+			$renderer = $this->getServices()->getBSRendererFactory()->get(
+				'socialwikipageentitylistnewwikipageentity',
+				new Params( [ 'context' => $context ])
+			);
+		} else {
+			$renderer = $this->getServices()->getBSRendererFactory()->get(
+				'entitylistattachments',
+				new Params( [ 'context' => $context ])
+			);
+		}
 		$item = [
 			'socialwikipagestash' => $renderer->render(),
 		];
