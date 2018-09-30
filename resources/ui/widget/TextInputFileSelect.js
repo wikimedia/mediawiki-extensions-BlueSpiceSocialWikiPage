@@ -12,7 +12,11 @@ OO.inheritClass( bs.ui.widget.TextInputFileSelect, OO.ui.MultilineTextInputWidge
 
 bs.ui.widget.TextInputFileSelect.prototype.init = function() {
 	var me = this;
-	mw.loader.using( [ 'ext.bluespice.insertFile' ] ).done( function () {
+	mw.loader.using( [ 'ext.bluespice.extjs' ] ).done( function () {
+		Ext.Loader.setPath(
+			'BS.SocialWikiPage',
+			bs.em.paths.get( 'BlueSpiceSocialWikiPage' ) + '/resources/BS.SocialWikiPage'
+		);
 		var id = me.field.$element.attr( 'id' ) || 'bs-textinput-insertfile';
 		id += '-' + Ext.id();
 
@@ -22,10 +26,11 @@ bs.ui.widget.TextInputFileSelect.prototype.init = function() {
 		);
 		$(document).on( 'click', '#' + id, function( e ){
 			e.preventDefault();
-			Ext.require('BS.BlueSpiceInsertFile.FileDialog', function(){
-				BS.BlueSpiceInsertFile.FileDialog.clearListeners();
-				//BS.BlueSpiceInsertFile.FileDialog.on( 'cancel', bs.util.selection.reset );
-				BS.BlueSpiceInsertFile.FileDialog.on( 'ok', function( dialog, data ) {
+			Ext.require( 'BS.SocialWikiPage.InsertFile.Dialog', function() {
+				var diag = new BS.SocialWikiPage.InsertFile.Dialog();
+				diag.on( 'ok', function( btn, data ) {
+					console.log( diag.getData() );
+					return;
 					var formattedNamespaces = mw.config.get('wgFormattedNamespaces');
 					if( data.nsText == 'media' ) {
 						data.nsText = formattedNamespaces[bs.ns.NS_MEDIA];
@@ -38,11 +43,8 @@ bs.ui.widget.TextInputFileSelect.prototype.init = function() {
 					me.field.setValue(
 						me.field.getValue() + "\n" + wikiLink
 					);
-					BS.BlueSpiceInsertFile.FileDialog.setData({});
 				});
-
-				BS.BlueSpiceInsertFile.FileDialog.show( me );
-				BS.BlueSpiceInsertFile.FileDialog.setData( {} );
+				diag.show( me );
 			});
 
 			return false;

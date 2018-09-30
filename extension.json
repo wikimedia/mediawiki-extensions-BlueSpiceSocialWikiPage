@@ -86,6 +86,7 @@
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"entities/bluespice.social.Entity.Stash.js",
+				"ui/widget/TextInputAttachments.js",
 				"ui/EntityEditorStash.js"
 			]
 		},
@@ -102,11 +103,15 @@
 		"ext.bluespice.social.entity.stash.insertfile": {
 			"dependencies": [
 				"ext.bluespice.social.entity.stash",
-				"ext.bluespice.insertFile"
+				"ext.bluespice.extjs.filerepo"
 			],
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widget/TextInputFileSelect.js"
+			],
+			"messages": [
+				"bs-socialwikipage-stash-insertfiledialog-btn-save-label",
+				"bs-socialwikipage-stash-insertfiledialog-title"
 			]
 		},
 		"ext.bluespice.social.entity.stash.insertlink": {

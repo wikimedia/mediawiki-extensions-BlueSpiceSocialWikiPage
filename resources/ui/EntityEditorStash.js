@@ -11,23 +11,33 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 		this
 	);
 
-	if( bs.ui.widget.TextInputMultiUpload ) {
-		fields.dropzone = new bs.ui.widget.TextInputMultiUpload( {
-			field: fields.text
-		});
+	//overwrite the text widget to make in an actual hidden field
+	this.text = new OO.ui.HiddenInputWidget( {
+		value: this.getEntity().data.get( 'text', '' )
+	});
+
+	for( var i in this.getEntity().data.get( 'attachments' ).images ) {
+		
+	}
+	this.attachments = new bs.ui.widget.TextInputAttachments( {
+		attachments: this.getEntity().data.get( 'attachments' )
+	} );
+	fields.attachments = this.attachments;
+
+	/*if( bs.ui.widget.TextInputMultiUpload ) {
+		this.dropzone =  new bs.ui.widget.TextInputMultiUpload( {} );
+		fields.dropzone = this.dropzone;
 	}
 
 	if( bs.ui.widget.TextInputFileSelect ) {
-		fields.insertfile = new bs.ui.widget.TextInputFileSelect( {
-			field: fields.text
-		});
+		this.insertfile = new bs.ui.widget.TextInputFileSelect( {} );
+		fields.insertfile = this.insertfile;
 	}
 
 	if( bs.ui.widget.TextInputLinkSelect ) {
-		fields.insertlink = new bs.ui.widget.TextInputLinkSelect( {
-			field: fields.text
-		});
-	}
+		this.insertlink = new bs.ui.widget.TextInputLinkSelect( {} );
+		fields.insertlink = this.insertlink;
+	}*/
 
 	var disabled = false;
 	var wikipageid = this.getEntity().data.get(
@@ -115,10 +125,7 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 };
 bs.social.EntityEditorStash.prototype.addContentFieldsetItems = function() {
 	this.contentfieldset.addItems( [
-		new OO.ui.FieldLayout( this.text, {
-			label: this.getVarLabel( 'text' ),
-			align: 'top'
-		}),
+		new OO.ui.FieldLayout( this.text, {} ),
 		this.wikipageid
 	]);
 	bs.social.EntityEditorStash.super.prototype.addContentFieldsetItems.apply(

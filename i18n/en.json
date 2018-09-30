@@ -18,5 +18,7 @@
 	"bs-socialwikipage-aftercontent-heading": "See also",
 	"wikipagestash": "Wikipage stash",
 	"bs-socialwikipage-var-wikipageid": "Article id",
-	"bs-socialwikipage-switch-nostash-description": "Hides the stash of this page."
+	"bs-socialwikipage-switch-nostash-description": "Hides the stash of this page.",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Add file",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Add"
 }
