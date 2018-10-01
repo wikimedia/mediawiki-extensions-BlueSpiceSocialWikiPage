@@ -11,30 +11,43 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 		this
 	);
 
-	//overwrite the text widget to make in an actual hidden field
-	this.text = new OO.ui.HiddenInputWidget( {
-		value: this.getEntity().data.get( 'text', '' )
+	var me = this;
+	//overwrite the text widget to remove all may be editor stuff, that breaks
+	//everything. Also do not use an actual hidden field, as these can not store
+	//any values for no reason... oojs -.-
+	this.text = new OO.ui.TextInputWidget( {
+		value: this.getEntity().data.get( 'text', '' ),
+		visible: false
 	});
 
-	for( var i in this.getEntity().data.get( 'attachments' ).images ) {
-		
-	}
 	this.attachments = new bs.ui.widget.TextInputAttachments( {
 		attachments: this.getEntity().data.get( 'attachments' )
 	} );
 	fields.attachments = this.attachments;
+	this.attachments.on( 'change', function( e, data ) {
+		me.removeFiles( data.files );
+	} );
 
-	/*if( bs.ui.widget.TextInputMultiUpload ) {
+	if( bs.ui.widget.TextInputMultiUpload ) {
 		this.dropzone =  new bs.ui.widget.TextInputMultiUpload( {} );
 		fields.dropzone = this.dropzone;
+		this.dropzone.on( 'change', function( e, data ) {
+			me.addFiles( data.files );
+		} );
 	}
 
 	if( bs.ui.widget.TextInputFileSelect ) {
-		this.insertfile = new bs.ui.widget.TextInputFileSelect( {} );
+		this.insertfile = new bs.ui.widget.TextInputFileSelect( {
+			attachments: this.attachments
+		} );
 		fields.insertfile = this.insertfile;
+		this.insertfile.on( 'change', function( e, data ) {
+			me.addFiles( data.files );
+		} );
 	}
 
-	if( bs.ui.widget.TextInputLinkSelect ) {
+	//currently broken
+	/*if( bs.ui.widget.TextInputLinkSelect ) {
 		this.insertlink = new bs.ui.widget.TextInputLinkSelect( {} );
 		fields.insertlink = this.insertlink;
 	}*/
@@ -125,14 +138,75 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 };
 bs.social.EntityEditorStash.prototype.addContentFieldsetItems = function() {
 	this.contentfieldset.addItems( [
-		new OO.ui.FieldLayout( this.text, {} ),
-		this.wikipageid
+		new OO.ui.FieldLayout( this.attachments, {
+			label: mw.message( 'bs-socialwikipage-stash-editor-attachedfiles' ).plain(),
+			align: 'top'
+		} )
 	]);
-	bs.social.EntityEditorStash.super.prototype.addContentFieldsetItems.apply(
-		this
-	);
+	if( this.dropzone ) {
+		this.contentfieldset.addItems( [ this.dropzone ] );
+	}
+	this.contentfieldset.addItems( [ this.wikipageid ] );
 };
 
 bs.social.EntityEditorStash.prototype.getShortModeField = function() {
-	return this.dropzone;
+	return null;
+};
+
+bs.social.EntityEditorStash.prototype.addFiles = function( files ) {
+	var me = this;
+	me.getEntity().showLoadMask();
+	var data = me.getEntity().getData();
+	data.files = files;
+	data.text = me.text.getValue();
+
+	bs.api.tasks.execSilent( 'socialstash', 'addFiles', data )
+	.done( function( response ) {
+		//ignore errors for now
+		//me.replaceEL( response.payload.view );
+		if( !response.success ) {
+			if( response.message && response.message !== '' ) {
+				OO.ui.alert( response.message );
+			}
+			me.getEntity().hideLoadMask();
+			return;
+		}
+		me.getEntity().editor = null;
+		me.getEntity().replaceEL( response.payload.view );
+		//me.getEntity().reset();
+		console.log( bs.social.createFromEl( $(response.payload.view) ) );
+		//console.log(me.getEntity().getEl());
+		//var entity = bs.social.newFromEl( me.getEntity().getEl() );
+		//console.log(entity);
+		//me.getEntity().setData()
+		//me.getEntity().init();
+		//entity.makeEditMode();
+		me.getEntity().makeEditMode();
+		me.getEntity().hideLoadMask();
+	});
+};
+
+bs.social.EntityEditorStash.prototype.removeFiles = function( files ) {
+	var me = this;
+	me.getEntity().showLoadMask();
+	var data = me.getEntity().getData();
+	data.files = files;
+	data.text = me.text.getValue();
+
+	bs.api.tasks.execSilent( 'socialstash', 'removeFiles', data )
+	.done( function( response ) {
+		//ignore errors for now
+		//me.replaceEL( response.payload.view );
+		if( !response.success ) {
+			if( response.message && response.message !== '' ) {
+				OO.ui.alert( response.message );
+			}
+			me.getEntity().hideLoadMask();
+			return;
+		}
+		me.getEntity().editor = null;
+		me.getEntity().replaceEL( response.payload.view );
+		me.getEntity().makeEditMode();
+		me.getEntity().hideLoadMask();
+	});
 };

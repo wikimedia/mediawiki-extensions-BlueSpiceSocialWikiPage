@@ -33,6 +33,9 @@
 	"SpecialPages": {
 		"WikiPageStash": "\\BlueSpice\\Social\\WikiPage\\Special\\Stash"
 	},
+	"APIModules": {
+		"bs-socialstash-tasks": "\\BlueSpice\\Social\\WikiPage\\Api\\Task\\Stash"
+	},
 	"ExtensionMessagesFiles": {
 		"WikiPageStashAlias": "languages/WikiPageStash.alias.php",
 		"WikiPageStashMagic": "languages/WikiPageStash.i18n.magic.php"
@@ -52,8 +55,9 @@
 		"ext.bluespice.social.articles.styles": {
 			"targets": [ "desktop", "mobile" ],
 			"styles": [
-				"bluespice.social.wikipage.css"
-			]
+				"bluespice.social.wikipage.less"
+			],
+			"class": "\\BlueSpice\\ResourceModule\\LessVars"
 		},
 		"ext.bluespice.social.articles": {
 			"dependencies": [
@@ -88,6 +92,11 @@
 				"entities/bluespice.social.Entity.Stash.js",
 				"ui/widget/TextInputAttachments.js",
 				"ui/EntityEditorStash.js"
+			],
+			"messages": [
+				"bs-socialwikipage-stash-editor-attachedfiles",
+				"bs-socialwikipage-stash-editor-attachedfile-delete",
+				"bs-socialwikipage-stash-editor-attachedfile-add"
 			]
 		},
 		"ext.bluespice.social.entity.stash.dropzone": {
@@ -98,6 +107,9 @@
 			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widget/TextInputMultiUpload.js"
+			],
+			"messages": [
+				"bs-uploader-drop-or-click"
 			]
 		},
 		"ext.bluespice.social.entity.stash.insertfile": {
