@@ -1,4 +1,3 @@
-
 bs.social.EntityEditorStash = function ( config, entity ) {
 	config.visualEditor = false; //do not allow visual editor here
 	bs.social.EntityEditorText.call( this, config, entity );
@@ -160,13 +159,11 @@ bs.social.EntityEditorStash.prototype.addFiles = function( files ) {
 		var taskData = me.getEntity().getData();
 		for( var i in newdata ) {
 			taskData[i] = newdata[i];
-		};
+		}
 		taskData.files = files;
 
 		bs.api.tasks.execSilent( 'socialstash', 'addFiles', taskData )
 		.done( function( response ) {
-			//ignore errors for now
-			//me.replaceEL( response.payload.view );
 			if( !response.success ) {
 				if( response.message && response.message !== '' ) {
 					OO.ui.alert( response.message );
@@ -189,13 +186,11 @@ bs.social.EntityEditorStash.prototype.removeFiles = function( files ) {
 		var taskData = me.getEntity().getData();
 		for( var i in newdata ) {
 			taskData[i] = newdata[i];
-		};
+		}
 		taskData.files = files;
 
 		bs.api.tasks.execSilent( 'socialstash', 'removeFiles', taskData )
 		.done( function( response ) {
-			//ignore errors for now
-			//me.replaceEL( response.payload.view );
 			if( !response.success ) {
 				if( response.message && response.message !== '' ) {
 					OO.ui.alert( response.message );
