@@ -2,7 +2,7 @@
 
 namespace BlueSpice\Social\WikiPage\Api\Task;
 
-use BlueSpice\Social\Entity\Text as Entity;
+use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
 use BlueSpice\Services;
 
 /**
@@ -65,9 +65,14 @@ class Stash extends \BSApiTasksBase {
 			$files[] = \Title::newFromText( $fileName, NS_FILE );
 		}
 
+		$wikitext = $helper->getFileLinksHelper()->addTargets(
+			$files,
+			false
+		)->getWikitext();
+
 		$entity->set(
 			Entity::ATTR_TEXT,
-			$helper->getFileLinksHelper()->addTargets( $files )->getWikitext()
+			$wikitext
 		);
 
 		$result->payload['entity'] = \FormatJson::encode( $entity );
@@ -83,7 +88,7 @@ class Stash extends \BSApiTasksBase {
 			? 'Default'
 			: $taskData->outputtype;
 
-		$result->payload['view'] = $renderer->render(
+		$result->payload['view'] = $renderer->startEditor()->render(
 			$outputType,
 			true//nocache and hope for the best!
 		);
@@ -128,9 +133,14 @@ class Stash extends \BSApiTasksBase {
 		foreach( $taskData->files as $fileName ) {
 			$files[] = \Title::newFromText( $fileName, NS_FILE );
 		}
+		$wikitext = $helper->getFileLinksHelper()->removeTargets(
+			$files,
+			true
+		)->getWikitext();
+
 		$entity->set(
 			Entity::ATTR_TEXT,
-			$helper->getFileLinksHelper()->removeTargets( $files )->getWikitext()
+			$wikitext
 		);
 
 		$result->payload['entity'] = \FormatJson::encode( $entity );
@@ -146,7 +156,7 @@ class Stash extends \BSApiTasksBase {
 			? 'Default'
 			: $taskData->outputtype;
 
-		$result->payload['view'] = $renderer->render(
+		$result->payload['view'] = $renderer->startEditor()->render(
 			$outputType,
 			true//nocache and hope for the best!
 		);

@@ -171,17 +171,9 @@ bs.social.EntityEditorStash.prototype.addFiles = function( files ) {
 			me.getEntity().hideLoadMask();
 			return;
 		}
+		me.getEntity().editmode = false;
 		me.getEntity().editor = null;
-		me.getEntity().replaceEL( response.payload.view );
-		//me.getEntity().reset();
-		console.log( bs.social.createFromEl( $(response.payload.view) ) );
-		//console.log(me.getEntity().getEl());
-		//var entity = bs.social.newFromEl( me.getEntity().getEl() );
-		//console.log(entity);
-		//me.getEntity().setData()
-		//me.getEntity().init();
-		//entity.makeEditMode();
-		me.getEntity().makeEditMode();
+		me.getEntity().replaceEL( response.payload.view ).init();
 		me.getEntity().hideLoadMask();
 	});
 };
@@ -204,9 +196,9 @@ bs.social.EntityEditorStash.prototype.removeFiles = function( files ) {
 			me.getEntity().hideLoadMask();
 			return;
 		}
+		me.getEntity().editmode = false;
 		me.getEntity().editor = null;
-		me.getEntity().replaceEL( response.payload.view );
-		me.getEntity().makeEditMode();
+		me.getEntity().replaceEL( response.payload.view ).init();
 		me.getEntity().hideLoadMask();
 	});
 };
