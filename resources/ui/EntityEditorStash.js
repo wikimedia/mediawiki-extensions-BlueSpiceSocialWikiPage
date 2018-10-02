@@ -156,49 +156,57 @@ bs.social.EntityEditorStash.prototype.getShortModeField = function() {
 bs.social.EntityEditorStash.prototype.addFiles = function( files ) {
 	var me = this;
 	me.getEntity().showLoadMask();
-	var data = me.getEntity().getData();
-	data.files = files;
-	data.text = me.text.getValue();
+	me.getData().done( function( newdata ) {
+		var taskData = me.getEntity().getData();
+		for( var i in newdata ) {
+			taskData[i] = newdata[i];
+		};
+		taskData.files = files;
 
-	bs.api.tasks.execSilent( 'socialstash', 'addFiles', data )
-	.done( function( response ) {
-		//ignore errors for now
-		//me.replaceEL( response.payload.view );
-		if( !response.success ) {
-			if( response.message && response.message !== '' ) {
-				OO.ui.alert( response.message );
+		bs.api.tasks.execSilent( 'socialstash', 'addFiles', taskData )
+		.done( function( response ) {
+			//ignore errors for now
+			//me.replaceEL( response.payload.view );
+			if( !response.success ) {
+				if( response.message && response.message !== '' ) {
+					OO.ui.alert( response.message );
+				}
+				me.getEntity().hideLoadMask();
+				return;
 			}
+			me.getEntity().editmode = false;
+			me.getEntity().editor = null;
+			me.getEntity().replaceEL( response.payload.view ).init();
 			me.getEntity().hideLoadMask();
-			return;
-		}
-		me.getEntity().editmode = false;
-		me.getEntity().editor = null;
-		me.getEntity().replaceEL( response.payload.view ).init();
-		me.getEntity().hideLoadMask();
+		});
 	});
 };
 
 bs.social.EntityEditorStash.prototype.removeFiles = function( files ) {
 	var me = this;
 	me.getEntity().showLoadMask();
-	var data = me.getEntity().getData();
-	data.files = files;
-	data.text = me.text.getValue();
+	me.getData().done( function( newdata ) {
+		var taskData = me.getEntity().getData();
+		for( var i in newdata ) {
+			taskData[i] = newdata[i];
+		};
+		taskData.files = files;
 
-	bs.api.tasks.execSilent( 'socialstash', 'removeFiles', data )
-	.done( function( response ) {
-		//ignore errors for now
-		//me.replaceEL( response.payload.view );
-		if( !response.success ) {
-			if( response.message && response.message !== '' ) {
-				OO.ui.alert( response.message );
+		bs.api.tasks.execSilent( 'socialstash', 'removeFiles', taskData )
+		.done( function( response ) {
+			//ignore errors for now
+			//me.replaceEL( response.payload.view );
+			if( !response.success ) {
+				if( response.message && response.message !== '' ) {
+					OO.ui.alert( response.message );
+				}
+				me.getEntity().hideLoadMask();
+				return;
 			}
+			me.getEntity().editmode = false;
+			me.getEntity().editor = null;
+			me.getEntity().replaceEL( response.payload.view ).init();
 			me.getEntity().hideLoadMask();
-			return;
-		}
-		me.getEntity().editmode = false;
-		me.getEntity().editor = null;
-		me.getEntity().replaceEL( response.payload.view ).init();
-		me.getEntity().hideLoadMask();
+		});
 	});
 };
