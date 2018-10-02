@@ -11,23 +11,46 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 		this
 	);
 
+	var me = this;
+	//overwrite the text widget to remove all may be editor stuff, that breaks
+	//everything. Also do not use an actual hidden field, as these can not store
+	//any values for no reason... oojs -.-
+	this.text = new OO.ui.TextInputWidget( {
+		value: this.getEntity().data.get( 'text', '' ),
+		visible: false
+	});
+
+	this.attachments = new bs.ui.widget.TextInputAttachments( {
+		attachments: this.getEntity().data.get( 'attachments' )
+	} );
+	fields.attachments = this.attachments;
+	this.attachments.on( 'change', function( e, data ) {
+		me.removeFiles( data.files );
+	} );
+
 	if( bs.ui.widget.TextInputMultiUpload ) {
-		fields.dropzone = new bs.ui.widget.TextInputMultiUpload( {
-			field: fields.text
-		});
+		this.dropzone =  new bs.ui.widget.TextInputMultiUpload( {} );
+		fields.dropzone = this.dropzone;
+		this.dropzone.on( 'change', function( e, data ) {
+			me.addFiles( data.files );
+		} );
 	}
 
 	if( bs.ui.widget.TextInputFileSelect ) {
-		fields.insertfile = new bs.ui.widget.TextInputFileSelect( {
-			field: fields.text
-		});
+		this.insertfile = new bs.ui.widget.TextInputFileSelect( {
+			attachments: this.attachments
+		} );
+		fields.insertfile = this.insertfile;
+		this.insertfile.on( 'change', function( e, data ) {
+			me.addFiles( data.files );
+		} );
 	}
 
-	if( bs.ui.widget.TextInputLinkSelect ) {
-		fields.insertlink = new bs.ui.widget.TextInputLinkSelect( {
-			field: fields.text
-		});
-	}
+	//currently broken
+	/*if( bs.ui.widget.TextInputLinkSelect ) {
+		this.insertlink = new bs.ui.widget.TextInputLinkSelect( {} );
+		fields.insertlink = this.insertlink;
+	}*/
 
 	var disabled = false;
 	var wikipageid = this.getEntity().data.get(
@@ -115,17 +138,67 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 };
 bs.social.EntityEditorStash.prototype.addContentFieldsetItems = function() {
 	this.contentfieldset.addItems( [
-		new OO.ui.FieldLayout( this.text, {
-			label: this.getVarLabel( 'text' ),
+		new OO.ui.FieldLayout( this.attachments, {
+			label: mw.message( 'bs-socialwikipage-stash-editor-attachedfiles' ).plain(),
 			align: 'top'
-		}),
-		this.wikipageid
+		} )
 	]);
-	bs.social.EntityEditorStash.super.prototype.addContentFieldsetItems.apply(
-		this
-	);
+	if( this.dropzone ) {
+		this.contentfieldset.addItems( [ this.dropzone ] );
+	}
+	this.contentfieldset.addItems( [ this.wikipageid ] );
 };
 
 bs.social.EntityEditorStash.prototype.getShortModeField = function() {
-	return this.dropzone;
+	return null;
+};
+
+bs.social.EntityEditorStash.prototype.addFiles = function( files ) {
+	var me = this;
+	me.getEntity().showLoadMask();
+	var data = me.getEntity().getData();
+	data.files = files;
+	data.text = me.text.getValue();
+
+	bs.api.tasks.execSilent( 'socialstash', 'addFiles', data )
+	.done( function( response ) {
+		//ignore errors for now
+		//me.replaceEL( response.payload.view );
+		if( !response.success ) {
+			if( response.message && response.message !== '' ) {
+				OO.ui.alert( response.message );
+			}
+			me.getEntity().hideLoadMask();
+			return;
+		}
+		me.getEntity().editmode = false;
+		me.getEntity().editor = null;
+		me.getEntity().replaceEL( response.payload.view ).init();
+		me.getEntity().hideLoadMask();
+	});
+};
+
+bs.social.EntityEditorStash.prototype.removeFiles = function( files ) {
+	var me = this;
+	me.getEntity().showLoadMask();
+	var data = me.getEntity().getData();
+	data.files = files;
+	data.text = me.text.getValue();
+
+	bs.api.tasks.execSilent( 'socialstash', 'removeFiles', data )
+	.done( function( response ) {
+		//ignore errors for now
+		//me.replaceEL( response.payload.view );
+		if( !response.success ) {
+			if( response.message && response.message !== '' ) {
+				OO.ui.alert( response.message );
+			}
+			me.getEntity().hideLoadMask();
+			return;
+		}
+		me.getEntity().editmode = false;
+		me.getEntity().editor = null;
+		me.getEntity().replaceEL( response.payload.view ).init();
+		me.getEntity().hideLoadMask();
+	});
 };

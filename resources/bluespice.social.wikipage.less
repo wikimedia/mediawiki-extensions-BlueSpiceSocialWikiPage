@@ -1,0 +1,57 @@
+.bs-social-entitylist-menu-item.bs-entitylist-menu-item-addarticles .bs-social-entitylist-menu-item-actions-btn:before,
+.bs-social-entityspawner-article:before {
+	font-family: 'entypo';
+	content: '\e900';
+}
+.bs-social-entityspawner-article:before {
+	margin-right: 8px;
+}
+.bs-social-entity-attachment-wrapper {
+	&.editable {
+		background: lightgrey;
+		position: relative;
+		a.delete {
+			height: 30px;
+			width: 30px;
+			position: absolute;
+			float: right;
+			clear: both;
+			right: 0;
+			cursor: pointer;
+			&::before {
+				font-size: 30px;
+				font-family: icomoon !important;
+				content: "\e9ad";
+				color: @bs-color-destructive;
+			}
+		}
+		a.add {
+			border: 1px solid @bs-color-progressive;
+			cursor: pointer;
+			position: absolute;
+			&::before {
+				position: relative;
+				top: 40%;
+				left: 32%;
+				font-size: 50px;
+				content: '\ea0a';
+				font-family: icomoon !important;
+				color: @bs-color-progressive;
+			}
+		}
+		img {
+			border: 1px solid @bs-color-progressive;
+			cursor: initial;
+		}
+	}
+}
+.bs-social-entity-input-multiupload .uploadfield {
+	min-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	margin: 5px 0px;
+	border: 3px dashed;
+	padding: 2% 5px;
+	overflow: hidden;
+	white-space: normal;
+}

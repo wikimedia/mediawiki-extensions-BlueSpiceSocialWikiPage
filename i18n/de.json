@@ -18,5 +18,10 @@
 	"bs-socialwikipage-aftercontent-heading": "Anhänge",
 	"wikipagestash": "Anhänge",
 	"bs-socialwikipage-var-wikipageid": "Artikelid",
-	"bs-socialwikipage-switch-nostash-description": "Der Anhangbereich wird auf dieser Seite nicht angezeigt."
+	"bs-socialwikipage-switch-nostash-description": "Der Anhangbereich wird auf dieser Seite nicht angezeigt.",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Datei hinzufügen",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Hinzufügen",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Angehängte Dateien",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Löschen",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Hinzufügen"
 }

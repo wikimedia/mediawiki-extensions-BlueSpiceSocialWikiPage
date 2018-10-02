@@ -18,5 +18,10 @@
 	"bs-socialwikipage-aftercontent-heading": "...",
 	"wikipagestash": "Attachments",
 	"bs-socialwikipage-var-wikipageid": "Article id",
-	"bs-socialwikipage-switch-nostash-description": "Hides the attachment area of this page."
+	"bs-socialwikipage-switch-nostash-description": "Hides the attachment area of this page.",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Add file",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Add",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Attached files",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Delete",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Add"
 }

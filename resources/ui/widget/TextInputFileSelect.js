@@ -6,50 +6,54 @@ bs.ui.widget.TextInputFileSelect = function ( config ) {
 	OO.ui.MultilineTextInputWidget.call( this, config );
 	var me = this;
 	me.field = config.field || false;
+	me.attachments = config.attachments || false;
 };
 OO.initClass( bs.ui.widget.TextInputFileSelect );
 OO.inheritClass( bs.ui.widget.TextInputFileSelect, OO.ui.MultilineTextInputWidget );
 
 bs.ui.widget.TextInputFileSelect.prototype.init = function() {
 	var me = this;
-	mw.loader.using( [ 'ext.bluespice.insertFile' ] ).done( function () {
-		var id = me.field.$element.attr( 'id' ) || 'bs-textinput-insertfile';
-		id += '-' + Ext.id();
+	var id = 'attachmentEditorNew-' + bs.social.generateUniqueId();
+	var $newAttachment = me.makeNewAttachmentEditor( id );
 
-		me.field.$element.append(
-			'<div id="' + id + '" style = "min-height: 40px; text-align: center; cursor: pointer; margin: 5px 0px; border: 3px dashed; padding: 2% 5px; overflow: hidden; white-space: normal;">'
-			+ '</div>'
-		);
-		$(document).on( 'click', '#' + id, function( e ){
-			e.preventDefault();
-			Ext.require('BS.BlueSpiceInsertFile.FileDialog', function(){
-				BS.BlueSpiceInsertFile.FileDialog.clearListeners();
-				//BS.BlueSpiceInsertFile.FileDialog.on( 'cancel', bs.util.selection.reset );
-				BS.BlueSpiceInsertFile.FileDialog.on( 'ok', function( dialog, data ) {
-					var formattedNamespaces = mw.config.get('wgFormattedNamespaces');
-					if( data.nsText == 'media' ) {
-						data.nsText = formattedNamespaces[bs.ns.NS_MEDIA];
-					} else {
-						data.nsText = formattedNamespaces[bs.ns.NS_FILE];
+	me.attachments.$element.append( $newAttachment );
+
+	$( document ).on( 'click', '#' + id + ' a.add', function( e ) {
+		e.preventDefault();
+		mw.loader.using( [ 'ext.bluespice.extjs' ] ).done( function () {
+			Ext.Loader.setPath(
+				'BS.SocialWikiPage',
+				bs.em.paths.get( 'BlueSpiceSocialWikiPage' ) + '/resources/BS.SocialWikiPage'
+			);
+			Ext.require( 'BS.SocialWikiPage.InsertFile.Dialog', function() {
+				var diag = new BS.SocialWikiPage.InsertFile.Dialog();
+				diag.on( 'ok', function( btn, data ) {
+					if( !data.page_title ) {
+						return;
 					}
-					data.caption = data.displayText;
-					delete( data.src );
-					var wikiLink = new bs.wikiText.Link( data );
-					me.field.setValue(
-						me.field.getValue() + "\n" + wikiLink
-					);
-					BS.BlueSpiceInsertFile.FileDialog.setData({});
+					me.emit( 'change', me, {
+						files: [ data.page_title ]
+					} );
+					return;
 				});
-
-				BS.BlueSpiceInsertFile.FileDialog.show( me );
-				BS.BlueSpiceInsertFile.FileDialog.setData( {} );
+				diag.show( me );
 			});
-
-			return false;
-		});
-
-		$( '#' + id ).html(
-			'file'
-		);
+		} );
+		return false;
 	} );
+};
+
+bs.ui.widget.TextInputFileSelect.prototype.makeNewAttachmentEditor = function( id ) {
+	var addMsg = mw.message(
+		'bs-socialwikipage-stash-editor-attachedfile-add'
+	);
+	var $attachment = $(
+		'<div>'
+			+ '<span id="' + id + '" class="bs-social-entity-attachment-wrapper editable">'
+				+ '<a href="#" class="add" title="' + addMsg.plain() + '">'
+				+ '</a>'
+			+ '</span>'
+		+ '</div>'
+	);
+	return $attachment;
 };

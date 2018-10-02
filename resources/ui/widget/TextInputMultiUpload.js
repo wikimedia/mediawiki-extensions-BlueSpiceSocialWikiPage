@@ -3,23 +3,22 @@ bs.ui = bs.ui || {};
 bs.ui.widget = bs.ui.widget || {};
 
 bs.ui.widget.TextInputMultiUpload = function ( config ) {
-	OO.ui.MultilineTextInputWidget.call( this, config );
+	OO.ui.InputWidget.call( this, config );
 	var me = this;
-	me.field = config.field || false;
+	me.$element.find( 'input' ).remove();
+	me.$element.addClass( 'bs-social-entity-input-multiupload' );
 };
 OO.initClass( bs.ui.widget.TextInputMultiUpload );
-OO.inheritClass( bs.ui.widget.TextInputMultiUpload, OO.ui.MultilineTextInputWidget );
+OO.inheritClass( bs.ui.widget.TextInputMultiUpload, OO.ui.InputWidget );
 
 bs.ui.widget.TextInputMultiUpload.prototype.init = function() {
 	var me = this;
+	var id = 'bs-textinput-multiupload-' + bs.social.generateUniqueId();
+	var $field = $(
+		'<div class="uploadfield" id="' + id + '" />'
+	);
+	me.$element.append( $field );
 	mw.loader.using( [ 'ext.bluespice.upload' ] ).done( function () {
-		var id = me.field.$element.attr( 'id' ) || 'bs-textinput-multiupload';
-		id += '-' + Ext.id();
-
-		me.field.$element.append(
-			'<div id="' + id + '" style = "min-height: 40px; text-align: center; cursor: pointer; margin: 5px 0px; border: 3px dashed; padding: 2% 5px; overflow: hidden; white-space: normal;">'
-			+ '</div>'
-		);
 		function _showDialog( upldr, files ) {
 			upldr.disableBrowse( true );
 
@@ -46,12 +45,11 @@ bs.ui.widget.TextInputMultiUpload.prototype.init = function() {
 	} );
 
 	bs.ui.widget.TextInputMultiUpload.prototype.onUploadComplete = function( uploader, data ) {
+		var files = [];
 		for( var i = 0; i < data.length; i++ ) {
 			//TODO: check status somehow!
-			this.field.setValue(
-				this.field.getValue() + "\n"
-				+ "[[File:" + data[i].uploadApiMeta.filename + "]]"
-			);
+			files.push( data[i].uploadApiMeta.filename );
 		}
+		this.emit( 'change', this, { files: files } );
 	};
 };

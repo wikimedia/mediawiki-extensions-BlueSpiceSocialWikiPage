@@ -2,6 +2,11 @@ bs = bs || {};
 bs.ui = bs.ui || {};
 bs.ui.widget = bs.ui.widget || {};
 
+/**
+ * CURRENTLY BROKEN!!!
+ * @param {Object} config
+ * @returns {bs.ui.widget.TextInputLinkSelect}
+ */
 bs.ui.widget.TextInputLinkSelect = function ( config ) {
 	OO.ui.MultilineTextInputWidget.call( this, config );
 	var me = this;
