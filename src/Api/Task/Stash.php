@@ -90,7 +90,7 @@ class Stash extends \BSApiTasksBase {
 
 		$result->payload['view'] = $renderer->startEditor()->render(
 			$outputType,
-			true//nocache and hope for the best!
+			true //nocache and hope for the best!
 		);
 		$result->success = true;
 		
@@ -158,7 +158,7 @@ class Stash extends \BSApiTasksBase {
 
 		$result->payload['view'] = $renderer->startEditor()->render(
 			$outputType,
-			true//nocache and hope for the best!
+			true //nocache and hope for the best!
 		);
 		$result->success = true;
 		return $result;
