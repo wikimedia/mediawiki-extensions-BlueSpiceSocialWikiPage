@@ -51,7 +51,6 @@ bs.ui.widget.TextInputFileSelect.prototype.makeNewAttachmentEditor = function( i
 		'<div>'
 			+ '<span id="' + id + '" class="bs-social-entity-attachment-wrapper editable">'
 				+ '<a href="#" class="add" title="' + addMsg.plain() + '">'
-				//+ '<div />'
 				+ '</a>'
 			+ '</span>'
 		+ '</div>'
