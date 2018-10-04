@@ -102,7 +102,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	}
 
 	protected function getMoreLinkMessage() {
-		return \Message::newFromKey( 'wikipagestash' );
+		return \Message::newFromKey( 'bs-social-entitylistmore-linklabel' );
 	}
 
 	public function showEntityListMore() {
