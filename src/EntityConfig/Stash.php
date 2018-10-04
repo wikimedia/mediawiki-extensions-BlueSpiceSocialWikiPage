@@ -33,11 +33,7 @@ class Stash extends Text{
 			->getExtension( 'BlueSpiceMultiUpload' )
 			? ["ext.bluespice.social.entity.stash.dropzone"]
 			: [];
-		$insertFile = Services::getInstance()->getBSExtensionFactory()
-			->getExtension( 'BlueSpiceInsertFile' )
-			? ["ext.bluespice.social.entity.stash.insertfile"]
-			: [];
-		$insertFile = []; //InserFile dialog is not working currently
+		$insertFile = ["ext.bluespice.social.entity.stash.insertfile"];
 		$insertLink = Services::getInstance()->getBSExtensionFactory()
 			->getExtension( 'BlueSpiceInsertLink' )
 			? ["ext.bluespice.social.entity.stash.insertlink"]
