@@ -39,10 +39,11 @@ bs.ui.widget.TextInputAttachments.prototype.makeAttachmentEditor = function( att
 		'bs-socialwikipage-stash-editor-attachedfile-delete'
 	);
 	var $attachment = $(
-		'<div>'
+		'<div class="breakheight">'
 			+ '<span id="' + id + '" class="bs-social-entity-attachment-wrapper editable">'
 				+ '<a href="#" class="delete" title="' + delMsg.plain() + '" />'
 				+ '<img src="" data-attachment="' + attachment + '" />'
+				+ '<p class="attachment-name">' + attachment + '</p>'
 			+ '</span>'
 		+ '</div>'
 	);
