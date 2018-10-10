@@ -89,7 +89,10 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 	var namespaces = mw.config.get( 'wgNamespaceIds' );
 	var ns = [];
 	for( var i in namespaces ) {
-		if( namespaces[i] < 1 || namespaces[i]%2 !== 0 ) {
+		if( namespaces[i] < 0 || namespaces[i] === bs.ns.NS_SOCIALENTITY ) {
+			continue;
+		}
+		if( namespaces[i] !== 0 && namespaces[i]%2 !== 0 ) {
 			continue;
 		}
 		ns.push( namespaces[i] );
