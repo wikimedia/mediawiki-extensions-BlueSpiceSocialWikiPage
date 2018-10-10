@@ -3,10 +3,10 @@ $specialPageAliases = array();
 
 /** English */
 $specialPageAliases['en'] = array(
-	'WikiPageStash' => array( 'WikiPageStash', 'Wikipage stash' ),
+	'WikiPageStash' => array( 'Attachments' ),
 );
 
 /** German (Deutsch) */
 $specialPageAliases['de'] = array(
-	'WikiPageStash' => array( 'WikiPageStash', 'Wikiseitenablage' ),
+	'WikiPageStash' => array( 'Ablage' ),
 );
