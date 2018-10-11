@@ -75,9 +75,9 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 	this.wikipageid = {
 		select2: true,
 		$element: $(
-			'<div class="bs-social-field">'
+			'<div class="oo-ui-layout oo-ui-labelElement oo-ui-fieldLayout oo-ui-fieldLayout-align-top">'
 				+ '<label>'
-					/*+ this.getVarLabel( 'wikipageid' )*/
+					+ this.getVarLabel( 'wikipageid' )
 					+ '<select style="width:100%">'
 						+ option
 					+ '</select>'
@@ -100,7 +100,6 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 	this.wikipageid.$element.find( 'select' ).select2({
 		data: localData,
 		placeholder: this.getVarLabel( 'wikipageid' ),
-		label: this.getVarLabel( 'wikipageid' ),
 		allowClear: true,
 		disabled: disabled,
 		ajax: {
