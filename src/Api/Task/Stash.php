@@ -62,7 +62,7 @@ class Stash extends \BSApiTasksBase {
 		);
 		$files = [];
 		foreach( $taskData->files as $fileName ) {
-			$files[] = \Title::newFromText( $fileName, NS_FILE );
+			$files[] = \Title::makeTitle( NS_FILE, $fileName );
 		}
 
 		$wikitext = $helper->getFileLinksHelper()->addTargets(
