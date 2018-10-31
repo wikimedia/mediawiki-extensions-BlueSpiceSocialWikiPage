@@ -7,7 +7,7 @@ use BlueSpice\Services;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\WikiPage\EntityListContext\SpecialStash;
 
-class Stash extends \BsSpecialPage {
+class Stash extends \BlueSpice\SpecialPage {
 
 	public function __construct() {
 		parent::__construct( 'WikiPageStash', 'read' );
