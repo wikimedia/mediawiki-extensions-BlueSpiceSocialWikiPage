@@ -41,7 +41,7 @@ class Attachments extends \BlueSpice\Social\Renderer\EntityList {
 			}
 			if( $type === 'images' ) {
 				foreach( $attachments as $image ) {
-					if( !$title = \Title::newFromText( $image, NS_FILE ) ) {
+					if( !$title = \Title::makeTitle( NS_FILE, $image ) ) {
 						continue;
 					}
 					if( !$file = wfFindFile( $title ) ) {
