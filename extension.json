@@ -53,7 +53,6 @@
 	},
 	"ResourceModules": {
 		"ext.bluespice.social.articles.styles": {
-			"targets": [ "desktop", "mobile" ],
 			"styles": [
 				"bluespice.social.wikipage.less"
 			],
@@ -63,7 +62,6 @@
 			"dependencies": [
 				"ext.bluespice.social.timeline"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/Dialog/AddArticle.js",
 				"bluespice.social.wikipage.js"
@@ -78,7 +76,6 @@
 				"ext.bluespice.social.entity",
 				"ext.bluespice.oojs"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"entities/bluespice.social.Entity.WikiPage.js"
 			]
@@ -87,7 +84,6 @@
 			"dependencies": [
 				"ext.bluespice.social.entity.text"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"entities/bluespice.social.Entity.Stash.js",
 				"ui/widget/TextInputAttachments.js",
@@ -104,7 +100,6 @@
 				"ext.bluespice.social.entity.stash",
 				"ext.bluespice.upload"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widget/TextInputMultiUpload.js"
 			],
@@ -117,7 +112,6 @@
 				"ext.bluespice.social.entity.stash",
 				"ext.bluespice.extjs.filerepo"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widget/TextInputFileSelect.js"
 			],
@@ -131,7 +125,6 @@
 				"ext.bluespice.social.entity.stash",
 				"ext.bluespice.insertlink"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"ui/widget/TextInputLinkSelect.js"
 			]
@@ -140,7 +133,6 @@
 			"dependencies": [
 				"ext.bluespice.social.entity"
 			],
-			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"bluespice.social.wikipage.createWikiPageEntity.js",
 				"CreateWikiPageEntity.js"
