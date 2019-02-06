@@ -21,14 +21,15 @@ bs.ui.widget.TextInputMultiUpload.prototype.init = function() {
 	mw.loader.using( [ 'ext.bluespice.upload' ] ).done( function () {
 		function _showDialog( upldr, files ) {
 			upldr.disableBrowse( true );
-
-			Ext.require( 'BS.dialog.MultiUpload', function () {
-				var mud = new BS.dialog.MultiUpload( {
-					uploader: upldr,
-					files: files
+			mw.loader.using( 'ext.bluespice.extjs.upload', function() {
+				Ext.require( 'BS.dialog.MultiUpload', function () {
+					var mud = new BS.dialog.MultiUpload( {
+						uploader: upldr,
+						files: files
+					} );
+					mud.on( 'uploadcomplete', me.onUploadComplete, me ),
+					mud.show();
 				} );
-				mud.on( 'uploadcomplete', me.onUploadComplete, me ),
-				mud.show();
 			} );
 		};
 
