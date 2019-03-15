@@ -4,6 +4,7 @@ namespace BlueSpice\Social\WikiPage\EntityListContext;
 
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Numeric;
+use BlueSpice\Data\Filter\Boolean;
 use BlueSpice\Social\WikiPage\Entity\Stash;
 use BlueSpice\Services;
 
@@ -61,12 +62,21 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		);
 	}
 
-	protected function getDiscussionTitleIDFilter() {
+	protected function getStashTitleIDFilter() {
 		return (object)[
 			Numeric::KEY_PROPERTY => Stash::ATTR_WIKI_PAGE_ID,
 			Numeric::KEY_VALUE => $this->getTitle()->getArticleID(),
 			Numeric::KEY_COMPARISON => Numeric::COMPARISON_EQUALS,
 			Numeric::KEY_TYPE => 'numeric'
+		];
+	}
+
+	protected function getArchiveFilter() {
+		return (object)[
+			Boolean::KEY_PROPERTY => Stash::ATTR_ARCHIVED,
+			Boolean::KEY_VALUE => false,
+			Boolean::KEY_COMPARISON => Boolean::COMPARISON_EQUALS,
+			Boolean::KEY_TYPE => 'boolean'
 		];
 	}
 
@@ -86,7 +96,10 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 	public function getFilters() {
 		return array_merge( 
 			parent::getFilters(),
-			[ $this->getDiscussionTitleIDFilter() ]
+			[
+				$this->getStashTitleIDFilter(),
+				$this->getArchiveFilter()
+			]
 		);
 	}
 
