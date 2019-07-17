@@ -54,7 +54,7 @@ class CreateNewWikiPageEntity extends \BlueSpice\Renderer {
 			'BSSocialWikiPageEntityFactory'
 		);
 		$entity = $factory->newFromTitle( $title );
-		if( !$entity->userCan( 'create', $this->getContext()->getUser() ) ) {
+		if( !$entity->userCan( 'create', $this->getContext()->getUser() )->isOK() ) {
 			$content .= new \OOUI\LabelWidget( [
 				'label' => $msg->pLain(),
 			] );
