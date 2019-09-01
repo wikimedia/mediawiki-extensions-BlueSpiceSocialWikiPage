@@ -1,0 +1,31 @@
+{
+	"name": "bluespice/socialwikipage",
+	"type": "mediawiki-extension",
+	"description": "WikiPage entity and functionality for social",
+	"license": "GPL-3.0-only",
+	"extra": {
+		"installer-name": "BlueSpiceSocialWikiPage"
+	},
+	"autoload": {
+		"psr-4": {
+			"BlueSpice\\Social\\WikiPage\\": "src"
+		}
+	},
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "1.0.0",
+		"jakub-onderka/php-console-highlighter": "0.3.2",
+		"mediawiki/minus-x": "0.3.1"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor --exclude node_modules",
+			"minus-x check ."
+		],
+		"fix": [
+			"minus-x fix ."
+		]
+	},
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}
