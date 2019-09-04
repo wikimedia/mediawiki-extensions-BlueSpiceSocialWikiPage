@@ -29,6 +29,9 @@ namespace BlueSpice\Social\WikiPage;
 
 class Extension extends \BlueSpice\Extension {
 
+	/**
+	 *
+	 */
 	public static function onRegistration() {
 		$GLOBALS['bsgSocialWikiPageTimelineAfterContentNamespaceBlackList'] = array_merge(
 			$GLOBALS['bsgSocialWikiPageTimelineAfterContentNamespaceBlackList'],
@@ -42,13 +45,18 @@ class Extension extends \BlueSpice\Extension {
 		);
 	}
 
+	/**
+	 *
+	 * @param int $iNamespace
+	 * @return bool
+	 */
 	public static function isTrackedNamespace( $iNamespace = 0 ) {
 		return !in_array( $iNamespace, [
 			NS_SOCIALENTITY,
 			NS_USER,
 			NS_MEDIAWIKI,
 			NS_FILE
-		]);
+		] );
 	}
 
 }

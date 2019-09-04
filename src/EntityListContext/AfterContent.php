@@ -2,6 +2,9 @@
 
 namespace BlueSpice\Social\WikiPage\EntityListContext;
 
+use Message;
+use Title;
+use SpecialPage;
 use User;
 use Config;
 use IContextSource;
@@ -10,50 +13,78 @@ use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Data\Filter\Boolean;
 use BlueSpice\Social\Entity;
+use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\WikiPage\Entity\Stash;
 use BlueSpice\Services;
 
-class AfterContent extends \BlueSpice\Social\EntityListContext {
+class AfterContent extends EntityListContext {
 
 	/**
 	 *
-	 * @var \Title
+	 * @var Title
 	 */
 	protected $title = null;
 
 	/**
 	 *
-	 * @param \IContextSource $context
-	 * @param \Config $config
+	 * @param IContextSource $context
+	 * @param Config $config
+	 * @param User|null $user
+	 * @param Entity|null $entity
+	 * @param Title|null $title
 	 */
 	public function __construct( IContextSource $context, Config $config,
-		User $user = null, Entity $entity = null, \Title $title = null ) {
+		User $user = null, Entity $entity = null, Title $title = null ) {
 		parent::__construct( $context, $config, $user, $entity );
-		if( $title ) {
+		if ( $title ) {
 			$this->title = $title;
 		}
 	}
 
+	/**
+	 *
+	 * @return Title
+	 */
 	public function getTitle() {
 		return $this->title ? $this->title : $this->context->getTitle();
 	}
 
+	/**
+	 *
+	 * @return int
+	 */
 	public function getLimit() {
 		return 999;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getSortProperty() {
 		return Stash::ATTR_TIMESTAMP_TOUCHED;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function useEndlessScroll() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function useMoreScroll() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getLockedFilterNames() {
 		return array_merge(
 			parent::getLockedFilterNames(),
@@ -61,13 +92,21 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		);
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getOutputTypes() {
 		return array_merge(
 			parent::getOutputTypes(),
-			[ Stash::TYPE => 'Default']
+			[ Stash::TYPE => 'Default' ]
 		);
 	}
 
+	/**
+	 *
+	 * @return \stdClass
+	 */
 	protected function getStashTitleIDFilter() {
 		return (object)[
 			Numeric::KEY_PROPERTY => Stash::ATTR_WIKI_PAGE_ID,
@@ -77,6 +116,10 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		];
 	}
 
+	/**
+	 *
+	 * @return \stdClass
+	 */
 	protected function getArchiveFilter() {
 		return (object)[
 			Boolean::KEY_PROPERTY => Stash::ATTR_ARCHIVED,
@@ -88,7 +131,7 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 
 	/**
 	 *
-	 * @return \stdClass[]
+	 * @return \stdClass
 	 */
 	protected function getTypeFilter() {
 		return (object)[
@@ -99,9 +142,12 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		];
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getFilters() {
-		return array_merge( 
-			parent::getFilters(),
+		return array_merge( parent::getFilters(),
 			[
 				$this->getStashTitleIDFilter(),
 				$this->getArchiveFilter()
@@ -109,8 +155,12 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		);
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getMoreLink() {
-		$special = \SpecialPage::getTitleFor(
+		$special = SpecialPage::getTitleFor(
 			'WikiPageStash',
 			$this->getTitle()->getFullText()
 		);
@@ -120,25 +170,37 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		);
 	}
 
+	/**
+	 *
+	 * @return Message
+	 */
 	protected function getMoreLinkMessage() {
-		return \Message::newFromKey( 'bs-social-entitylistmore-linklabel' );
+		return $this->context->msg( 'bs-social-entitylistmore-linklabel' );
 	}
 
+	/**
+	 *
+	 * @return Entity
+	 */
 	public function showEntityListMore() {
 		return $this->entity && $this->entity->exists();
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function getPreloadedEntities() {
 		$preloaded = parent::getPreloadedEntities();
 		$stash = Services::getInstance()->getBSEntityFactory()->newFromObject(
 			$this->getRawStash()
 		);
-		if( !$stash instanceof Stash ) {
+		if ( !$stash instanceof Stash ) {
 			return $preloaded;
 		}
 
 		$status = $stash->userCan( 'create', $this->getUser() );
-		if( !$status->isOK() ) {
+		if ( !$status->isOK() ) {
 			return $preloaded;
 		}
 
@@ -146,23 +208,39 @@ class AfterContent extends \BlueSpice\Social\EntityListContext {
 		return $preloaded;
 	}
 
+	/**
+	 *
+	 * @return \stdClass
+	 */
 	protected function getRawStash() {
 		$talkPage = $this->getTitle();
-		return (object) [
+		return (object)[
 			Stash::ATTR_TYPE => Stash::TYPE,
 			Stash::ATTR_WIKI_PAGE_ID => $talkPage->getArticleID(),
 			Stash::ATTR_RELATED_TITLE => $talkPage->getFullText(),
 		];
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function showEntityListMenu() {
 		return false;
 	}
 
+	/**
+	 *
+	 * @return bool
+	 */
 	public function showHeadline() {
 		return true;
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getHeadlineMessageKey() {
 		return 'bs-socialwikipage-aftercontent-heading';
 	}

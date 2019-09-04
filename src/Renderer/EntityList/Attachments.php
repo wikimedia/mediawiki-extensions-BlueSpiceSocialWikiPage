@@ -9,12 +9,13 @@ use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityAttachment;
+use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\RendererFactory;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\EntityListContext\AfterContent;
 
-class Attachments extends \BlueSpice\Social\Renderer\EntityList {
+class Attachments extends EntityList {
 
 	/**
 	 *
@@ -77,7 +78,7 @@ class Attachments extends \BlueSpice\Social\Renderer\EntityList {
 	 * @param Params $params
 	 * @param IContextSource|null $context
 	 * @param LinkRenderer|null $linkRenderer
-	 * @param RendererFactory|null
+	 * @param RendererFactory|null $rendererFactory
 	 * @return Renderer
 	 */
 	public static function factory( $name, Services $services, Config $config, Params $params,
@@ -118,8 +119,8 @@ class Attachments extends \BlueSpice\Social\Renderer\EntityList {
 		$content .= Html::openElement( 'li' );
 		$content .= Html::openElement( 'div', [
 			'class' => 'bs-social-entity-content-attachments'
-		]);
-		foreach( $this->getEntities() as $entity ) {
+		] );
+		foreach ( $this->getEntities() as $entity ) {
 			$content .= $this->renderEntitiy( $entity );
 		}
 		$content .= Html::closeElement( 'div' );
@@ -130,10 +131,11 @@ class Attachments extends \BlueSpice\Social\Renderer\EntityList {
 	/**
 	 *
 	 * @param Entity $entity
+	 * @param string $out
 	 * @return string
 	 */
 	protected function renderEntitiy( Entity $entity, $out = '' ) {
-		if( !$entity->getConfig()->get( 'CanHaveAttachments' ) ) {
+		if ( !$entity->getConfig()->get( 'CanHaveAttachments' ) ) {
 			return $out;
 		}
 		$availableAttachments = $entity->getConfig()->get(
@@ -141,16 +143,18 @@ class Attachments extends \BlueSpice\Social\Renderer\EntityList {
 		);
 
 		$attachmentTypes = $entity->get( $entity::ATTR_ATTACHMENTS, [] );
-		foreach( $attachmentTypes as $type => $attachments ) {
-			if( !in_array( $type, $availableAttachments ) ) {
+		foreach ( $attachmentTypes as $type => $attachments ) {
+			if ( !in_array( $type, $availableAttachments ) ) {
 				continue;
 			}
-			if( $type === 'images' ) {
-				foreach( $attachments as $image ) {
-					if( !$title = Title::makeTitle( NS_FILE, $image ) ) {
+			if ( $type === 'images' ) {
+				foreach ( $attachments as $image ) {
+					$title = Title::makeTitle( NS_FILE, $image );
+					if ( !$title ) {
 						continue;
 					}
-					if( !$file = wfFindFile( $title ) ) {
+					$file = wfFindFile( $title );
+					if ( !$file ) {
 						continue;
 					}
 
@@ -164,9 +168,10 @@ class Attachments extends \BlueSpice\Social\Renderer\EntityList {
 					$out .= $entityAttachment->render();
 				}
 			}
-			if( $type === 'links' ) {
-				foreach( $attachments as $link ) {
-					if( !$title = Title::newFromText( $link ) ) {
+			if ( $type === 'links' ) {
+				foreach ( $attachments as $link ) {
+					$title = Title::newFromText( $link );
+					if ( !$title ) {
 						continue;
 					}
 

@@ -30,6 +30,7 @@
  * @filesource
  */
 namespace BlueSpice\Social\WikiPage\EntityConfig;
+
 use BlueSpice\Social\EntityConfig\Page;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
@@ -41,57 +42,134 @@ use BlueSpice\Social\WikiPage\Entity\WikiPage as Entity;
  * @subpackage BSSocialWikiPage
  */
 class WikiPage extends Page {
+	/**
+	 *
+	 * @return array
+	 */
 	public function addGetterDefaults() {
-		return array();
+		return [];
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	public function get_EntityClass() {
 		return "\\BlueSpice\\Social\\WikiPage\\Entity\\WikiPage";
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_Renderer() {
 		return 'social-wikipage-entity-wikipage';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityTemplateDefault() {
 		return 'BlueSpiceSocialWikiPage.Entity.WikiPage.Default';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_EntityTemplatePage() {
 		return 'BlueSpiceSocialWikiPage.Entity.WikiPage.Page';
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_ModuleStyles() {
 		return array_merge( parent::get_ModuleStyles(), [
 			'ext.bluespice.social.articles.styles'
-		]);
+		] );
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_ModuleScripts() {
 		return array_merge( parent::get_ModuleScripts(), [
 			'ext.bluespice.social.entity.wikipage',
-		]);
+		] );
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_CanHaveChildren() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_TypeMessageKey() {
 		return 'bs-socialwikipage-type';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKey() {
 		return 'bs-socialwikipage-entitywikipage-header';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKeyCreateNew() {
 		return 'bs-socialwikipage-entitywikipage-header-create';
 	}
+
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderWithTitleMessageKey() {
 		return 'bs-socialwikipage-entitywikipage-withtitleheader';
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_IsCreatable() {
 		return true;
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_IsDeleteable() {
 		return false;
 	}
+
+	/**
+	 *
+	 * @return bool
+	 */
 	protected function get_IsTagable() {
 		return false;
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_VarMessageKeys() {
 		return array_merge(
 			parent::get_VarMessageKeys(),
@@ -100,6 +178,11 @@ class WikiPage extends Page {
 			]
 		);
 	}
+
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_AttributeDefinitions() {
 		return array_merge(
 			parent::get_AttributeDefinitions(),

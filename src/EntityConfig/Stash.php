@@ -14,31 +14,48 @@ use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
  * @package BlueSpiceStashs
  * @subpackage BSSocial
  */
-class Stash extends Text{
+class Stash extends Text {
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function addGetterDefaults() {
 		return [];
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function get_EntityClass() {
 		return "\\BlueSpice\\Social\\WikiPage\\Entity\\Stash";
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_Renderer() {
 		return 'social-wikipage-entity-stash';
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_ModuleScripts() {
 		$dropzone = Services::getInstance()->getBSExtensionFactory()
 			->getExtension( 'BlueSpiceMultiUpload' )
-			? ["ext.bluespice.social.entity.stash.dropzone"]
+			? [ "ext.bluespice.social.entity.stash.dropzone" ]
 			: [];
-		$insertFile = ["ext.bluespice.social.entity.stash.insertfile"];
+		$insertFile = [ "ext.bluespice.social.entity.stash.insertfile" ];
 		$insertLink = Services::getInstance()->getBSExtensionFactory()
 			->getExtension( 'BlueSpiceInsertLink' )
-			? ["ext.bluespice.social.entity.stash.insertlink"]
+			? [ "ext.bluespice.social.entity.stash.insertlink" ]
 			: [];
-		$insertLink = []; //InserLink is also not working currently
+		// InserLink is also not working currently
+		$insertLink = [];
 		return array_merge(
 			parent::get_ModuleScripts(),
 			[ 'ext.bluespice.social.entity.stash' ],
@@ -48,10 +65,14 @@ class Stash extends Text{
 		);
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_ModuleStyles() {
 		$insertFile = Services::getInstance()->getBSExtensionFactory()
 			->getExtension( 'BlueSpiceInsertFile' )
-			? ["ext.bluespice.insertFile.styles"]
+			? [ "ext.bluespice.insertFile.styles" ]
 			: [];
 		return array_merge(
 			parent::get_ModuleStyles(),
@@ -59,18 +80,34 @@ class Stash extends Text{
 		);
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_TypeMessageKey() {
 		return 'bs-socialwikipage-stashtype';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKeyCreateNew() {
 		return 'bs-socialwikipage-entitystash-header-create';
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	protected function get_HeaderMessageKey() {
 		return 'bs-socialwikipage-entitystash-header';
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_VarMessageKeys() {
 		return array_merge(
 			parent::get_VarMessageKeys(),
@@ -80,6 +117,10 @@ class Stash extends Text{
 		);
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function get_AttributeDefinitions() {
 		return array_merge(
 			parent::get_AttributeDefinitions(),

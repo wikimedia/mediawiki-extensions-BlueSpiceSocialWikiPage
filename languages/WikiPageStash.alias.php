@@ -1,12 +1,12 @@
 <?php
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English */
-$specialPageAliases['en'] = array(
-	'WikiPageStash' => array( 'Attachments' ),
-);
+$specialPageAliases['en'] = [
+	'WikiPageStash' => [ 'Attachments' ],
+];
 
 /** German (Deutsch) */
-$specialPageAliases['de'] = array(
-	'WikiPageStash' => array( 'Ablage' ),
-);
+$specialPageAliases['de'] = [
+	'WikiPageStash' => [ 'Ablage' ],
+];

@@ -2,8 +2,10 @@
 
 namespace BlueSpice\Social\WikiPage\Special;
 
+use Title;
 use BlueSpice\Context;
 use BlueSpice\Services;
+use BlueSpice\Entity;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\WikiPage\EntityListContext\SpecialStash;
 
@@ -13,6 +15,11 @@ class Stash extends \BlueSpice\SpecialPage {
 		parent::__construct( 'WikiPageStash', 'read' );
 	}
 
+	/**
+	 *
+	 * @param string $par
+	 * @return void
+	 */
 	public function execute( $par ) {
 		$this->checkPermissions();
 
@@ -21,14 +28,14 @@ class Stash extends \BlueSpice\SpecialPage {
 		);
 
 		$title = $entiy = null;
-		if( !empty( $par ) ) {
-			$title = \Title::newFromText( $par );
+		if ( !empty( $par ) ) {
+			$title = Title::newFromText( $par );
 			$this->getOutput()->addBacklinkSubtitle( $title );
-			$factory =  Services::getInstance()->getService(
+			$factory = Services::getInstance()->getService(
 				'BSSocialWikiPageEntityFactory'
 			);
 			$entiy = $factory->newFromTitle( $title );
-			if( !$entiy->exists() ) {
+			if ( !$entiy->exists() ) {
 				$out = $this->renderNewWikiPageEntity( $entiy, $title );
 				$this->getOutput()->addHTML( $out );
 				return;
@@ -53,6 +60,12 @@ class Stash extends \BlueSpice\SpecialPage {
 		$this->getOutput()->addHTML( $renderer->render() );
 	}
 
+	/**
+	 *
+	 * @param Entity $entiy
+	 * @param Title $title
+	 * @return string
+	 */
 	protected function renderNewWikiPageEntity( $entiy, $title ) {
 		$context = new SpecialStash(
 			new Context(
@@ -66,9 +79,9 @@ class Stash extends \BlueSpice\SpecialPage {
 		);
 		$renderer = Services::getInstance()->getBSRendererFactory()->get(
 			'social-wikipage-entitylist-newwikipageentity',
-			new Params( [ 'context' => $context ])
+			new Params( [ 'context' => $context ] )
 		);
 		return $renderer->render();
 	}
-	
+
 }

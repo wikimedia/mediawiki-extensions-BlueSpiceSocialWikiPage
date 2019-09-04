@@ -2,6 +2,7 @@
 
 namespace BlueSpice\Social\WikiPage\Api\Task;
 
+use BlueSpice\Api\Response\Standard;
 use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
 use BlueSpice\Services;
 
@@ -20,6 +21,10 @@ class Stash extends \BSApiTasksBase {
 		'removeFiles',
 	];
 
+	/**
+	 *
+	 * @return array
+	 */
 	protected function getRequiredTaskPermissions() {
 		return [
 			'addFiles' => [ 'read', 'edit' ],
@@ -27,31 +32,36 @@ class Stash extends \BSApiTasksBase {
 		];
 	}
 
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return Standard
+	 */
 	public function task_addFiles( $taskData, $params ) {
 		$result = $this->makeStandardReturn();
 		$this->checkPermissions();
 
-		if( !$taskData->files ) {
+		if ( !$taskData->files ) {
 			return $result;
 		}
 
 		$entity = $this->getEntityFactory()->newFromObject(
 			$taskData
 		);
-		if( !$entity instanceof Entity ) {
+		if ( !$entity instanceof Entity ) {
 			return $result;
 		}
 
 		$action = $entity->exists()
 			? 'edit'
-			: 'create'
-		;
-		if( $action == 'edit' && !$entity->userIsOwner( $this->getUser() ) ) {
+			: 'create';
+		if ( $action == 'edit' && !$entity->userIsOwner( $this->getUser() ) ) {
 			$action = 'editothers';
 		}
 
 		$status = $entity->userCan( $action, $this->getUser() );
-		if( !$status->isOK() ) {
+		if ( !$status->isOK() ) {
 			$result->message = $status->getWikiText();
 			return $result;
 		}
@@ -61,7 +71,7 @@ class Stash extends \BSApiTasksBase {
 			$entity->get( Entity::ATTR_TEXT, '' )
 		);
 		$files = [];
-		foreach( $taskData->files as $fileName ) {
+		foreach ( $taskData->files as $fileName ) {
 			$files[] = \Title::makeTitle( NS_FILE, $fileName );
 		}
 
@@ -77,7 +87,7 @@ class Stash extends \BSApiTasksBase {
 
 		$result->payload['entity'] = \FormatJson::encode( $entity );
 		$result->payload['actions'] = $entity->getActions(
-			[], 
+			[],
 			$this->getUser()
 		);
 		$result->payload['entityconfig'][$entity->get( Entity::ATTR_TYPE )]
@@ -90,37 +100,43 @@ class Stash extends \BSApiTasksBase {
 
 		$result->payload['view'] = $renderer->startEditor()->render(
 			$outputType,
-			true //nocache and hope for the best!
+			// nocache and hope for the best!
+			true
 		);
 		$result->success = true;
-		
+
 		return $result;
 	}
 
+	/**
+	 *
+	 * @param \stdClass $taskData
+	 * @param array $params
+	 * @return Standard
+	 */
 	public function task_removeFiles( $taskData, $params ) {
 		$result = $this->makeStandardReturn();
 		$this->checkPermissions();
 
-		if( !$taskData->files ) {
+		if ( !$taskData->files ) {
 			return $result;
 		}
 		$entity = $this->getEntityFactory()->newFromObject(
 			$taskData
 		);
-		if( !$entity instanceof Entity ) {
+		if ( !$entity instanceof Entity ) {
 			return $result;
 		}
 
 		$action = $entity->exists()
 			? 'edit'
-			: 'create'
-		;
-		if( $action == 'edit' && !$entity->userIsOwner( $this->getUser() ) ) {
+			: 'create';
+		if ( $action == 'edit' && !$entity->userIsOwner( $this->getUser() ) ) {
 			$action = 'editothers';
 		}
 
 		$status = $entity->userCan( $action, $this->getUser() );
-		if( !$status->isOK() ) {
+		if ( !$status->isOK() ) {
 			$result->message = $status->getWikiText();
 			return $result;
 		}
@@ -130,7 +146,7 @@ class Stash extends \BSApiTasksBase {
 			$entity->get( Entity::ATTR_TEXT, '' )
 		);
 		$files = [];
-		foreach( $taskData->files as $fileName ) {
+		foreach ( $taskData->files as $fileName ) {
 			$files[] = \Title::newFromText( $fileName, NS_FILE );
 		}
 		$wikitext = $helper->getFileLinksHelper()->removeTargets(
@@ -145,7 +161,7 @@ class Stash extends \BSApiTasksBase {
 
 		$result->payload['entity'] = \FormatJson::encode( $entity );
 		$result->payload['actions'] = $entity->getActions(
-			[], 
+			[],
 			$this->getUser()
 		);
 		$result->payload['entityconfig'][$entity->get( Entity::ATTR_TYPE )]
@@ -158,7 +174,8 @@ class Stash extends \BSApiTasksBase {
 
 		$result->payload['view'] = $renderer->startEditor()->render(
 			$outputType,
-			true //nocache and hope for the best!
+			// nocache and hope for the best!
+			true
 		);
 		$result->success = true;
 		return $result;
