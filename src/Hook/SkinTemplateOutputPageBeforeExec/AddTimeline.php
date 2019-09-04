@@ -35,14 +35,14 @@ use BlueSpice\Social\Renderer\EntityList;
 class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 
 	/**
-	 * 
+	 *
 	 * @return bool
 	 */
 	protected function skipProcessing() {
-		if( !$this->skin->getTitle()->exists() ) {
+		if ( !$this->skin->getTitle()->exists() ) {
 			return true;
 		}
-		if( !$this->getConfig()->get( 'SocialWikiPageTimelineAfterContentShow' ) ) {
+		if ( !$this->getConfig()->get( 'SocialWikiPageTimelineAfterContentShow' ) ) {
 			return true;
 		}
 		$namespace = $this->skin->getTitle()->getNamespace();
@@ -50,23 +50,23 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 			'SocialWikiPageTimelineAfterContentNamespaceBlackList'
 		);
 
-		if( in_array( $namespace, $nsBlackList ) ) {
+		if ( in_array( $namespace, $nsBlackList ) ) {
 			return true;
 		}
 
-		if( $this->skin->getTitle()->isTalkPage() ) {
+		if ( $this->skin->getTitle()->isTalkPage() ) {
 			return true;
 		}
 
 		$action = $this->getContext()->getRequest()->getVal( 'action', 'view' );
-		if( $action != 'view' && $action != 'submit' ) {
+		if ( $action != 'view' && $action != 'submit' ) {
 			return true;
 		}
 
 		$prop = $this->getServices()->getBSUtilityFactory()
 			->getPagePropHelper( $this->skin->getTitle() )
 			->getPageProp( 'bs_nostash' );
-		if( !is_null( $prop ) ) {
+		if ( !is_null( $prop ) ) {
 			return true;
 		}
 

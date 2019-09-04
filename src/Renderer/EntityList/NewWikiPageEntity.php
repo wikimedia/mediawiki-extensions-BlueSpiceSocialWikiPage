@@ -24,7 +24,7 @@ class NewWikiPageEntity extends \BlueSpice\Social\Renderer\EntityList {
 		$name = '' ) {
 		parent::__construct( $config, $params, $linkRenderer, $context, $name );
 
-		if( !$this->getContext()->getTitle()->exists() ) {
+		if ( !$this->getContext()->getTitle()->exists() ) {
 			$this->args[static::PARAM_CLASS] .= ' nowikipage';
 		}
 	}
@@ -35,13 +35,13 @@ class NewWikiPageEntity extends \BlueSpice\Social\Renderer\EntityList {
 	 */
 	public function render() {
 		$content = '';
-		if( $this->args[ static::PARAM_SHOW_HEADLINE ] ) {
+		if ( $this->args[ static::PARAM_SHOW_HEADLINE ] ) {
 			$content .= $this->renderEntityListHeadline();
 		}
 		$content .= $this->getOpenTag();
 		$content .= $this->makeTagContent();
 		$content .= $this->getCloseTag();
-		if( $this->args[ static::PARAM_SHOW_ENTITY_LIST_MORE ] ) {
+		if ( $this->args[ static::PARAM_SHOW_ENTITY_LIST_MORE ] ) {
 			$content .= $this->renderEntityListMore();
 		}
 

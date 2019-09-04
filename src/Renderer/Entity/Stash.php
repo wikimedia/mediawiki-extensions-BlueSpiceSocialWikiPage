@@ -2,6 +2,7 @@
 
 namespace BlueSpice\Social\WikiPage\Renderer\Entity;
 
+use Config;
 use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Entity\Text as EntityText;
@@ -9,7 +10,13 @@ use BlueSpice\Social\Entity\Text as EntityText;
 class Stash extends \BlueSpice\Social\Renderer\Entity\Text {
 	const START_EDITOR = 'starteditor';
 
-	public function __construct( \Config $config, Params $params, LinkRenderer $linkRenderer = null ) {
+	/**
+	 *
+	 * @param Config $config
+	 * @param Params $params
+	 * @param LinkRenderer|null $linkRenderer
+	 */
+	public function __construct( Config $config, Params $params, LinkRenderer $linkRenderer = null ) {
 		parent::__construct( $config, $params, $linkRenderer );
 		$this->args['content'] = '';
 		$this->args['attachments'] = $this->getEntity()->get(
@@ -18,12 +25,22 @@ class Stash extends \BlueSpice\Social\Renderer\Entity\Text {
 		$this->args[static::START_EDITOR] = false;
 	}
 
+	/**
+	 *
+	 * @param mixed $val
+	 * @return string
+	 */
 	protected function render_content( $val ) {
 		return '';
 	}
 
+	/**
+	 *
+	 * @param bool $startEditor
+	 * @return Stash
+	 */
 	public function startEditor( $startEditor = true ) {
-		//Hacky workaround to restart the editor on the client side
+		// Hacky workaround to restart the editor on the client side
 		$this->args[static::START_EDITOR] = $startEditor ? true : false;
 		return $this;
 	}
@@ -34,8 +51,8 @@ class Stash extends \BlueSpice\Social\Renderer\Entity\Text {
 	 */
 	protected function makeTagAttribs() {
 		$attribs = parent::makeTagAttribs();
-		if( $this->args[static::START_EDITOR] ) {
-			$attribs["data-".static::START_EDITOR] = static::START_EDITOR;
+		if ( $this->args[static::START_EDITOR] ) {
+			$attribs["data-" . static::START_EDITOR] = static::START_EDITOR;
 		}
 		return $attribs;
 	}

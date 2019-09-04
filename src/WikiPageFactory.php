@@ -33,11 +33,11 @@ use BlueSpice\Services;
 use BlueSpice\EntityFactory;
 use BlueSpice\Social\WikiPage\Entity\WikiPage;
 
-class WikiPageFactory extends EntityFactory{
+class WikiPageFactory extends EntityFactory {
 
 	/**
 	 *
-	 * @var WikiPage[] 
+	 * @var WikiPage[]
 	 */
 	protected $wikiPageInstances = [];
 
@@ -46,11 +46,11 @@ class WikiPageFactory extends EntityFactory{
 	 * @return WikiPage | null
 	 */
 	public function newFromTitle( \Title $title ) {
-		if( !$title->exists() || $title->isTalkPage() ) {
+		if ( !$title->exists() || $title->isTalkPage() ) {
 			return null;
 		}
 
-		if( isset( $this->wikiPageInstances[$title->getArticleID()] ) ) {
+		if ( isset( $this->wikiPageInstances[$title->getArticleID()] ) ) {
 			return $this->wikiPageInstances[$title->getArticleID()];
 		}
 
@@ -76,21 +76,21 @@ class WikiPageFactory extends EntityFactory{
 		];
 
 		$instance = null;
-		$params = new ReaderParams([
+		$params = new ReaderParams( [
 			'filter' => $filters,
 			'sort' => $listContext->getSort(),
 			'limit' => 1,
 			'start' => 0,
-		]);
+		] );
 		$res = $this->getStore()->getReader( $listContext )->read( $params );
-		foreach( $res->getRecords() as $row ) {
+		foreach ( $res->getRecords() as $row ) {
 			$instance = $this->newFromObject( $row->getData() );
 		}
-		if( !$instance ) {
-			$instance = $this->newFromObject( (object) [
+		if ( !$instance ) {
+			$instance = $this->newFromObject( (object)[
 				WikiPage::ATTR_WIKI_PAGE_ID => $title->getArticleID(),
 				WikiPage::ATTR_TYPE => WikiPage::TYPE
-			]);
+			] );
 		}
 		$this->wikiPageInstances[$title->getArticleID()] = $instance;
 		return $instance;
@@ -98,14 +98,13 @@ class WikiPageFactory extends EntityFactory{
 
 	/**
 	 *
-	 * @param SpecialWikiPages $context
 	 * @return \BlueSpice\Social\Data\Entity\Store
 	 * @throws \MWException
 	 */
 	protected function getStore() {
 		$config = $this->configFactory->newFromType( WikiPage::TYPE );
 		$storeClass = $config->get( 'StoreClass' );
-		if( !class_exists( $storeClass ) ) {
+		if ( !class_exists( $storeClass ) ) {
 			throw new \MWException( "Store class '$storeClass' not found" );
 		}
 		return new $storeClass();

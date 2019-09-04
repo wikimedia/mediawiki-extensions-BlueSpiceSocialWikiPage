@@ -1,7 +1,7 @@
 <?php
 namespace BlueSpice\Social\WikiPage\Hook\PageContentSaveComplete;
-use BlueSpice\Hook\PageContentSaveComplete;
 
+use BlueSpice\Hook\PageContentSaveComplete;
 
 class CreateWikiPageEntity extends PageContentSaveComplete {
 	protected function skipProcessing() {
@@ -11,31 +11,31 @@ class CreateWikiPageEntity extends PageContentSaveComplete {
 			return true;
 		}
 
-		if( $this->isMinor || !$this->revision ) {
+		if ( $this->isMinor || !$this->revision ) {
 			return true;
 		}
-		if( !$this->status->isOK() || $this->status->hasMessage( 'edit-no-change' ) ) {
-			//ugly. we need to check the status object for the no edit warning,
-			//cause on this point in the code it ist - unfortunaltey -
-			//impossible to find out, if this edit changed something.
-			//'$article->getLatest()' is always the same as
-			//'$this->revision->getId()'. '$baseRevId' is always 'false' #5240
+		if ( !$this->status->isOK() || $this->status->hasMessage( 'edit-no-change' ) ) {
+			// ugly. we need to check the status object for the no edit warning,
+			// cause on this point in the code it ist - unfortunaltey -
+			// impossible to find out, if this edit changed something.
+			// '$article->getLatest()' is always the same as
+			// '$this->revision->getId()'. '$baseRevId' is always 'false' #5240
 			return true;
 		}
 		$title = $this->wikipage->getTitle();
-		if( !$title || !$title->exists() ) {
+		if ( !$title || !$title->exists() ) {
 			return true;
 		}
 		$tracked = \BlueSpice\Social\WikiPage\Extension::isTrackedNamespace(
 			$title->getNamespace()
 		);
-		if( !$tracked ) {
+		if ( !$tracked ) {
 			return true;
 		}
-		if( $title->isTalkPage() ) {
+		if ( $title->isTalkPage() ) {
 			return true;
 		}
-		if( $title->getContentModel() != 'wikitext' ) {
+		if ( $title->getContentModel() != 'wikitext' ) {
 			return true;
 		}
 
@@ -49,12 +49,12 @@ class CreateWikiPageEntity extends PageContentSaveComplete {
 		$entity = $factory->newFromTitle(
 			$this->wikipage->getTitle()
 		);
-		if( !$entity ) {
-			//do not fatal - here is something wrong very bad!
+		if ( !$entity ) {
+			// do not fatal - here is something wrong very bad!
 			return true;
 		}
-		if( !$entity->exists() ) {
-			//TODO: Status check
+		if ( !$entity->exists() ) {
+			// TODO: Status check
 			$status = $entity->save();
 			return true;
 		}

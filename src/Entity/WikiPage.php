@@ -30,7 +30,15 @@
  */
 namespace BlueSpice\Social\WikiPage\Entity;
 
+use Exception;
+use Message;
+use Status;
+use User;
+use ParserOptions;
+use Title;
+use WikiPage as Article;
 use MediaWiki\MediaWikiServices;
+use BsNamespaceHelper;
 use BlueSpice\Social\Entity\Page;
 
 /**
@@ -45,12 +53,16 @@ class WikiPage extends Page {
 	const ATTR_NAMESPACE = 'namespace';
 	const ATTR_TITLE_TEXT = 'titletext';
 
-	protected $sBaseTitleContent = null;
+	/**
+	 *
+	 * @var string
+	 */
+	protected $baseTitleContent = null;
 
 	/**
 	 * @deprecated since version 3.0.0 - Use service
 	 * (BSSocialWikiPageEntityFactory)->newFromTitle instead
-	 * @param \Title $oTitle
+	 * @param Title $oTitle
 	 * @return WikiPage | null
 	 */
 	public static function newFromWikiPageTitle( $oTitle ) {
@@ -61,39 +73,44 @@ class WikiPage extends Page {
 		return $factory->newFromTitle( $oTitle );
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
 	public function getBaseTitleContent() {
-		if( $this->sBaseTitleContent ) {
-			return $this->sBaseTitleContent;
+		if ( $this->baseTitleContent ) {
+			return $this->baseTitleContent;
 		}
-		$this->sBaseTitleContent = '';
+		$this->baseTitleContent = '';
 
-		if( !$this->getRelatedTitle()->exists() ) {
-			return $this->sBaseTitleContent;
+		if ( !$this->getRelatedTitle()->exists() ) {
+			return $this->baseTitleContent;
 		}
-		$oWikiPage = \WikiPage::factory( $this->getRelatedTitle() );
+		$wikiPage = Article::factory( $this->getRelatedTitle() );
 		try {
-			$oOutput = $oWikiPage->getContent()->getParserOutput(
+			$output = $wikiPage->getContent()->getParserOutput(
 				$this->getRelatedTitle(),
 				null,
-				\ParserOptions::newFromContext( \RequestContext::getMain() ),
+				ParserOptions::newFromContext( \RequestContext::getMain() ),
 				true,
 				true
 			);
-		} catch( \Exception $e ) {
-			//sometimes parser recursion - unfortunately this can not be solved
-			//due to the randomnes of the content model -.-
-			$oOutput = null;
+		} catch ( Exception $e ) {
+			// sometimes parser recursion - unfortunately this can not be solved
+			// due to the randomnes of the content model -.-
+			$output = null;
 		}
 
-		if( !$oOutput ) {
-			return $this->sBaseTitleContent;
+		if ( !$output ) {
+			return $this->baseTitleContent;
 		}
-		$this->sBaseTitleContent = $oOutput->getText();
-		return $this->sBaseTitleContent;
+		$this->baseTitleContent = $output->getText();
+		return $this->baseTitleContent;
 	}
 
 	/**
 	 * Gets the BSSociaEntityPage attributes formated for the api
+	 * @param array $a
 	 * @return object
 	 */
 	public function getFullData( $a = [] ) {
@@ -113,7 +130,7 @@ class WikiPage extends Page {
 					''
 				),
 			]
-		));
+		) );
 	}
 
 	/**
@@ -177,20 +194,24 @@ class WikiPage extends Page {
 		return $this->set( static::ATTR_WIKI_PAGE_ID, $iWikiPageID );
 	}
 
+	/**
+	 *
+	 * @param \stdClass $o
+	 */
 	public function setValuesByObject( \stdClass $o ) {
-		if( !empty( $o->{static::ATTR_WIKI_PAGE_ID} ) ) {
+		if ( !empty( $o->{static::ATTR_WIKI_PAGE_ID} ) ) {
 			$this->set(
 				static::ATTR_WIKI_PAGE_ID,
 				$o->{static::ATTR_WIKI_PAGE_ID}
 			);
 		}
-		if( isset( $o->{static::ATTR_NAMESPACE} ) ) {
+		if ( isset( $o->{static::ATTR_NAMESPACE} ) ) {
 			$this->set(
 				static::ATTR_NAMESPACE,
 				$o->{static::ATTR_NAMESPACE}
 			);
 		}
-		if( isset( $o->{static::ATTR_TITLE_TEXT} ) ) {
+		if ( isset( $o->{static::ATTR_TITLE_TEXT} ) ) {
 			$this->set(
 				static::ATTR_TITLE_TEXT,
 				$o->{static::ATTR_TITLE_TEXT}
@@ -199,48 +220,63 @@ class WikiPage extends Page {
 		parent::setValuesByObject( $o );
 	}
 
-	public function getHeader( $oMsg = null ) {
-		$oMsg = parent::getHeader( $oMsg );
-		return $oMsg->params([
+	/**
+	 *
+	 * @param Messag|null $msg
+	 * @return Message
+	 */
+	public function getHeader( $msg = null ) {
+		$msg = parent::getHeader( $msg );
+		return $msg->params( [
 			$this->getRelatedTitle()->getText(),
 			$this->getRelatedTitle()->getNamespace(),
-			\BsNamespaceHelper::getNamespaceName(
+			BsNamespaceHelper::getNamespaceName(
 				$this->getRelatedTitle()->getNamespace()
 			),
 			$this->getRelatedTitle()->getFullText(),
-		]);
+		] );
 	}
 
+	/**
+	 *
+	 * @return Title
+	 */
 	public function getRelatedTitle() {
-		if( $this->relatedTitle ) {
+		if ( $this->relatedTitle ) {
 			return $this->relatedTitle;
 		}
-		$this->relatedTitle = \Title::newFromID(
+		$this->relatedTitle = Title::newFromID(
 			$this->get( static::ATTR_WIKI_PAGE_ID, 0 )
 		);
-		return $this->relatedTitle instanceof \Title
+		return $this->relatedTitle instanceof Title
 			? $this->relatedTitle
 			: parent::getRelatedTitle();
 	}
 
-	public function save( \User $oUser = null, $aOptions = array() ) {
-		if( empty( $this->get( static::ATTR_WIKI_PAGE_ID, 0 ) ) ) {
-			return \Status::newFatal( wfMessage(
+	/**
+	 *
+	 * @param User|null $user
+	 * @param array $options
+	 * @return Status
+	 */
+	public function save( User $user = null, $options = [] ) {
+		if ( empty( $this->get( static::ATTR_WIKI_PAGE_ID, 0 ) ) ) {
+			return Status::newFatal( wfMessage(
 				'bs-social-entity-fatalstatus-save-emptyfield',
 				$this->getVarMessage( static::ATTR_WIKI_PAGE_ID )->plain()
-			));
+			) );
 		}
-		if( !$this->getRelatedTitle()
+		if ( !$this->getRelatedTitle()
 			|| $this->getRelatedTitle()->isTalkPage()
 			|| !$this->getRelatedTitle()->exists() ) {
-			return \Status::newFatal( wfMessage(
+			return Status::newFatal( wfMessage(
 				'bs-socialwikipage-entity-fatalstatus-save-novalidpage'
-			));
+			) );
 		}
 		$this->set(
 			static::ATTR_TITLE_TEXT,
 			$this->getRelatedTitle()->getFullText()
 		);
-		return parent::save( $oUser, $aOptions );
+		return parent::save( $user, $options );
 	}
 }
