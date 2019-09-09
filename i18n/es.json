@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido"
+		]
+	},
+	"bs-socialwikipage-noattachmentsadded": "Aún no se ha añadido ningún adjunto",
+	"bs-socialwikipage-entitystash-header-create": "Adjunto nuevo",
+	"bs-socialwikipage-aftercontent-heading": "Adjuntos",
+	"wikipagestash": "Adjuntos",
+	"bs-socialwikipage-switch-nostash-description": "Oculta el área de adjuntos de esta página.",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Añadir"
+}

@@ -6,7 +6,6 @@
 	},
 	"bs-socialwikipage-desc": "Wikiseiten-Entität und Funktionalität für BlueSpiceSocial",
 	"bs-socialwikipage-type": "Wikiseite",
-	"bs-socialwikipage-entitywikipage-header": "[[$5:$3|$6]]",
 	"bs-socialwikipage-entitywikipage-header-create": "Neuen Anhang erstellen",
 	"bs-socialwikipage-nowikipageentity": "Es wurde noch kein Anhangbereich für diese Seite angelegt",
 	"bs-socialwikipage-noattachmentsadded": "Es wurde noch kein Anhang hinzugefügt",
