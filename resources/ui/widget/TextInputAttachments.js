@@ -14,24 +14,7 @@ OO.initClass( bs.ui.widget.TextInputAttachments );
 OO.inheritClass( bs.ui.widget.TextInputAttachments, OO.ui.InputWidget );
 
 bs.ui.widget.TextInputAttachments.prototype.init = function() {
-	var me = this;
-	for( var i in me.attachments.images ) {
-		var id = 'attachmentEditor-' + bs.social.generateUniqueId();
-		var $attachment = me.makeAttachmentEditor( me.attachments.images[i], id );
-		me.$element.append( $attachment );
-		me.renderAttachment( me.attachments.images[i], id );
-		$( document ).on( 'click', '#' + id + ' a.delete', function( e ) {
-			e.stopPropagation();
-			var img = $( this ).siblings( 'img' ).first();
-			if( !img || img.length < 1 ) {
-				return false;
-			}
-			me.emit( 'change', me, {
-				files: [ img.attr( 'data-attachment' ) ]
-			} );
-			return false;
-		} );
-	}
+	this.render();
 };
 
 bs.ui.widget.TextInputAttachments.prototype.makeAttachmentEditor = function( attachment, id ) {
@@ -69,4 +52,35 @@ bs.ui.widget.TextInputAttachments.prototype.renderAttachment = function( attachm
 
 bs.ui.widget.TextInputAttachments.prototype.getValue = function() {
 	return this.attachments;
+};
+
+bs.ui.widget.TextInputAttachments.prototype.setValue = function( attachments ) {
+	this.attachments = attachments;
+	this.render();
+};
+
+bs.ui.widget.TextInputAttachments.prototype.render = function() {
+	var me = this;
+	me.$element.html( '' );
+	if( !me.attachments ) {
+		return;
+	}
+	for( var i in me.attachments.images ) {
+		var id = 'attachmentEditor-' + bs.social.generateUniqueId();
+		var $attachment = me.makeAttachmentEditor( me.attachments.images[i], id );
+		me.$element.append( $attachment );
+		me.renderAttachment( me.attachments.images[i], id );
+		$( document ).on( 'click', '#' + id + ' a.delete', function( e ) {
+			e.stopPropagation();
+			var img = $( this ).siblings( 'img' ).first();
+			if( !img || img.length < 1 ) {
+				return false;
+			}
+			me.emit( 'remove', me, {
+				files: [ img.attr( 'data-attachment' ) ]
+			} );
+			return false;
+		} );
+	}
+	me.emit( 'rendercomplete', me, {} );
 };

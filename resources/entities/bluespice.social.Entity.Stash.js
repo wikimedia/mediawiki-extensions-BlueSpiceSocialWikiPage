@@ -15,6 +15,16 @@ bs.social.EntityStash.prototype.init = function() {
 	}
 };
 
+bs.social.EntityStash.prototype.makeEditMode = function() {
+	bs.social.EntityStash.super.prototype.makeEditMode.apply( this );
+
+	var $attachments = this.getContainer( this.ATTACHMENTS_CONTAINER );
+
+	if( $attachments.length > 0 ) {
+		$attachments.show();
+	}
+};
+
 bs.social.EntityStash.prototype.reset = function( data ) {
 	return bs.social.EntityStash.super.prototype.reset.apply( this, [data] );
 };
