@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth <wirth@hallowelt.com>"
+			"Patric Wirth <wirth@hallowelt.com>",
+			"Mglaser"
 		]
 	},
 	"bs-socialwikipage-desc": "Wikiseiten-Entität und Funktionalität für BlueSpiceSocial",
@@ -21,5 +22,6 @@
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Hinzufügen",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Angehängte Dateien",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Löschen",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "Hinzufügen"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Hinzufügen",
+	"apihelp-bs-socialstash-tasks-summary": "Stellt Aufgaben für die Bearbeitung von verlinkten Seiten von Entitäten bereit"
 }

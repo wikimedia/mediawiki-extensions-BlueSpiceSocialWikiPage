@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Elroy",
+			"Robin van der Linde"
+		]
+	},
+	"wikipagestash": "Bijlagen",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Bestand toevoegen",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Toevoegen",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Verwijderen",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Toevoegen"
+}

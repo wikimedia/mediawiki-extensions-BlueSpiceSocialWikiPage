@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth <wirth@hallowelt.com>"
+			"Patric Wirth <wirth@hallowelt.com>",
+			"Hamilton Abreu"
 		]
 	},
 	"bs-socialwikipage-desc": "{{desc|name=BlueSpiceSocialWikiPage}}",
@@ -11,7 +12,7 @@
 	"bs-socialwikipage-nowikipageentity": "Text that shows when no attachment area has been created yet",
 	"bs-socialwikipage-noattachmentsadded": "Text that shows when no attachment was added yet",
 	"bs-socialwikipage-stashtype": "Label for option \"stash\" in entry field \"type\"{{Identical|Attachments}}",
-	"bs-socialwikipage-entitystash-header": "Headline for a \"stash\" entry. Schould link to owners user page [[User:$1|User:$1]]\n* $1 - Username of the owner of this entry\n* $2 - Real name of the owner of this entry\n* $3 - Main part of title of the source page, this entry is saved in as json data\n* $4 - Namespace number of the page, this entry is saved in as json data\n* $5 - Namespace name of the page, this entry is saved in as json data",
+	"bs-socialwikipage-entitystash-header": "Headline for a \"stash\" entry. Should link to owners user page [[User:$1|User:$1]]\n* $1 - Username of the owner of this entry\n* $2 - Real name of the owner of this entry\n* $3 - Main part of title of the source page, this entry is saved in as json data\n* $4 - Namespace number of the page, this entry is saved in as json data\n* $5 - Namespace name of the page, this entry is saved in as json data",
 	"bs-socialwikipage-entitystash-header-create": "Header for a stash entry, that is not yet existing{{Identical|New attachment}}",
 	"bs-socialwikipage-special-stash-heading": "Special page header for [[Special:Wikipagestash]] special page.\n{{Identical|Attachments}}",
 	"bs-socialwikipage-aftercontent-heading": "Label of the attachments section after a pages content\n{{Identical|Attachments}}",
