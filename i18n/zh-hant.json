@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"bs-socialwikipage-stashtype": "附件",
+	"bs-socialwikipage-special-stash-heading": "附件",
+	"bs-socialwikipage-stash-insertfiledialog-title": "增加檔案",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "刪除"
+}
