@@ -22,7 +22,7 @@
  * This file is part of BlueSpice for MediaWiki
  * For further information visit http://bluespice.com
  *
- * @author     Patric Wirth <wirth@hallowelt.com>
+ * @author     Patric Wirth
  * @package    BlueSpiceSocial
  * @subpackage BSSocialWikiPage
  * @copyright  Copyright (C) 2017 Hallo Welt! GmbH, All rights reserved.
