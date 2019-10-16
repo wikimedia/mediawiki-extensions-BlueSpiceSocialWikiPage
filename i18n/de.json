@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patric Wirth <wirth@hallowelt.com>"
+			"Patric Wirth",
+			"Mglaser"
 		]
 	},
 	"bs-socialwikipage-desc": "Wikiseiten-Entität und Funktionalität für BlueSpiceSocial",
