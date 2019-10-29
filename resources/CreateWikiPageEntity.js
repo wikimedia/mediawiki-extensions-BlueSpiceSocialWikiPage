@@ -56,6 +56,9 @@ bs.social.CreateWikiPageEntity.prototype.reloadPage = function() {
 };
 
 bs.social.CreateWikiPageEntity.prototype.goToSpecialAttachments = function() {
+	if ( mw.config.get( 'wgArticleId', 0 ) < 1 ) {
+		return this.reloadPage();
+	}
 	window.location = mw.util.getUrl(
 		'Special:Attachments/' + mw.config.get( 'wgPageName' )
 	);

@@ -2,6 +2,7 @@
 
 namespace BlueSpice\Social\WikiPage\Special;
 
+use MWException;
 use Title;
 use BlueSpice\Context;
 use BlueSpice\Services;
@@ -30,6 +31,12 @@ class Stash extends \BlueSpice\SpecialPage {
 		$title = $entiy = null;
 		if ( !empty( $par ) ) {
 			$title = Title::newFromText( $par );
+			if ( !$title ) {
+				throw new MWException( "Invalid Title '$par'" );
+			}
+			if ( !$title->exists() ) {
+				throw new MWException( "Title '$par' must exist" );
+			}
 			$this->getOutput()->addBacklinkSubtitle( $title );
 			$factory = Services::getInstance()->getService(
 				'BSSocialWikiPageEntityFactory'
