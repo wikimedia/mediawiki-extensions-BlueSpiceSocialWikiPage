@@ -9,5 +9,11 @@
 	"bs-socialwikipage-aftercontent-heading": "Adjuntos",
 	"wikipagestash": "Adjuntos",
 	"bs-socialwikipage-switch-nostash-description": "Oculta el área de adjuntos de esta página.",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "Añadir"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Añadir",
+	"bs-socialwikipage-stashtype": "Archivos adjuntos",
+	"bs-socialwikipage-special-stash-heading": "Archivos adjuntos",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Añadir archivo",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Añadir",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Archivos adjuntos",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Eliminar"
 }

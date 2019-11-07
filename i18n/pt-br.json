@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Luanafaro"
 		]
 	},
 	"bs-socialwikipage-desc": "Entidade e funcionalidade do WikiPage para BlueSpiceSocial",
@@ -21,5 +22,6 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "Arquivos anexados",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Excluir",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Adicionar",
-	"apihelp-bs-socialstash-tasks-summary": "Fornece tarefas para editar as páginas vinculadas das entidades"
+	"apihelp-bs-socialstash-tasks-summary": "Fornece tarefas para editar as páginas vinculadas das entidades",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] anexado"
 }
