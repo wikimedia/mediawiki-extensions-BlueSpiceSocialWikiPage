@@ -37,7 +37,7 @@ use User;
 use ParserOptions;
 use Title;
 use WikiPage as Article;
-use MediaWiki\MediaWikiServices;
+use BlueSpice\Services;
 use BsNamespaceHelper;
 use BlueSpice\Social\Entity\Page;
 
@@ -67,7 +67,7 @@ class WikiPage extends Page {
 	 */
 	public static function newFromWikiPageTitle( $oTitle ) {
 		wfDeprecated( __METHOD__, '3.0.0' );
-		$factory = MediaWikiServices::getInstance()->getServices()->getService(
+		$factory = Services::getInstance()->getServices()->getService(
 			'BSSocialWikiPageEntityFactory'
 		);
 		return $factory->newFromTitle( $oTitle );
