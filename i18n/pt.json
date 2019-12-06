@@ -16,5 +16,8 @@
 	"bs-socialwikipage-stash-insertfiledialog-title": "Adicionar ficheiro",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Adicionar",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Ficheiros anexados",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "Adicionar"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Adicionar",
+	"bs-socialwikipage-entitywikipage-header-create": "Criar nova área de anexos",
+	"bs-socialwikipage-nowikipageentity": "Ainda não foi criada nenhuma área de anexos",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Eliminar"
 }
