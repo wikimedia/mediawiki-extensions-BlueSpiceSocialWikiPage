@@ -26,12 +26,12 @@
  */
 namespace BlueSpice\Social\WikiPage;
 
-use BlueSpice\Data\ReaderParams;
 use BlueSpice\Data\Filter\Numeric;
-use BlueSpice\Social\WikiPage\EntityListContext\SpecialWikiPages;
-use BlueSpice\Services;
+use BlueSpice\Data\ReaderParams;
 use BlueSpice\EntityFactory;
+use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\Entity\WikiPage;
+use BlueSpice\Social\WikiPage\EntityListContext\SpecialWikiPages;
 
 class WikiPageFactory extends EntityFactory {
 

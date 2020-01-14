@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social\WikiPage\Renderer\Entity;
 
-use Config;
-use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Entity\Text as EntityText;
+use Config;
+use MediaWiki\Linker\LinkRenderer;
 
 class Stash extends \BlueSpice\Social\Renderer\Entity\Text {
 	const START_EDITOR = 'starteditor';

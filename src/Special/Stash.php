@@ -2,13 +2,13 @@
 
 namespace BlueSpice\Social\WikiPage\Special;
 
-use MWException;
-use Title;
 use BlueSpice\Context;
-use BlueSpice\Services;
 use BlueSpice\Entity;
 use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\EntityListContext\SpecialStash;
+use MWException;
+use Title;
 
 class Stash extends \BlueSpice\SpecialPage {
 

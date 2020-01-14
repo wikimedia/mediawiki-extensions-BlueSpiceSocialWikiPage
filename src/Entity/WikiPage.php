@@ -30,16 +30,16 @@
  */
 namespace BlueSpice\Social\WikiPage\Entity;
 
+use BlueSpice\Services;
+use BlueSpice\Social\Entity\Page;
+use BsNamespaceHelper;
 use Exception;
 use Message;
-use Status;
-use User;
 use ParserOptions;
+use Status;
 use Title;
+use User;
 use WikiPage as Article;
-use BlueSpice\Services;
-use BsNamespaceHelper;
-use BlueSpice\Social\Entity\Page;
 
 /**
  * WikiPage class for BSSocial extension

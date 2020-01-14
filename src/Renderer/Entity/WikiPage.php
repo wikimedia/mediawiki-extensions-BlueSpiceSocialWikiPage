@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\WikiPage\Renderer\Entity;
 
-use Html;
-use Config;
-use MediaWiki\Linker\LinkRenderer;
-use BlueSpice\Renderer\Params;
-use BlueSpice\DynamicFileDispatcher\Params as DFDParams;
 use BlueSpice\DynamicFileDispatcher\ArticlePreviewImage;
+use BlueSpice\DynamicFileDispatcher\Params as DFDParams;
+use BlueSpice\Renderer\Params;
+use Config;
+use Html;
+use MediaWiki\Linker\LinkRenderer;
 
 class WikiPage extends \BlueSpice\Social\Renderer\Entity\Page {
 

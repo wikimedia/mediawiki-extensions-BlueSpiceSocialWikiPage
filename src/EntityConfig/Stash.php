@@ -3,10 +3,10 @@
 
 namespace BlueSpice\Social\WikiPage\EntityConfig;
 
-use BlueSpice\Services;
-use BlueSpice\Social\EntityConfig\Text;
-use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Data\FieldType;
+use BlueSpice\Services;
+use BlueSpice\Social\Data\Entity\Schema;
+use BlueSpice\Social\EntityConfig\Text;
 use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
 
 /**

@@ -2,18 +2,18 @@
 
 namespace BlueSpice\Social\WikiPage\Renderer\EntityList;
 
-use Html;
-use Title;
-use Config;
-use IContextSource;
-use MediaWiki\Linker\LinkRenderer;
+use BlueSpice\Renderer\Params;
+use BlueSpice\RendererFactory;
+use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityAttachment;
 use BlueSpice\Social\Renderer\EntityList;
-use BlueSpice\RendererFactory;
-use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\EntityListContext\AfterContent;
+use Config;
+use Html;
+use IContextSource;
+use MediaWiki\Linker\LinkRenderer;
+use Title;
 
 class Attachments extends EntityList {
 

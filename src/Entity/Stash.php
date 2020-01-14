@@ -3,13 +3,13 @@
 
 namespace BlueSpice\Social\WikiPage\Entity;
 
+use BlueSpice\Services;
+use BlueSpice\Social\Entity\Text;
+use BsNamespaceHelper;
 use Exception;
 use Status;
 use Title;
 use User;
-use BsNamespaceHelper;
-use BlueSpice\Social\Entity\Text;
-use BlueSpice\Services;
 
 /**
  * Stash class for BSSocial extension

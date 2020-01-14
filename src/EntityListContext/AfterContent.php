@@ -2,20 +2,20 @@
 
 namespace BlueSpice\Social\WikiPage\EntityListContext;
 
-use Message;
-use Title;
-use SpecialPage;
-use User;
-use Config;
-use IContextSource;
-use HtmlArmor;
+use BlueSpice\Data\Filter\Boolean;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Numeric;
-use BlueSpice\Data\Filter\Boolean;
+use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\WikiPage\Entity\Stash;
-use BlueSpice\Services;
+use Config;
+use HtmlArmor;
+use IContextSource;
+use Message;
+use SpecialPage;
+use Title;
+use User;
 
 class AfterContent extends EntityListContext {
 

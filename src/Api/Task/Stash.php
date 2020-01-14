@@ -3,8 +3,8 @@
 namespace BlueSpice\Social\WikiPage\Api\Task;
 
 use BlueSpice\Api\Response\Standard;
-use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
 use BlueSpice\Services;
+use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
 
 /**
  * Api base class for simple tasks in BlueSpice

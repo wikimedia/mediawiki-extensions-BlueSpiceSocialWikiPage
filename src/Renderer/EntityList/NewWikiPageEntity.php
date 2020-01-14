@@ -2,12 +2,12 @@
 
 namespace BlueSpice\Social\WikiPage\Renderer\EntityList;
 
-use Config;
-use IContextSource;
-use Html;
-use BlueSpice\Services;
-use MediaWiki\Linker\LinkRenderer;
 use BlueSpice\Renderer\Params;
+use BlueSpice\Services;
+use Config;
+use Html;
+use IContextSource;
+use MediaWiki\Linker\LinkRenderer;
 
 class NewWikiPageEntity extends \BlueSpice\Social\Renderer\EntityList {
 

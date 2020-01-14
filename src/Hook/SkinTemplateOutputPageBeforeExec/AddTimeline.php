@@ -27,10 +27,10 @@
 namespace BlueSpice\Social\WikiPage\Hook\SkinTemplateOutputPageBeforeExec;
 
 use BlueSpice\Context;
-use BlueSpice\Renderer\Params;
 use BlueSpice\Hook\SkinTemplateOutputPageBeforeExec;
-use BlueSpice\Social\WikiPage\EntityListContext\AfterContent;
+use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Renderer\EntityList;
+use BlueSpice\Social\WikiPage\EntityListContext\AfterContent;
 
 class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 
@@ -66,7 +66,7 @@ class AddTimeline extends SkinTemplateOutputPageBeforeExec {
 		$prop = $this->getServices()->getBSUtilityFactory()
 			->getPagePropHelper( $this->skin->getTitle() )
 			->getPageProp( 'bs_nostash' );
-		if ( !is_null( $prop ) ) {
+		if ( $prop !== null ) {
 			return true;
 		}
 

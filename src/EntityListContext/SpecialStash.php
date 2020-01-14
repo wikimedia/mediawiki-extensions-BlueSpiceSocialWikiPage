@@ -2,15 +2,15 @@
 
 namespace BlueSpice\Social\WikiPage\EntityListContext;
 
-use Title;
-use User;
-use Config;
-use IContextSource;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Numeric;
-use BlueSpice\Social\WikiPage\Entity\WikiPage;
-use BlueSpice\Social\WikiPage\Entity\Stash;
 use BlueSpice\Services;
+use BlueSpice\Social\WikiPage\Entity\Stash;
+use BlueSpice\Social\WikiPage\Entity\WikiPage;
+use Config;
+use IContextSource;
+use Title;
+use User;
 
 class SpecialStash extends \BlueSpice\Social\EntityListContext {
 
