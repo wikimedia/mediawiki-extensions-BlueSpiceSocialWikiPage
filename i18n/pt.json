@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mansil alfalb"
+			"Mansil alfalb",
+			"Hamilton Abreu"
 		]
 	},
 	"bs-socialwikipage-type": "Página Wiki",
@@ -19,5 +20,8 @@
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Adicionar",
 	"bs-socialwikipage-entitywikipage-header-create": "Criar nova área de anexos",
 	"bs-socialwikipage-nowikipageentity": "Ainda não foi criada nenhuma área de anexos",
-	"bs-socialwikipage-stash-editor-attachedfile-delete": "Eliminar"
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Eliminar",
+	"bs-socialwikipage-desc": "Entidade e funcionalidade WikiPage para BlueSpiceSocial",
+	"bs-socialwikipage-switch-nostash-description": "Oculta a área de anexos desta página.",
+	"apihelp-bs-socialstash-tasks-summary": "Fornece tarefas para editar as páginas afluentes de entidades"
 }
