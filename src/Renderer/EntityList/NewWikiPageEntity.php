@@ -57,7 +57,7 @@ class NewWikiPageEntity extends \BlueSpice\Social\Renderer\EntityList {
 	}
 
 	protected function renderNewWikiPageEntity() {
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'social-wikipage-createnewwikipageentity',
 			new Params( [ 'context' => $this->getContext() ] )
 		);
