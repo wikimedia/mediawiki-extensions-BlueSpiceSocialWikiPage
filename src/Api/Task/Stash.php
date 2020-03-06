@@ -186,7 +186,7 @@ class Stash extends \BSApiTasksBase {
 	 * @return \BlueSpice\EntityFactory
 	 */
 	protected function getEntityFactory() {
-		return $this->getServices()->getBSEntityFactory();
+		return $this->getServices()->getService( 'BSEntityFactory' );
 	}
 
 	/**
@@ -195,7 +195,7 @@ class Stash extends \BSApiTasksBase {
 	 * @return \BlueSpice\Utility\WikiTextLinksHelper
 	 */
 	protected function getWikitextLinksHelper( $wikitext ) {
-		return $this->getServices()->getBSUtilityFactory()
+		return $this->getServices()->getService( 'BSUtilityFactory' )
 			->getWikiTextLinksHelper( $wikitext );
 	}
 

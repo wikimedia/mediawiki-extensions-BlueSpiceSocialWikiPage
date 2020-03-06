@@ -59,7 +59,7 @@ class Stash extends \BlueSpice\SpecialPage {
 			$entiy,
 			$title
 		);
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [ 'context' => $context ] )
 		);
@@ -84,7 +84,7 @@ class Stash extends \BlueSpice\SpecialPage {
 			$entiy,
 			$title
 		);
-		$renderer = Services::getInstance()->getBSRendererFactory()->get(
+		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
 			'social-wikipage-entitylist-newwikipageentity',
 			new Params( [ 'context' => $context ] )
 		);

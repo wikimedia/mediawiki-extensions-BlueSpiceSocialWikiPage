@@ -151,7 +151,7 @@ class SpecialStash extends \BlueSpice\Social\EntityListContext {
 	 */
 	public function getPreloadedEntities() {
 		$preloaded = parent::getPreloadedEntities();
-		$stash = Services::getInstance()->getBSEntityFactory()->newFromObject(
+		$stash = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject(
 			$this->getRawStash()
 		);
 		if ( !$stash instanceof Stash ) {
