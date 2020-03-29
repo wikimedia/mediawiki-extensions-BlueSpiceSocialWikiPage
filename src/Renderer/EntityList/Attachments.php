@@ -13,6 +13,7 @@ use Config;
 use Html;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MediaWikiServices;
 use Title;
 
 class Attachments extends EntityList {
@@ -142,6 +143,7 @@ class Attachments extends EntityList {
 			'AvailableAttachments'
 		);
 
+		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
 		$attachmentTypes = $entity->get( $entity::ATTR_ATTACHMENTS, [] );
 		foreach ( $attachmentTypes as $type => $attachments ) {
 			if ( !in_array( $type, $availableAttachments ) ) {
@@ -153,7 +155,7 @@ class Attachments extends EntityList {
 					if ( !$title ) {
 						continue;
 					}
-					$file = wfFindFile( $title );
+					$file = $repoGroup->findFile( $title );
 					if ( !$file ) {
 						continue;
 					}
