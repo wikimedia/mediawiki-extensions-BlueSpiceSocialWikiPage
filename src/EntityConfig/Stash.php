@@ -1,6 +1,5 @@
 <?php
 
-
 namespace BlueSpice\Social\WikiPage\EntityConfig;
 
 use BlueSpice\Data\FieldType;

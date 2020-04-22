@@ -1,6 +1,5 @@
 <?php
 
-
 namespace BlueSpice\Social\WikiPage\Entity;
 
 use BlueSpice\Services;
