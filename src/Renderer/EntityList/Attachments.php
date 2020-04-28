@@ -98,7 +98,7 @@ class Attachments extends EntityList {
 			$linkRenderer = $services->getLinkRenderer();
 		}
 		if ( !$rendererFactory ) {
-			$rendererFactory = $services->getBSRendererFactory();
+			$rendererFactory = $services->getService( 'BSRendererFactory' );
 		}
 
 		return new static(

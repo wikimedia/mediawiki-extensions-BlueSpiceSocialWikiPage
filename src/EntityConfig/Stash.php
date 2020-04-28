@@ -44,12 +44,12 @@ class Stash extends Text {
 	 * @return array
 	 */
 	protected function get_ModuleScripts() {
-		$dropzone = Services::getInstance()->getBSExtensionFactory()
+		$dropzone = Services::getInstance()->getService( 'BSExtensionFactory' )
 			->getExtension( 'BlueSpiceMultiUpload' )
 			? [ "ext.bluespice.social.entity.stash.dropzone" ]
 			: [];
 		$insertFile = [ "ext.bluespice.social.entity.stash.insertfile" ];
-		$insertLink = Services::getInstance()->getBSExtensionFactory()
+		$insertLink = Services::getInstance()->getService( 'BSExtensionFactory' )
 			->getExtension( 'BlueSpiceInsertLink' )
 			? [ "ext.bluespice.social.entity.stash.insertlink" ]
 			: [];
@@ -69,7 +69,7 @@ class Stash extends Text {
 	 * @return array
 	 */
 	protected function get_ModuleStyles() {
-		$insertFile = Services::getInstance()->getBSExtensionFactory()
+		$insertFile = Services::getInstance()->getService( 'BSExtensionFactory' )
 			->getExtension( 'BlueSpiceInsertFile' )
 			? [ "ext.bluespice.insertFile.styles" ]
 			: [];
