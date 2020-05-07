@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"bs-socialwikipage-type": "Wikiside",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Tilføj fil",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Tilføj",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Slet",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Tilføj"
+}
