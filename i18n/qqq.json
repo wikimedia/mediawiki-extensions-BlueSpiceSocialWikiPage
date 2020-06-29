@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"Hamilton Abreu",
 			"Patric Wirth"
 		]
@@ -21,7 +22,7 @@
 	"bs-socialwikipage-switch-nostash-description": "Description for behavior switch \"<nowiki>__NOSTASH__</nowiki>\" that hides the attachment area of this page.",
 	"bs-socialwikipage-stash-insertfiledialog-title": "Title in dialog that adds files to the stash entry\n{{Identical|Add file}}",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Button in dialog that adds a file to the stash entry\n{{Identical|Add}}",
-	"bs-socialwikipage-stash-editor-attachedfiles": "Label for section in stash entry that lists attached files\n{{Identical|Attached files}}",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Label for section in stash entry that lists attached files",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Short label for button that deletes an attached file from the stash entry\n{{Identical|Delete}}",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Short label for button that adds an attached file to the stash entry\n{{Identical|Add}}",
 	"apihelp-bs-socialstash-tasks-summary": "{{doc-apihelp-summary|bs-socialstash-tasks}}"
