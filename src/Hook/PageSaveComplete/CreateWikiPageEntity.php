@@ -1,9 +1,9 @@
 <?php
-namespace BlueSpice\Social\WikiPage\Hook\PageContentSaveComplete;
+namespace BlueSpice\Social\WikiPage\Hook\PageSaveComplete;
 
-use BlueSpice\Hook\PageContentSaveComplete;
+use BlueSpice\Hook\PageSaveComplete;
 
-class CreateWikiPageEntity extends PageContentSaveComplete {
+class CreateWikiPageEntity extends PageSaveComplete {
 	protected function skipProcessing() {
 		// this is a bit hacky but without it the unit tests fail due to
 		// more pages existing than exspected
@@ -11,18 +11,13 @@ class CreateWikiPageEntity extends PageContentSaveComplete {
 			return true;
 		}
 
-		if ( $this->isMinor || !$this->revision ) {
+		if ( ( $this->flags & EDIT_MINOR )|| !$this->revisionRecord ) {
 			return true;
 		}
-		if ( !$this->status->isOK() || $this->status->hasMessage( 'edit-no-change' ) ) {
-			// ugly. we need to check the status object for the no edit warning,
-			// cause on this point in the code it ist - unfortunaltey -
-			// impossible to find out, if this edit changed something.
-			// '$article->getLatest()' is always the same as
-			// '$this->revision->getId()'. '$baseRevId' is always 'false' #5240
+		if ( $this->editResult->isNullEdit() ) {
 			return true;
 		}
-		$title = $this->wikipage->getTitle();
+		$title = $this->wikiPage->getTitle();
 		if ( !$title || !$title->exists() ) {
 			return true;
 		}
@@ -47,7 +42,7 @@ class CreateWikiPageEntity extends PageContentSaveComplete {
 			'BSSocialWikiPageEntityFactory'
 		);
 		$entity = $factory->newFromTitle(
-			$this->wikipage->getTitle()
+			$this->wikiPage->getTitle()
 		);
 		if ( !$entity ) {
 			// do not fatal - here is something wrong very bad!

@@ -158,7 +158,7 @@
 	},
 	"Hooks": {
 		"BSSocialModuleDepths": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSSocialModuleDepths\\AddModules::callback",
-		"PageContentSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageContentSaveComplete\\CreateWikiPageEntity::callback",
+		"PageSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageSaveComplete\\CreateWikiPageEntity::callback",
 		"SkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\WikiPage\\Hook\\SkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
 		"GetDoubleUnderscoreIDs": "\\BlueSpice\\Social\\WikiPage\\Hook\\GetDoubleUnderscoreIDs\\AddStash::callback",
 		"BSInsertMagicAjaxGetData": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSInsertMagicAjaxGetData\\AddNoStashSwitch::callback"
