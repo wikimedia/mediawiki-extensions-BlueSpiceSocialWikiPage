@@ -1,6 +1,6 @@
 <?php
 /**
- * Hook handler base class for MediaWiki hook SkinTemplateOutputPageBeforeExec
+ * Hook handler base class for Chameleon hook ChameleonSkinTemplateOutputPageBeforeExec
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,15 +24,15 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GPL-3.0-only
  * @filesource
  */
-namespace BlueSpice\Social\WikiPage\Hook\SkinTemplateOutputPageBeforeExec;
+namespace BlueSpice\Social\WikiPage\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
 
 use BlueSpice\Context;
-use BlueSpice\Hook\SkinTemplateOutputPageBeforeExec;
+use BlueSpice\Calumma\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\WikiPage\EntityListContext\AfterContent;
 
-class AddTimeline extends SkinTemplateOutputPageBeforeExec {
+class AddTimeline extends ChameleonSkinTemplateOutputPageBeforeExec {
 
 	/**
 	 *
