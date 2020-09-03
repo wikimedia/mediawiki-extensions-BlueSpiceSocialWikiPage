@@ -30,10 +30,10 @@
  */
 namespace BlueSpice\Social\WikiPage\Entity;
 
-use BlueSpice\Services;
 use BlueSpice\Social\Entity\Page;
 use BsNamespaceHelper;
 use Exception;
+use MediaWiki\MediaWikiServices;
 use Message;
 use ParserOptions;
 use Status;
@@ -67,7 +67,7 @@ class WikiPage extends Page {
 	 */
 	public static function newFromWikiPageTitle( $oTitle ) {
 		wfDeprecated( __METHOD__, '3.0.0' );
-		$factory = Services::getInstance()->getServices()->getService(
+		$factory = MediaWikiServices::getInstance()->getServices()->getService(
 			'BSSocialWikiPageEntityFactory'
 		);
 		return $factory->newFromTitle( $oTitle );

@@ -3,10 +3,10 @@
 namespace BlueSpice\Social\WikiPage\EntityConfig;
 
 use BlueSpice\Data\FieldType;
-use BlueSpice\Services;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\EntityConfig\Text;
 use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Stash class for BSSocial extension
@@ -44,12 +44,12 @@ class Stash extends Text {
 	 * @return array
 	 */
 	protected function get_ModuleScripts() {
-		$dropzone = Services::getInstance()->getService( 'BSExtensionFactory' )
+		$dropzone = MediaWikiServices::getInstance()->getService( 'BSExtensionFactory' )
 			->getExtension( 'BlueSpiceMultiUpload' )
 			? [ "ext.bluespice.social.entity.stash.dropzone" ]
 			: [];
 		$insertFile = [ "ext.bluespice.social.entity.stash.insertfile" ];
-		$insertLink = Services::getInstance()->getService( 'BSExtensionFactory' )
+		$insertLink = MediaWikiServices::getInstance()->getService( 'BSExtensionFactory' )
 			->getExtension( 'BlueSpiceInsertLink' )
 			? [ "ext.bluespice.social.entity.stash.insertlink" ]
 			: [];
@@ -69,7 +69,7 @@ class Stash extends Text {
 	 * @return array
 	 */
 	protected function get_ModuleStyles() {
-		$insertFile = Services::getInstance()->getService( 'BSExtensionFactory' )
+		$insertFile = MediaWikiServices::getInstance()->getService( 'BSExtensionFactory' )
 			->getExtension( 'BlueSpiceInsertFile' )
 			? [ "ext.bluespice.insertFile.styles" ]
 			: [];

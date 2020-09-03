@@ -2,10 +2,10 @@
 
 namespace BlueSpice\Social\WikiPage\Entity;
 
-use BlueSpice\Services;
 use BlueSpice\Social\Entity\Text;
 use BsNamespaceHelper;
 use Exception;
+use MediaWiki\MediaWikiServices;
 use Status;
 use Title;
 use User;
@@ -104,7 +104,7 @@ class Stash extends Text {
 		}
 		$status = Status::newGood();
 		try {
-			$factory = Services::getInstance()->getService(
+			$factory = MediaWikiServices::getInstance()->getService(
 				'BSSocialWikiPageEntityFactory'
 			);
 			$entity = $factory->newFromTitle( $title );
@@ -132,7 +132,7 @@ class Stash extends Text {
 		if ( !$title || !$title->exists() ) {
 			return;
 		}
-		$factory = Services::getInstance()->getService(
+		$factory = MediaWikiServices::getInstance()->getService(
 			'BSSocialWikiPageEntityFactory'
 		);
 		$entity = $factory->newFromTitle( $title );

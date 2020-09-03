@@ -5,13 +5,13 @@ namespace BlueSpice\Social\WikiPage\EntityListContext;
 use BlueSpice\Data\Filter\Boolean;
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Numeric;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\WikiPage\Entity\Stash;
 use Config;
 use HtmlArmor;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use Message;
 use SpecialPage;
 use Title;
@@ -164,7 +164,7 @@ class AfterContent extends EntityListContext {
 			'WikiPageStash',
 			$this->getTitle()->getFullText()
 		);
-		return Services::getInstance()->getLinkRenderer()->makeKnownLink(
+		return MediaWikiServices::getInstance()->getLinkRenderer()->makeKnownLink(
 			$special,
 			new HtmlArmor( $this->getMoreLinkMessage()->text() )
 		);
@@ -192,7 +192,7 @@ class AfterContent extends EntityListContext {
 	 */
 	public function getPreloadedEntities() {
 		$preloaded = parent::getPreloadedEntities();
-		$stash = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject(
+		$stash = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )->newFromObject(
 			$this->getRawStash()
 		);
 		if ( !$stash instanceof Stash ) {

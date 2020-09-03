@@ -3,10 +3,10 @@
 namespace BlueSpice\Social\WikiPage\Renderer;
 
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use Config;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MediaWikiServices;
 use OutputPage;
 use RequestContext;
 
@@ -53,7 +53,7 @@ class CreateFirstAttachmentAfterContent extends \BlueSpice\Renderer {
 		OutputPage::setupOOUI();
 
 		$title = $this->getContext()->getTitle();
-		$factory = Services::getInstance()->getService(
+		$factory = MediaWikiServices::getInstance()->getService(
 			'BSSocialWikiPageEntityFactory'
 		);
 		$entity = $factory->newFromTitle( $title );
