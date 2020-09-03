@@ -4,7 +4,6 @@ namespace BlueSpice\Social\WikiPage\Renderer\EntityList;
 
 use BlueSpice\Renderer\Params;
 use BlueSpice\RendererFactory;
-use BlueSpice\Services;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityAttachment;
 use BlueSpice\Social\Renderer\EntityList;
@@ -74,7 +73,7 @@ class Attachments extends EntityList {
 	/**
 	 *
 	 * @param string $name
-	 * @param Services $services
+	 * @param MediaWikiServices $services
 	 * @param Config $config
 	 * @param Params $params
 	 * @param IContextSource|null $context
@@ -82,8 +81,8 @@ class Attachments extends EntityList {
 	 * @param RendererFactory|null $rendererFactory
 	 * @return Renderer
 	 */
-	public static function factory( $name, Services $services, Config $config, Params $params,
-		IContextSource $context = null, LinkRenderer $linkRenderer = null,
+	public static function factory( $name, MediaWikiServices $services, Config $config,
+		Params $params, IContextSource $context = null, LinkRenderer $linkRenderer = null,
 		RendererFactory $rendererFactory = null ) {
 		if ( !$context ) {
 			$context = $params->get(

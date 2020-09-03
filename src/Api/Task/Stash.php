@@ -3,8 +3,8 @@
 namespace BlueSpice\Social\WikiPage\Api\Task;
 
 use BlueSpice\Api\Response\Standard;
-use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
+use MediaWiki\MediaWikiServices;
 
 /**
  * Api base class for simple tasks in BlueSpice
@@ -201,9 +201,9 @@ class Stash extends \BSApiTasksBase {
 
 	/**
 	 *
-	 * @return Services
+	 * @return MediaWikiServices
 	 */
 	protected function getServices() {
-		return Services::getInstance();
+		return MediaWikiServices::getInstance();
 	}
 }
