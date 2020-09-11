@@ -3,11 +3,11 @@
 namespace BlueSpice\Social\WikiPage\Renderer\EntityList;
 
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use Config;
 use Html;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
+use MediaWiki\MediaWikiServices;
 
 class NewWikiPageEntity extends \BlueSpice\Social\Renderer\EntityList {
 
@@ -57,7 +57,7 @@ class NewWikiPageEntity extends \BlueSpice\Social\Renderer\EntityList {
 	}
 
 	protected function renderNewWikiPageEntity() {
-		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'social-wikipage-createnewwikipageentity',
 			new Params( [ 'context' => $this->getContext() ] )
 		);

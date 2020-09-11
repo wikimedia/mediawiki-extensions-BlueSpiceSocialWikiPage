@@ -4,11 +4,11 @@ namespace BlueSpice\Social\WikiPage\EntityListContext;
 
 use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Data\Filter\Numeric;
-use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\Entity\Stash;
 use BlueSpice\Social\WikiPage\Entity\WikiPage;
 use Config;
 use IContextSource;
+use MediaWiki\MediaWikiServices;
 use Title;
 use User;
 
@@ -151,7 +151,7 @@ class SpecialStash extends \BlueSpice\Social\EntityListContext {
 	 */
 	public function getPreloadedEntities() {
 		$preloaded = parent::getPreloadedEntities();
-		$stash = Services::getInstance()->getService( 'BSEntityFactory' )->newFromObject(
+		$stash = MediaWikiServices::getInstance()->getService( 'BSEntityFactory' )->newFromObject(
 			$this->getRawStash()
 		);
 		if ( !$stash instanceof Stash ) {

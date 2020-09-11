@@ -29,9 +29,9 @@ namespace BlueSpice\Social\WikiPage;
 use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Data\ReaderParams;
 use BlueSpice\EntityFactory;
-use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\Entity\WikiPage;
 use BlueSpice\Social\WikiPage\EntityListContext\SpecialWikiPages;
+use MediaWiki\MediaWikiServices;
 
 class WikiPageFactory extends EntityFactory {
 
@@ -58,7 +58,7 @@ class WikiPageFactory extends EntityFactory {
 			\RequestContext::getMain(),
 			$this->config
 		);
-		$serviceUser = Services::getInstance()->getService( 'BSUtilityFactory' )
+		$serviceUser = MediaWikiServices::getInstance()->getService( 'BSUtilityFactory' )
 			->getMaintenanceUser()->getUser();
 
 		$listContext = new SpecialWikiPages(

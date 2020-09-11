@@ -5,8 +5,8 @@ namespace BlueSpice\Social\WikiPage\Special;
 use BlueSpice\Context;
 use BlueSpice\Entity;
 use BlueSpice\Renderer\Params;
-use BlueSpice\Services;
 use BlueSpice\Social\WikiPage\EntityListContext\SpecialStash;
+use MediaWiki\MediaWikiServices;
 use MWException;
 use Title;
 
@@ -38,7 +38,7 @@ class Stash extends \BlueSpice\SpecialPage {
 				throw new MWException( "Title '$par' must exist" );
 			}
 			$this->getOutput()->addBacklinkSubtitle( $title );
-			$factory = Services::getInstance()->getService(
+			$factory = MediaWikiServices::getInstance()->getService(
 				'BSSocialWikiPageEntityFactory'
 			);
 			$entiy = $factory->newFromTitle( $title );
@@ -59,7 +59,7 @@ class Stash extends \BlueSpice\SpecialPage {
 			$entiy,
 			$title
 		);
-		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'entitylist',
 			new Params( [ 'context' => $context ] )
 		);
@@ -84,7 +84,7 @@ class Stash extends \BlueSpice\SpecialPage {
 			$entiy,
 			$title
 		);
-		$renderer = Services::getInstance()->getService( 'BSRendererFactory' )->get(
+		$renderer = MediaWikiServices::getInstance()->getService( 'BSRendererFactory' )->get(
 			'social-wikipage-entitylist-newwikipageentity',
 			new Params( [ 'context' => $context ] )
 		);
