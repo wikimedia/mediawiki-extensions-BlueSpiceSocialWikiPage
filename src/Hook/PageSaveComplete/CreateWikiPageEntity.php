@@ -11,7 +11,7 @@ class CreateWikiPageEntity extends PageSaveComplete {
 			return true;
 		}
 
-		if ( ( $this->flags & EDIT_MINOR )|| !$this->revisionRecord ) {
+		if ( ( $this->flags & EDIT_MINOR ) || !$this->revisionRecord ) {
 			return true;
 		}
 		if ( $this->editResult->isNullEdit() ) {
