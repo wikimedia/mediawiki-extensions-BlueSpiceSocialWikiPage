@@ -21,17 +21,17 @@ a.bs-social-entityspawner-stash:before {
 	position: relative;
 	ul.empty-attachments li {
 		padding: 0;
-
 		& > div {
 			padding: 0;
 		}
 	}
+
 	.bs-social-entitylist-headline > h3 {
 		padding: 13px 0;
-		border: none;
-		color: #666666;
-		font-size: 0.875rem;
+		border-bottom: 2px solid @bs-primary-light-subelement-border;
+		color: @bs-primary-light-subelement-border;
 		font-weight: bold;
+		font-size: 1.0rem;
 	}
 
 	.bs-socialwikipage-attachment-create-first,
@@ -41,11 +41,9 @@ a.bs-social-entityspawner-stash:before {
 		top: 0.3rem;
 		.oo-ui-buttonElement-button {
 			margin-top: 5px;
-
 			.oo-ui-labelElement-label {
 				display: none;
 			}
-
 			&:selected,&:active,&:focus {
 				border-color: transparent;
 			}
