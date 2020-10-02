@@ -81,14 +81,21 @@
 				"ext.bluespice.social.entity.text"
 			],
 			"scripts": [
-				"entities/bluespice.social.Entity.Stash.js",
-				"ui/widget/TextInputAttachments.js",
-				"ui/EntityEditorStash.js"
+				"entities/bluespice.social.Entity.Stash.js"
 			],
 			"messages": [
 				"bs-socialwikipage-stash-editor-attachedfiles",
 				"bs-socialwikipage-stash-editor-attachedfile-delete",
 				"bs-socialwikipage-stash-editor-attachedfile-add"
+			]
+		},
+		"ext.bluespice.social.entity.editor.stash": {
+			"dependencies": [
+				"ext.bluespice.social.entity.editor.text"
+			],
+			"scripts": [
+				"ui/widget/TextInputAttachments.js",
+				"ui/EntityEditorStash.js"
 			]
 		},
 		"ext.bluespice.social.entity.stash.dropzone": {

@@ -81,6 +81,16 @@ class Stash extends Text {
 
 	/**
 	 *
+	 * @return string[]
+	 */
+	protected function get_ModuleEditScripts() {
+		return array_merge( parent::get_ModuleEditScripts(), [
+			'ext.bluespice.social.entity.editor.stash'
+		] );
+	}
+
+	/**
+	 *
 	 * @return string
 	 */
 	protected function get_TypeMessageKey() {
