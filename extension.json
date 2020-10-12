@@ -8,9 +8,9 @@
 	"requires": {
 		"MediaWiki": ">= 1.35.0",
 		"extensions": {
-			"BlueSpiceFoundation": ">= 3.3",
-			"BlueSpiceSocial": ">= 3.3",
-			"BlueSpiceMultiUpload": ">= 3.3"
+			"BlueSpiceFoundation": ">= 4.0",
+			"BlueSpiceSocial": ">= 4.0",
+			"BlueSpiceMultiUpload": ">= 4.0"
 		}
 	},
 	"type": "bluespice",
