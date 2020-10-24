@@ -33,7 +33,6 @@ namespace BlueSpice\Social\WikiPage\Entity;
 use BlueSpice\Social\Entity\Page;
 use BsNamespaceHelper;
 use Exception;
-use MediaWiki\MediaWikiServices;
 use Message;
 use ParserOptions;
 use Status;
@@ -58,20 +57,6 @@ class WikiPage extends Page {
 	 * @var string
 	 */
 	protected $baseTitleContent = null;
-
-	/**
-	 * @deprecated since version 3.0.0 - Use service
-	 * (BSSocialWikiPageEntityFactory)->newFromTitle instead
-	 * @param Title $oTitle
-	 * @return WikiPage | null
-	 */
-	public static function newFromWikiPageTitle( $oTitle ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		$factory = MediaWikiServices::getInstance()->getServices()->getService(
-			'BSSocialWikiPageEntityFactory'
-		);
-		return $factory->newFromTitle( $oTitle );
-	}
 
 	/**
 	 *
@@ -131,67 +116,6 @@ class WikiPage extends Page {
 				),
 			]
 		) );
-	}
-
-	/**
-	 * Returns the titletext attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return string
-	 */
-	public function getTitleText() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_TITLE_TEXT, '' );
-	}
-
-	/**
-	 * Returns the namespace attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return integer
-	 */
-	public function getNamespace() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_NAMESPACE, 0 );
-	}
-
-	/**
-	 * Returns the wikipageid attribute
-	 * @deprecated since version 3.0.0 - use get( $attrName, $default ) instead
-	 * @return integer
-	 */
-	public function getWikiPageID() {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->get( static::ATTR_WIKI_PAGE_ID, 0 );
-	}
-
-	/**
-	 * Sets the titletext attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @return ActionTitle
-	 */
-	public function setTitleText( $sTitleText ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_TITLE_TEXT, $sTitleText );
-	}
-
-	/**
-	 * Sets the namespace attribute
-	 * @deprecated since version 3.0.0 - use set( $attrName, $value ) instead
-	 * @return ActionTitle
-	 */
-	public function setNamespace( $iNamespace ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_NAMESPACE, $iNamespace );
-	}
-
-	/**
-	 * Sets the wikipageid attribute
-	 * @param integer $iWikiPageID
-	 * @deprecated since version 3.0.0 - use set( $attrName, $variable ) instead
-	 * @return ActionWikiPage
-	 */
-	public function setWikiPageID( $iWikiPageID ) {
-		wfDeprecated( __METHOD__, '3.0.0' );
-		return $this->set( static::ATTR_WIKI_PAGE_ID, $iWikiPageID );
 	}
 
 	/**
