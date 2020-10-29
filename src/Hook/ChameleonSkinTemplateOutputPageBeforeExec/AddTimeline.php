@@ -26,8 +26,8 @@
  */
 namespace BlueSpice\Social\WikiPage\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
 
-use BlueSpice\Context;
 use BlueSpice\Calumma\Hook\ChameleonSkinTemplateOutputPageBeforeExec;
+use BlueSpice\Context;
 use BlueSpice\Renderer\Params;
 use BlueSpice\Social\Renderer\EntityList;
 use BlueSpice\Social\WikiPage\EntityListContext\AfterContent;
