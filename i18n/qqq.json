@@ -1,14 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"BaRaN6161 TURK",
 			"Hamilton Abreu",
-			"Patric Wirth"
+			"Patric Wirth",
+			"Umherirrender"
 		]
 	},
 	"bs-socialwikipage-desc": "{{desc|name=BlueSpiceSocialWikiPage}}",
 	"bs-socialwikipage-type": "Label for option \"wikipage\" in entry field \"type\"{{Identical|Wikipage}}",
-	"bs-socialwikipage-entitywikipage-header": "Headline for a \"discussion\" entry. Schould link to the source page of this entry [[$5:$3|$5:$3]]\n* $1 - Username of the owner of this entry\n* $2 - Real name of the owner of this entry\n* $3 - Main part of title of the source page, this entry is saved in as json data\n* $4 - Namespace number of the page, this entry is saved in as json data\n* $5 - Namespace name of the page, this entry is saved in as json data\n* $6 - Main title part of the page, this entry refferes to\n* $7 - Namespace number of the page, this entry refferes to\n* $8 - Namespace text of the page, this entry refferes to\n* $9 - Full title of the page, this entry refferes to",
+	"bs-socialwikipage-entitywikipage-header": "{{notranslate}}\nHeadline for a \"discussion\" entry. Schould link to the source page of this entry [[$5:$3|$5:$3]]\n* $1 - Username of the owner of this entry\n* $2 - Real name of the owner of this entry\n* $3 - Main part of title of the source page, this entry is saved in as json data\n* $4 - Namespace number of the page, this entry is saved in as json data\n* $5 - Namespace name of the page, this entry is saved in as json data\n* $6 - Main title part of the page, this entry refferes to\n* $7 - Namespace number of the page, this entry refferes to\n* $8 - Namespace text of the page, this entry refferes to\n* $9 - Full title of the page, this entry refferes to",
 	"bs-socialwikipage-entitywikipage-header-create": "Header for a wikipage entry, that is not yet existing{{Identical|Create new attachment area}}",
 	"bs-socialwikipage-nowikipageentity": "Text that shows when no attachment area has been created yet",
 	"bs-socialwikipage-noattachmentsadded": "Text that shows when no attachment was added yet",
