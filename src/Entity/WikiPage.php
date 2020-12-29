@@ -96,7 +96,7 @@ class WikiPage extends Page {
 	/**
 	 * Gets the BSSociaEntityPage attributes formated for the api
 	 * @param array $a
-	 * @return object
+	 * @return array
 	 */
 	public function getFullData( $a = [] ) {
 		return parent::getFullData( array_merge(
