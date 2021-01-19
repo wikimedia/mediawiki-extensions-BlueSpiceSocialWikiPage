@@ -43,7 +43,7 @@ class WikiPageFactory extends EntityFactory {
 
 	/**
 	 * @param \Title $title
-	 * @return WikiPage | null
+	 * @return WikiPage|null
 	 */
 	public function newFromTitle( \Title $title ) {
 		if ( !$title->exists() || $title->isTalkPage() ) {
