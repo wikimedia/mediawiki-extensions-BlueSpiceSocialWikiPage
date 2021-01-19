@@ -29,7 +29,7 @@ class Attachments extends EntityList {
 	 * @param Params $params
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
-	 * @param string $name | ''
+	 * @param string $name
 	 * @param RendererFactory|null $rendererFactory
 	 */
 	protected function __construct( Config $config, Params $params,
