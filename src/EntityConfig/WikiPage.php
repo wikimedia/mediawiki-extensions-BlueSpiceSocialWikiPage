@@ -147,7 +147,7 @@ class WikiPage extends Page {
 	 * @return bool
 	 */
 	protected function get_IsCreatable() {
-		return true;
+		return false;
 	}
 
 	/**
@@ -163,6 +163,14 @@ class WikiPage extends Page {
 	 * @return bool
 	 */
 	protected function get_IsTagable() {
+		return false;
+	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	protected function get_IsEditable() {
 		return false;
 	}
 
