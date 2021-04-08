@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Andreyyshore",
 			"GabiBil"
 		]
 	},
@@ -11,6 +12,6 @@
 	"wikipagestash": "Atașamente",
 	"bs-socialwikipage-stash-insertfiledialog-title": "Adaugă fișier",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Adaugă",
-	"bs-socialwikipage-stash-editor-attachedfile-delete": "Ştergeți",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Ștergeți",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Adaugă"
 }
