@@ -5,7 +5,7 @@ use MediaWiki\MediaWikiServices;
 
 return [
 
-	'BSSocialWikiPageEntityFactory' => function ( MediaWikiServices $services ) {
+	'BSSocialWikiPageEntityFactory' => static function ( MediaWikiServices $services ) {
 		$registry = new ExtensionAttributeBasedRegistry(
 			'BlueSpiceFoundationEntityRegistry'
 		);
