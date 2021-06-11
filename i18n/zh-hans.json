@@ -1,11 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			")8",
 			"A Chinese Wikipedian"
 		]
 	},
 	"bs-socialwikipage-entitystash-header-create": "新附件",
 	"bs-socialwikipage-aftercontent-heading": "附件",
 	"wikipagestash": "附件",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "加入"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "加入",
+	"bs-socialwikipage-stash-insertfiledialog-title": "添加文件",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "添加",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "删除"
 }
