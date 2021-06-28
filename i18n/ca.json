@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Vfc"
 		]
 	},
 	"bs-socialwikipage-noattachmentsadded": "Encara no s’ha afegit cap adjunció",
@@ -13,6 +14,7 @@
 	"bs-socialwikipage-var-wikipageid": "Pàgina assignada",
 	"bs-socialwikipage-switch-nostash-description": "Amaga l’àrea d’adjuncions d’aquesta pàgina.",
 	"bs-socialwikipage-stash-insertfiledialog-title": "Afegeix un fitxer",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Afegeix",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Fitxers adjunts",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Suprimeix",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Afegeix"
