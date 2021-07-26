@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"DDPAT",
 			"Piramidion"
 		]
 	},
-	"bs-socialwikipage-desc": "Сутність та функціонал WikiPage для BlueSpiceSocial",
+	"bs-socialwikipage-desc": "Сутність та функціонал вікісторінки для BlueSpiceSocial",
 	"bs-socialwikipage-type": "Вікісторінка",
 	"bs-socialwikipage-entitywikipage-header-create": "Створити нову область вкладень",
 	"bs-socialwikipage-nowikipageentity": "Області вкладень ще не створено",
