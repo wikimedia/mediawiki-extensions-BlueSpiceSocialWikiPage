@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"bs-socialwikipage-desc": "Entitate e functionalitate WikiPage pro BlueSpiceSocial",
+	"bs-socialwikipage-type": "Pagina wiki",
+	"bs-socialwikipage-entitywikipage-header-create": "Crear nove area de annexo",
+	"bs-socialwikipage-nowikipageentity": "Nulle area de annexo ha ancora essite create",
+	"bs-socialwikipage-noattachmentsadded": "Nulle annexo ha ancora essite addite",
+	"bs-socialwikipage-stashtype": "Annexos",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] annexate",
+	"bs-socialwikipage-entitystash-header-create": "Nove annexo",
+	"bs-socialwikipage-special-stash-heading": "Annexos",
+	"bs-socialwikipage-aftercontent-heading": "Annexos",
+	"wikipagestash": "Annexos",
+	"bs-socialwikipage-var-wikipageid": "Pagina assignate",
+	"bs-socialwikipage-switch-nostash-description": "Celar le area de annexo de iste pagina.",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Adder file",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Adder",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Files annexate",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Deler",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Adder",
+	"apihelp-bs-socialstash-tasks-summary": "Forni processos pro modificar le paginas ligate de entitates"
+}
