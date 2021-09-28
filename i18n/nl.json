@@ -3,7 +3,8 @@
 		"authors": [
 			"Elroy",
 			"Mainframe98",
-			"Robin van der Linde"
+			"Robin van der Linde",
+			"Romaine"
 		]
 	},
 	"wikipagestash": "Bijlagen",
@@ -13,5 +14,9 @@
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Toevoegen",
 	"bs-socialwikipage-stashtype": "Bijlagen",
 	"bs-socialwikipage-special-stash-heading": "Bijlagen",
-	"bs-socialwikipage-aftercontent-heading": "Bijlagen"
+	"bs-socialwikipage-aftercontent-heading": "Bijlagen",
+	"bs-socialwikipage-type": "Wikipagina",
+	"bs-socialwikipage-entitystash-header-create": "Nieuwe bijlage",
+	"bs-socialwikipage-var-wikipageid": "Toegewezen pagina",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Bijgevoegde bestanden"
 }
