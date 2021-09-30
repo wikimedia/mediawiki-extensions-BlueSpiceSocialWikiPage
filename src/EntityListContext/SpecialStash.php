@@ -130,7 +130,7 @@ class SpecialStash extends \BlueSpice\Social\EntityListContext {
 	 */
 	public function getFilters() {
 		if ( !$this->getTitle() || !$this->getTitle()->exists() ) {
-			parent::getFilters();
+			return parent::getFilters();
 		}
 		return array_merge( parent::getFilters(),
 			[ $this->getWikiPageIDFilter() ]
