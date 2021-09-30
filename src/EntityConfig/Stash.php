@@ -145,4 +145,36 @@ class Stash extends Text {
 		);
 	}
 
+	/**
+	 *
+	 * @return string
+	 */
+	protected function get_CreatePermission() {
+		return 'social-stash';
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	protected function get_EditPermission() {
+		return 'social-stash';
+	}
+
+	/**
+	 *
+	 * @return string
+	 */
+	protected function get_DeletePermission() {
+		return 'social-stash';
+	}
+
+	/**
+	 *
+	 * @return bool
+	 */
+	protected function get_CanHaveChildren() {
+		return false;
+	}
+
 }
