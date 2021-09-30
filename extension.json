@@ -35,6 +35,16 @@
 				"social-wikipage-createnewwikipageentity": "\\BlueSpice\\Social\\WikiPage\\Renderer\\CreateNewWikiPageEntity::factory",
 				"social-wikipage-entitylist-newwikipageentity": "\\BlueSpice\\Social\\WikiPage\\Renderer\\EntityList\\NewWikiPageEntity::factory",
 				"social-wikipage-createfirstattachmentaftercontent": "\\BlueSpice\\Social\\WikiPage\\Renderer\\CreateFirstAttachmentAfterContent::factory"
+			},
+			"PermissionRegistry": {
+				"social-stash": {
+					"type": "namespace",
+					"roles": [
+						"editor",
+						"admin",
+						"maintenanceadmin"
+					]
+				}
 			}
 		}
 	},
@@ -54,6 +64,20 @@
 			"i18n"
 		]
 	},
+	"GroupPermissions": {
+		"*": {
+			"social-stash": false
+		},
+		"user": {
+			"social-stash": true
+		},
+		"sysop": {
+			"social-stash": true
+		}
+	},
+	"AvailableRights": [
+		"social-stash"
+	],
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],
