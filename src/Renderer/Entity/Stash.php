@@ -8,7 +8,7 @@ use Config;
 use MediaWiki\Linker\LinkRenderer;
 
 class Stash extends \BlueSpice\Social\Renderer\Entity\Text {
-	const START_EDITOR = 'starteditor';
+	public const START_EDITOR = 'starteditor';
 
 	/**
 	 *
