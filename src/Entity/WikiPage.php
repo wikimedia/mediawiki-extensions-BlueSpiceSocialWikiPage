@@ -46,11 +46,11 @@ use WikiPage as Article;
  * @subpackage BSSocialWikiPage
  */
 class WikiPage extends Page {
-	const TYPE = 'wikipage';
+	public const TYPE = 'wikipage';
 
-	const ATTR_WIKI_PAGE_ID = 'wikipageid';
-	const ATTR_NAMESPACE = 'namespace';
-	const ATTR_TITLE_TEXT = 'titletext';
+	public const ATTR_WIKI_PAGE_ID = 'wikipageid';
+	public const ATTR_NAMESPACE = 'namespace';
+	public const ATTR_TITLE_TEXT = 'titletext';
 
 	/**
 	 *

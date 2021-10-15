@@ -16,9 +16,9 @@ use User;
  * @subpackage BSSocialMicroBlog
  */
 class Stash extends Text {
-	const TYPE = 'stash';
+	public const TYPE = 'stash';
 
-	const ATTR_WIKI_PAGE_ID = 'wikipageid';
+	public const ATTR_WIKI_PAGE_ID = 'wikipageid';
 
 	/**
 	 * Gets the attributes formated for the api
