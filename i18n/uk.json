@@ -23,5 +23,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "Вкладені файли",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Вилучити",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Додати",
-	"apihelp-bs-socialstash-tasks-summary": "Надає завдання для редагування пов'язаних сторінок сутностей"
+	"apihelp-bs-socialstash-tasks-summary": "Надає завдання для редагування пов'язаних сторінок сутностей",
+	"action-social-stash": "Створювати та редагувати вкладення",
+	"right-social-stash": "Створювати та редагувати вкладення"
 }

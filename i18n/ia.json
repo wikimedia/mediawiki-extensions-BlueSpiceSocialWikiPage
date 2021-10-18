@@ -22,5 +22,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "Files annexate",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Deler",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Adder",
-	"apihelp-bs-socialstash-tasks-summary": "Forni processos pro modificar le paginas ligate de entitates"
+	"apihelp-bs-socialstash-tasks-summary": "Forni processos pro modificar le paginas ligate de entitates",
+	"action-social-stash": "crear e modificar annexos",
+	"right-social-stash": "Crear e modificar annexos"
 }

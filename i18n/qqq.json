@@ -28,6 +28,6 @@
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Short label for button that deletes an attached file from the stash entry\n{{Identical|Delete}}",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Short label for button that adds an attached file to the stash entry\n{{Identical|Add}}",
 	"apihelp-bs-socialstash-tasks-summary": "{{doc-apihelp-summary|bs-socialstash-tasks}}",
-	"action-social-stash": "{{doc-action|action-social-stash}}",
+	"action-social-stash": "{{doc-action|social-stash}}",
 	"right-social-stash": "{{doc-right|social-stash}}"
 }
