@@ -188,8 +188,8 @@
 		}
 	},
 	"HookHandlers": {
-		"discovery-skin": {
-			"class": "\\BlueSpice\\Social\\WikiPage\\HookHandler\\DiscoverySkin"
+		"common-user-interface": {
+			"class": "\\BlueSpice\\Social\\WikiPage\\HookHandler\\CommonUserInterface"
 		}
 	},
 	"Hooks": {
@@ -198,7 +198,7 @@
 		"ChameleonSkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\WikiPage\\Hook\\ChameleonSkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
 		"GetDoubleUnderscoreIDs": "\\BlueSpice\\Social\\WikiPage\\Hook\\GetDoubleUnderscoreIDs\\AddStash::callback",
 		"BSInsertMagicAjaxGetData": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSInsertMagicAjaxGetData\\AddNoStashSwitch::callback",
-		"MWStakeCommonUIRegisterSkinSlotComponents": "discovery-skin"
+		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface"
 	},
 	"load_composer_autoloader": true,
 	"manifest_version": 2
