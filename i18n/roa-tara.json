@@ -22,5 +22,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "File allegate",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Scangìlle",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Aggiunge",
-	"apihelp-bs-socialstash-tasks-summary": "Dèje combite pu cangiamende de le state de le èàggene collegate de l'endità"
+	"apihelp-bs-socialstash-tasks-summary": "Dèje combite pu cangiamende de le state de le èàggene collegate de l'endità",
+	"action-social-stash": "ccrèje e cange le allegate",
+	"right-social-stash": "Ccrèje e cange le allegate"
 }

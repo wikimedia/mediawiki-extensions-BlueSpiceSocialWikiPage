@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MITO",
 			"Silvonen"
 		]
 	},
@@ -14,5 +15,7 @@
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Lisää",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Liitetiedostot",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Poista",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "Lisää"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Lisää",
+	"action-social-stash": "luoda ja muokata liitetiedostoja",
+	"right-social-stash": "Luoda ja muokata liitetiedostoja"
 }

@@ -23,5 +23,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "附加檔案",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "刪除",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "增加",
-	"apihelp-bs-socialstash-tasks-summary": "提供用於編輯單元連結頁面的任務"
+	"apihelp-bs-socialstash-tasks-summary": "提供用於編輯單元連結頁面的任務",
+	"action-social-stash": "建立與編輯附件",
+	"right-social-stash": "建立與編輯附件"
 }

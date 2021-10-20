@@ -17,5 +17,7 @@
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "추가",
 	"bs-socialwikipage-stash-editor-attachedfiles": "첨부된 파일",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "삭제",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "추가"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "추가",
+	"action-social-stash": "첨부 파일을 만들고 편집할",
+	"right-social-stash": "첨부 파일 만들기 및 편집"
 }
