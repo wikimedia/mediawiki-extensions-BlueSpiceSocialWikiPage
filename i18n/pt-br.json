@@ -24,5 +24,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "Arquivos anexados",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Excluir",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Adicionar",
-	"apihelp-bs-socialstash-tasks-summary": "Fornece tarefas para editar as páginas vinculadas das entidades"
+	"apihelp-bs-socialstash-tasks-summary": "Fornece tarefas para editar as páginas vinculadas das entidades",
+	"action-social-stash": "criar e editar anexos",
+	"right-social-stash": "Criar e editar anexos"
 }
