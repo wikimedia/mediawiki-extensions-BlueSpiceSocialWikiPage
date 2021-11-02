@@ -172,6 +172,11 @@
 				"bluespice.social.wikipage.createFirstAttachment.js",
 				"CreateFirstAttachmentAfterContent.js"
 			]
+		},
+		"ext.bluespice.social.discovery.styles" : {
+			"styles": [
+				"bluespice.socialwikipage.css"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
