@@ -4,5 +4,9 @@
 			"Ajeje Brazorf"
 		]
 	},
-	"bs-socialwikipage-stash-editor-attachedfile-delete": "Cancella"
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Cancella",
+	"bs-socialwikipage-type": "Pàggina wiki",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Agghiunci file",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Agghiunci",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Agghiunci"
 }
