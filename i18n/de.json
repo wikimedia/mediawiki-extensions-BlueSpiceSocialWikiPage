@@ -24,5 +24,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "Angehängte Dateien",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Löschen",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Hinzufügen",
-	"apihelp-bs-socialstash-tasks-summary": "Stellt Aufgaben für die Bearbeitung von verlinkten Seiten von Entitäten bereit"
+	"apihelp-bs-socialstash-tasks-summary": "Stellt Aufgaben für die Bearbeitung von verlinkten Seiten von Entitäten bereit",
+	"action-social-stash": "Anhänge zu erstellen und zu bearbeiten",
+	"right-social-stash": "Anhänge erstellen und bearbeiten"
 }
