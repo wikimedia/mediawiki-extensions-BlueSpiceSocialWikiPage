@@ -173,7 +173,7 @@
 				"CreateFirstAttachmentAfterContent.js"
 			]
 		},
-		"ext.bluespice.social.discovery.styles" : {
+		"ext.bluespice.social.discovery.styles": {
 			"styles": [
 				"bluespice.socialwikipage.css"
 			]
