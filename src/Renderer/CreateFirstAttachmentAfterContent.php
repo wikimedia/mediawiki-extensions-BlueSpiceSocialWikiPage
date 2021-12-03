@@ -7,11 +7,17 @@ use Config;
 use IContextSource;
 use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\SpecialPage\SpecialPageFactory;
 use OutputPage;
 use RequestContext;
 
 class CreateFirstAttachmentAfterContent extends \BlueSpice\Renderer {
 	public const PARAM_CONTEXT = 'context';
+
+	/**
+	 * @var SpecialPageFactory
+	 */
+	protected $specialPageFactory = null;
 
 	/**
 	 * Constructor
@@ -20,10 +26,12 @@ class CreateFirstAttachmentAfterContent extends \BlueSpice\Renderer {
 	 * @param LinkRenderer|null $linkRenderer
 	 * @param IContextSource|null $context
 	 * @param string $name
+	 * @param SpecialPageFactory|null $specialPageFactory
 	 */
 	protected function __construct( Config $config, Params $params,
 		LinkRenderer $linkRenderer = null, IContextSource $context = null,
-		$name = '' ) {
+		$name = '', SpecialPageFactory $specialPageFactory = null ) {
+		$this->specialPageFactory = $specialPageFactory;
 		parent::__construct( $config, $params, $linkRenderer, $context, $name );
 
 		$this->context = $params->get(
@@ -33,6 +41,45 @@ class CreateFirstAttachmentAfterContent extends \BlueSpice\Renderer {
 		if ( !$this->context instanceof IContextSource ) {
 			$this->context = RequestContext::getMain();
 		}
+	}
+
+	/**
+	 * @param string $name
+	 * @param MediaWikiServices $services
+	 * @param Config $config
+	 * @param Params $params
+	 * @param IContextSource|null $context
+	 * @param LinkRenderer|null $linkRenderer
+	 * @param SpecialPageFactory|null $specialPageFactory
+	 * @return Renderer
+	 */
+	public static function factory( $name, MediaWikiServices $services, Config $config,
+		Params $params, IContextSource $context = null, LinkRenderer $linkRenderer = null,
+		SpecialPageFactory $specialPageFactory = null ) {
+		if ( !$context ) {
+			$context = $params->get(
+				static::PARAM_CONTEXT,
+				false
+			);
+			if ( !$context instanceof IContextSource ) {
+				$context = \RequestContext::getMain();
+			}
+		}
+		if ( !$linkRenderer ) {
+			$linkRenderer = $services->getLinkRenderer();
+		}
+		if ( !$specialPageFactory ) {
+			$specialPageFactory = $services->getSpecialPageFactory();
+		}
+
+		return new static(
+			$config,
+			$params,
+			$linkRenderer,
+			$context,
+			$name,
+			$specialPageFactory
+		);
 	}
 
 	/**
@@ -79,9 +126,8 @@ class CreateFirstAttachmentAfterContent extends \BlueSpice\Renderer {
 				'primary',
 				'progressive'
 			],
-			'href' => $title->getLocalURL( [
-				'action' => 'edit',
-			] )
+			'href' => $this->specialPageFactory->getPage( 'WikiPageStash' )
+				->getTitleFor( 'WikiPageStash', $title->getFullText() )->getFullURL(),
 		] );
 		$btn->addClasses( [
 			'bs-socialwikipage-attachment-create-first'
