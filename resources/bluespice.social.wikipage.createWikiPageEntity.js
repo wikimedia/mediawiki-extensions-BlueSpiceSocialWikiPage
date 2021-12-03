@@ -1,7 +1,8 @@
 
-$( document ).bind( 'BSSocialInit', function( bssocial ) {
+$( document ).bind( 'BSSocialEntityListInit', function( event, EntityList, $el ) {
 	new bs.social.CreateWikiPageEntity(
-		$( this )
+		$el,
+		EntityList
 	);
 });
 
