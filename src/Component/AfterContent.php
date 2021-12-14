@@ -112,10 +112,10 @@ class AfterContent extends Literal {
 			return $this->entity;
 		}
 		$factory = $this->getServices()->getService(
-			'BSSocialDiscussionEntityFactory'
+			'BSSocialWikiPageEntityFactory'
 		);
-		$this->entity = $factory->newFromDiscussionTitle(
-			RequestContext::getMain()->getTitle()->getTalkPageIfDefined()
+		$this->entity = $factory->newFromTitle(
+			RequestContext::getMain()->getTitle()
 		);
 		return $this->entity;
 	}
