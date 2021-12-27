@@ -22,5 +22,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "Vedlagte filer",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Slett",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Legg til",
-	"apihelp-bs-socialstash-tasks-summary": "Tilbyr oppgaver for å redigere entiteters lenkede sider"
+	"apihelp-bs-socialstash-tasks-summary": "Tilbyr oppgaver for å redigere entiteters lenkede sider",
+	"action-social-stash": "opprette og redigere vedlegg",
+	"right-social-stash": "Opprette og redigere vedlegg"
 }
