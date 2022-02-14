@@ -24,6 +24,6 @@
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Supprimer",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Ajouter",
 	"apihelp-bs-socialstash-tasks-summary": "Fournit des tâches pour modifier les pages liées des entités",
-	"action-social-stash": "créer et modifier les attachements",
-	"right-social-stash": "Créer et modifier les attachements"
+	"action-social-stash": "créer et modifier des pièces jointes",
+	"right-social-stash": "Créer et modifier des pièces jointes"
 }
