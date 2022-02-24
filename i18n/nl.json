@@ -9,6 +9,7 @@
 	},
 	"bs-socialwikipage-type": "Wikipagina",
 	"bs-socialwikipage-stashtype": "Bijlagen",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] toegevoegd",
 	"bs-socialwikipage-entitystash-header-create": "Nieuwe bijlage",
 	"bs-socialwikipage-special-stash-heading": "Bijlagen",
 	"bs-socialwikipage-aftercontent-heading": "Bijlagen",
