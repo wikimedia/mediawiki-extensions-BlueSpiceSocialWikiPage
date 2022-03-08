@@ -76,7 +76,7 @@ class AfterContent extends Literal {
 
 		$prop = $this->getServices()->getService( 'BSUtilityFactory' )
 			->getPagePropHelper( $context->getTitle() )
-			->getPageProp( 'bs_nodiscussion' );
+			->getPageProp( 'bs_nostash' );
 		if ( $prop !== null ) {
 			return false;
 		}
