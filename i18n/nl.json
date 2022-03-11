@@ -18,5 +18,6 @@
 	"bs-socialwikipage-type": "Wikipagina",
 	"bs-socialwikipage-entitystash-header-create": "Nieuwe bijlage",
 	"bs-socialwikipage-var-wikipageid": "Toegewezen pagina",
-	"bs-socialwikipage-stash-editor-attachedfiles": "Bijgevoegde bestanden"
+	"bs-socialwikipage-stash-editor-attachedfiles": "Bijgevoegde bestanden",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] toegevoegd"
 }
