@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"DiegoAmbrocio",
 			"Fitoschido"
 		]
 	},
+	"bs-socialwikipage-type": "Página de wiki",
 	"bs-socialwikipage-noattachmentsadded": "Aún no se ha añadido ningún adjunto",
 	"bs-socialwikipage-stashtype": "Archivos adjuntos",
 	"bs-socialwikipage-entitystash-header-create": "Adjunto nuevo",
