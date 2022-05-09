@@ -16,7 +16,11 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 		this
 	);
 
-	var me = this;
+	var me = this,
+		relatedTitle = me.getEntity().data.get(
+			'relatedtitle',
+			''
+		);
 	//overwrite the text widget to remove all may be editor stuff, that breaks
 	//everything. Also do not use an actual hidden field, as these can not store
 	//any values for no reason... oojs -.-
@@ -36,7 +40,9 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 	} );
 
 	if( bs.ui.widget.TextInputMultiUpload ) {
-		me.dropzone =  new bs.ui.widget.TextInputMultiUpload( {} );
+		me.dropzone =  new bs.ui.widget.TextInputMultiUpload( {
+			relatedTitle: relatedTitle ? mw.Title.newFromText( relatedTitle ) : null
+		} );
 		fields.dropzone = me.dropzone;
 		me.dropzone.on( 'change', function( e, data ) {
 			me.addFiles( data.files );
@@ -64,18 +70,14 @@ bs.social.EntityEditorStash.prototype.makeFields = function() {
 		'wikipageid',
 		0
 	);
-	var titleText = me.getEntity().data.get(
-		'relatedtitle',
-		''
-	);
-	if( wikipageid > 0 && titleText !== '' ) {
+	if( wikipageid > 0 && relatedTitle !== '' ) {
 		disabled = true;
 	}
 	var option = '', localData = [];
 	if( wikipageid > 0 ) {
-		option = '<option selected="selected" value="' + wikipageid + '">' + titleText + '</option>';
+		option = '<option selected="selected" value="' + wikipageid + '">' + relatedTitle + '</option>';
 		localData.push({
-			text: titleText,
+			text: relatedTitle,
 			id: wikipageid
 		});
 	}
