@@ -4,7 +4,7 @@ bs.ui.widget = bs.ui.widget || {};
 
 bs.ui.widget.TextInputMultiUpload = function ( config ) {
 	OO.ui.InputWidget.call( this, config );
-	var me = this;
+	this.relatedTitle = config.relatedTitle || null;
 	me.$element.find( 'input' ).remove();
 	me.$element.addClass( 'bs-social-entity-input-multiupload' );
 };
@@ -23,11 +23,15 @@ bs.ui.widget.TextInputMultiUpload.prototype.init = function() {
 			upldr.disableBrowse( true );
 			mw.loader.using( 'ext.bluespice.extjs.upload', function() {
 				Ext.require( 'BS.dialog.MultiUpload', function () {
-					var mud = new BS.dialog.MultiUpload( {
+					var mudConfig = {
 						uploader: upldr,
 						files: files
-					} );
-					mud.on( 'uploadcomplete', me.onUploadComplete, me ),
+					};
+					if ( this.relatedTitle instanceof mw.Title ) {
+						mudConfig.targetPage = this.relatedTitle;
+					}
+					var mud = new BS.dialog.MultiUpload( mudConfig );
+					mud.on( 'uploadcomplete', me.onUploadComplete, me );
 					mud.show();
 				} );
 			} );
