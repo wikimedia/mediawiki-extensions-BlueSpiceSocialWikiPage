@@ -5,8 +5,8 @@ bs.ui.widget = bs.ui.widget || {};
 bs.ui.widget.TextInputMultiUpload = function ( config ) {
 	OO.ui.InputWidget.call( this, config );
 	this.relatedTitle = config.relatedTitle || null;
-	me.$element.find( 'input' ).remove();
-	me.$element.addClass( 'bs-social-entity-input-multiupload' );
+	this.$element.find( 'input' ).remove();
+	this.$element.addClass( 'bs-social-entity-input-multiupload' );
 };
 OO.initClass( bs.ui.widget.TextInputMultiUpload );
 OO.inheritClass( bs.ui.widget.TextInputMultiUpload, OO.ui.InputWidget );
@@ -27,8 +27,8 @@ bs.ui.widget.TextInputMultiUpload.prototype.init = function() {
 						uploader: upldr,
 						files: files
 					};
-					if ( this.relatedTitle instanceof mw.Title ) {
-						mudConfig.targetPage = this.relatedTitle;
+					if ( me.relatedTitle instanceof mw.Title ) {
+						mudConfig.targetPage = me.relatedTitle;
 					}
 					var mud = new BS.dialog.MultiUpload( mudConfig );
 					mud.on( 'uploadcomplete', me.onUploadComplete, me );
