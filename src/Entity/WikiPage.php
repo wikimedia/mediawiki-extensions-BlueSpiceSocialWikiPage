@@ -33,6 +33,7 @@ namespace BlueSpice\Social\WikiPage\Entity;
 use BlueSpice\Social\Entity\Page;
 use BsNamespaceHelper;
 use Exception;
+use MediaWiki\MediaWikiServices;
 use Message;
 use ParserOptions;
 use Status;
@@ -73,11 +74,12 @@ class WikiPage extends Page {
 		}
 		$wikiPage = Article::factory( $this->getRelatedTitle() );
 		try {
-			$output = $wikiPage->getContent()->getParserOutput(
+			$contentRenderer = MediaWikiServices::getInstance()->getContentRenderer();
+			$output = $contentRenderer->getParserOutput(
+				$wikiPage->getContent(),
 				$this->getRelatedTitle(),
 				null,
 				ParserOptions::newFromContext( \RequestContext::getMain() ),
-				true,
 				true
 			);
 		} catch ( Exception $e ) {
