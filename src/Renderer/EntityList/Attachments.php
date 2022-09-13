@@ -142,7 +142,7 @@ class Attachments extends EntityList {
 			'AvailableAttachments'
 		);
 
-		$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
+		$repoGroup = $this->services->getRepoGroup();
 		$attachmentTypes = $entity->get( $entity::ATTR_ATTACHMENTS, [] );
 		foreach ( $attachmentTypes as $type => $attachments ) {
 			if ( !in_array( $type, $availableAttachments ) ) {
