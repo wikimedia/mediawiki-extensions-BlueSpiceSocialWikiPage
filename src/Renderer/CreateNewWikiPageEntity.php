@@ -100,9 +100,7 @@ class CreateNewWikiPageEntity extends \BlueSpice\Renderer {
 		OutputPage::setupOOUI();
 
 		$title = $this->getContext()->getTitle();
-		$factory = MediaWikiServices::getInstance()->getService(
-			'BSSocialWikiPageEntityFactory'
-		);
+		$factory = $this->services->getService( 'BSSocialWikiPageEntityFactory' );
 		$entity = $factory->newFromTitle( $title );
 		if ( !$entity->userCan( 'create', $this->getContext()->getUser() )->isOK() ) {
 			$msg = $this->msg( 'bs-socialwikipage-nowikipageentity' );

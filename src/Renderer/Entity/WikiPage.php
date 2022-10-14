@@ -48,9 +48,7 @@ class WikiPage extends \BlueSpice\Social\Renderer\Entity\Page {
 			ArticlePreviewImage::WIDTH => $size,
 			ArticlePreviewImage::TITLETEXT => $title->getFullText(),
 		];
-		$dfdUrlBuilder = $this->getServices()->getService(
-			'BSDynamicFileDispatcherUrlBuilder'
-		);
+		$dfdUrlBuilder = $this->services->getService( 'BSDynamicFileDispatcherUrlBuilder' );
 		$url = $dfdUrlBuilder->build(
 			new DFDParams( $params )
 		);
