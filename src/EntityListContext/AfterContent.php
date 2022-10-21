@@ -2,9 +2,6 @@
 
 namespace BlueSpice\Social\WikiPage\EntityListContext;
 
-use BlueSpice\Data\Filter\Boolean;
-use BlueSpice\Data\Filter\ListValue;
-use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Social\Entity;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\WikiPage\Entity\Stash;
@@ -13,6 +10,10 @@ use HtmlArmor;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
 use Message;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
+use MWStake\MediaWiki\Component\DataStore\Filter\Boolean;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
+use MWStake\MediaWiki\Component\DataStore\Filter\Numeric;
 use SpecialPage;
 use Title;
 use User;
@@ -138,7 +139,7 @@ class AfterContent extends EntityListContext {
 			ListValue::KEY_PROPERTY => Stash::ATTR_TYPE,
 			ListValue::KEY_VALUE => [ Stash::TYPE ],
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
-			ListValue::KEY_TYPE => \BlueSpice\Data\FieldType::LISTVALUE
+			ListValue::KEY_TYPE => FieldType::LISTVALUE
 		];
 	}
 
