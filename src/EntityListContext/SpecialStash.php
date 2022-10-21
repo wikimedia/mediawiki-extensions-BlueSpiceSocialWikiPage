@@ -2,13 +2,14 @@
 
 namespace BlueSpice\Social\WikiPage\EntityListContext;
 
-use BlueSpice\Data\Filter\ListValue;
-use BlueSpice\Data\Filter\Numeric;
 use BlueSpice\Social\WikiPage\Entity\Stash;
 use BlueSpice\Social\WikiPage\Entity\WikiPage;
 use Config;
 use IContextSource;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
+use MWStake\MediaWiki\Component\DataStore\Filter\Numeric;
 use Title;
 use User;
 
@@ -120,7 +121,7 @@ class SpecialStash extends \BlueSpice\Social\EntityListContext {
 			ListValue::KEY_PROPERTY => Stash::ATTR_TYPE,
 			ListValue::KEY_VALUE => [ Stash::TYPE ],
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
-			ListValue::KEY_TYPE => \BlueSpice\Data\FieldType::LISTVALUE
+			ListValue::KEY_TYPE => FieldType::LISTVALUE
 		];
 	}
 
