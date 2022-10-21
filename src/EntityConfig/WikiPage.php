@@ -31,10 +31,10 @@
  */
 namespace BlueSpice\Social\WikiPage\EntityConfig;
 
-use BlueSpice\Data\FieldType;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\EntityConfig\Page;
 use BlueSpice\Social\WikiPage\Entity\WikiPage as Entity;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
 
 /**
  * WikiPage class for BSSocial extension

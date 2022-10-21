@@ -2,11 +2,11 @@
 
 namespace BlueSpice\Social\WikiPage\EntityConfig;
 
-use BlueSpice\Data\FieldType;
 use BlueSpice\Social\Data\Entity\Schema;
 use BlueSpice\Social\EntityConfig\Text;
 use BlueSpice\Social\WikiPage\Entity\Stash as Entity;
 use MediaWiki\MediaWikiServices;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
 
 /**
  * Stash class for BSSocial extension
