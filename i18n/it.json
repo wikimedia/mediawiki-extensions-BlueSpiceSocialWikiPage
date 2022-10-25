@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"GpieroMW"
 		]
 	},
 	"bs-socialwikipage-type": "Pagina wiki",
+	"bs-socialwikipage-entitywikipage-header-create": "Crea una nuova area per gli allegati",
+	"bs-socialwikipage-nowikipageentity": "Non è stata ancora creata alcuna area per gli allegati",
 	"bs-socialwikipage-noattachmentsadded": "Non è stato aggiunto alcun allegato ancora",
 	"bs-socialwikipage-stashtype": "Allegati",
 	"bs-socialwikipage-entitystash-header-create": "Nuovo allegato",
