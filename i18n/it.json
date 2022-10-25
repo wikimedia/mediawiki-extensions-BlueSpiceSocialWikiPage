@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"GpieroMW"
 		]
 	},
 	"bs-socialwikipage-type": "Pagina wiki",
@@ -16,5 +17,7 @@
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Aggiungi",
 	"bs-socialwikipage-stash-editor-attachedfiles": "File allegati",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Cancella",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "Aggiungi"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Aggiungi",
+	"bs-socialwikipage-entitywikipage-header-create": "Crea una nuova area per gli allegati",
+	"bs-socialwikipage-nowikipageentity": "Non è stata ancora creata alcuna area per gli allegati"
 }
