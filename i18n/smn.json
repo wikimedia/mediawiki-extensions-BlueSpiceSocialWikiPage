@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Seipinne"
+			"Seipinne",
+			"Yupik"
 		]
 	},
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Lasseet",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "Lasseet"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Lasseet",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Siho"
 }
