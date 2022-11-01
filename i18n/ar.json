@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Meno25",
 			"ديفيد"
 		]
 	},
@@ -22,5 +23,7 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "الملفات المرفقة",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "حذف",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "إضافة",
-	"apihelp-bs-socialstash-tasks-summary": "يوفر مهام لتحرير صفحات الكيانات المرتبطة"
+	"apihelp-bs-socialstash-tasks-summary": "يوفر مهام لتحرير صفحات الكيانات المرتبطة",
+	"action-social-stash": "إنشاء وتحرير المرفقات",
+	"right-social-stash": "إنشاء وتحرير المرفقات"
 }
