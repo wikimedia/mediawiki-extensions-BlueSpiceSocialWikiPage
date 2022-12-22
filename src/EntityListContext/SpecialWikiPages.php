@@ -2,9 +2,10 @@
 
 namespace BlueSpice\Social\WikiPage\EntityListContext;
 
-use BlueSpice\Data\Filter\ListValue;
 use BlueSpice\Social\EntityListContext;
 use BlueSpice\Social\WikiPage\Entity\WikiPage;
+use MWStake\MediaWiki\Component\DataStore\FieldType;
+use MWStake\MediaWiki\Component\DataStore\Filter\ListValue;
 
 class SpecialWikiPages extends EntityListContext {
 
@@ -44,7 +45,7 @@ class SpecialWikiPages extends EntityListContext {
 			ListValue::KEY_PROPERTY => WikiPage::ATTR_TYPE,
 			ListValue::KEY_VALUE => [ WikiPage::TYPE ],
 			ListValue::KEY_COMPARISON => ListValue::COMPARISON_CONTAINS,
-			ListValue::KEY_TYPE => \BlueSpice\Data\FieldType::LISTVALUE
+			ListValue::KEY_TYPE => FieldType::LISTVALUE
 		];
 	}
 
