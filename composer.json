@@ -31,5 +31,10 @@
 	},
 	"extra": {
 		"installer-name": "BlueSpiceSocialWikiPage"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
 	}
 }
