@@ -1,8 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Ex-Diktator"
 		]
 	},
-	"bs-socialwikipage-stash-editor-attachedfile-delete": "מחיקה"
+	"bs-socialwikipage-type": "דף ויקי",
+	"bs-socialwikipage-stashtype": "צרופות",
+	"bs-socialwikipage-entitystash-header-create": "צרופה חדשה",
+	"bs-socialwikipage-special-stash-heading": "צרופות",
+	"bs-socialwikipage-aftercontent-heading": "צרופות",
+	"wikipagestash": "צרופות",
+	"bs-socialwikipage-var-wikipageid": "דף משויך",
+	"bs-socialwikipage-stash-insertfiledialog-title": "הוספת קובץ",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "הוספה",
+	"bs-socialwikipage-stash-editor-attachedfiles": "קבצים מצורפים",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "מחיקה",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "הוספה",
+	"action-social-stash": "ליצור ולערוך צרופות",
+	"right-social-stash": "יצירה ועריכה של צרופות"
 }
