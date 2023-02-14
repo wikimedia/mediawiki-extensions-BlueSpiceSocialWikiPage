@@ -18,5 +18,12 @@
 	"bs-socialwikipage-stash-editor-attachedfiles": "קבצים מצורפים",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "הוספה",
 	"action-social-stash": "ליצור ולערוך צרופות",
-	"right-social-stash": "יצירה ועריכה של צרופות"
+	"right-social-stash": "יצירה ועריכה של צרופות",
+	"bs-socialwikipage-desc": "ישות ופונקציונליות של WikiPage עבור BlueSpiceSocial",
+	"bs-socialwikipage-entitywikipage-header-create": "יצירת אזור צרופה חדש",
+	"bs-socialwikipage-nowikipageentity": "עדיין לא נוצר אזור צרופה",
+	"bs-socialwikipage-noattachmentsadded": "עדיין לא הוספה צרופה",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] {{GENDER:$1|צורף|צורפה}}",
+	"bs-socialwikipage-switch-nostash-description": "הסתרת אזור הצרופה של הדף הזה.",
+	"apihelp-bs-socialstash-tasks-summary": "אספקת משימות לעריכת הדפים המקושרים של ישויות"
 }
