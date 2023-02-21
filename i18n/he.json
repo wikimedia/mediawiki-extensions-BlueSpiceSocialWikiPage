@@ -5,18 +5,25 @@
 			"Amire80"
 		]
 	},
+	"bs-socialwikipage-desc": "ישות ופונקציונליות של WikiPage עבור BlueSpiceSocial",
 	"bs-socialwikipage-type": "דף ויקי",
+	"bs-socialwikipage-entitywikipage-header-create": "יצירת אזור צרופה חדש",
+	"bs-socialwikipage-nowikipageentity": "עדיין לא נוצר אזור צרופה",
+	"bs-socialwikipage-noattachmentsadded": "עדיין לא הוספה צרופה",
 	"bs-socialwikipage-stashtype": "צרופות",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] {{GENDER:$1|צורף|צורפה}}",
 	"bs-socialwikipage-entitystash-header-create": "צרופה חדשה",
 	"bs-socialwikipage-special-stash-heading": "צרופות",
 	"bs-socialwikipage-aftercontent-heading": "צרופות",
 	"wikipagestash": "צרופות",
 	"bs-socialwikipage-var-wikipageid": "דף משויך",
+	"bs-socialwikipage-switch-nostash-description": "הסתרת אזור הצרופה של הדף הזה.",
 	"bs-socialwikipage-stash-insertfiledialog-title": "הוספת קובץ",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "הוספה",
 	"bs-socialwikipage-stash-editor-attachedfiles": "קבצים מצורפים",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "מחיקה",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "הוספה",
+	"apihelp-bs-socialstash-tasks-summary": "אספקת משימות לעריכת הדפים המקושרים של ישויות",
 	"action-social-stash": "ליצור ולערוך צרופות",
 	"right-social-stash": "יצירה ועריכה של צרופות"
 }
