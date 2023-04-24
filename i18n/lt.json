@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"bs-socialwikipage-entitywikipage-header-create": "Sukurkite naują priedų sritį",
+	"bs-socialwikipage-nowikipageentity": "Priedo sritis dar nesukurta",
+	"bs-socialwikipage-noattachmentsadded": "Dar nepridėtas joks priedas",
+	"bs-socialwikipage-stashtype": "Priedai",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] pridėjo",
+	"bs-socialwikipage-entitystash-header-create": "Naujas priedas",
+	"bs-socialwikipage-special-stash-heading": "Priedai",
+	"bs-socialwikipage-aftercontent-heading": "Priedai",
+	"wikipagestash": "Priedai",
+	"bs-socialwikipage-var-wikipageid": "Priskirtas puslapis",
+	"bs-socialwikipage-switch-nostash-description": "Slepia šio puslapio priedų sritį.",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Pridėti failą",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Pridėti",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Pridėti failai",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Ištrinti",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Pridėti",
+	"action-social-stash": "kurti ir redaguoti priedus",
+	"right-social-stash": "Kurti ir redaguoti priedus"
+}
