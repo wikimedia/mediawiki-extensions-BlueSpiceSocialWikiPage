@@ -21,7 +21,6 @@
 	"bs-socialwikipage-aftercontent-heading": "Label of the attachments section after a pages content\n{{Identical|Attachments}}",
 	"wikipagestash": "Special page name for [[Special:Wikipagestash]] special page.\n{{Identical|Attachments}}",
 	"bs-socialwikipage-var-wikipageid": "Label for entry field \"wikipageid\".\n{{Identical|Assigned page}}",
-	"bs-socialwikipage-switch-nostash-description": "Description for behavior switch \"<nowiki>__NOSTASH__</nowiki>\" that hides the attachment area of this page.",
 	"bs-socialwikipage-stash-insertfiledialog-title": "Title in dialog that adds files to the stash entry\n{{Identical|Add file}}",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Button in dialog that adds a file to the stash entry\n{{Identical|Add}}",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Label for section in stash entry that lists attached files",
