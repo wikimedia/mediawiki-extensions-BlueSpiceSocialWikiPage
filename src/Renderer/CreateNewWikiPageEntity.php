@@ -100,6 +100,9 @@ class CreateNewWikiPageEntity extends \BlueSpice\Renderer {
 		OutputPage::setupOOUI();
 
 		$title = $this->getContext()->getTitle();
+		if ( !$title ) {
+			return $content;
+		}
 		$factory = $this->services->getService( 'BSSocialWikiPageEntityFactory' );
 		$entity = $factory->newFromTitle( $title );
 		if ( !$entity->userCan( 'create', $this->getContext()->getUser() )->isOK() ) {
@@ -134,7 +137,7 @@ class CreateNewWikiPageEntity extends \BlueSpice\Renderer {
 			'bs-socialwikipage-wikipage-create'
 		] );
 		$btn->setValue(
-			$this->getContext()->getTitle()->getArticleID()
+			$title->getArticleID()
 		);
 		$content .= $btn;
 		return $content;

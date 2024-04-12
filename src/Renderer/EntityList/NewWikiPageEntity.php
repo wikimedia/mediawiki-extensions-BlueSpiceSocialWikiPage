@@ -24,7 +24,8 @@ class NewWikiPageEntity extends \BlueSpice\Social\Renderer\EntityList {
 		$name = '' ) {
 		parent::__construct( $config, $params, $linkRenderer, $context, $name );
 
-		if ( !$this->getContext()->getTitle()->exists() ) {
+		$title = $this->getContext()->getTitle();
+		if ( $title && !$title->exists() ) {
 			$this->args[static::PARAM_CLASS] .= ' nowikipage';
 		}
 	}
