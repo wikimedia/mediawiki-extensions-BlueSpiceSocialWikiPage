@@ -200,7 +200,6 @@
 	"Hooks": {
 		"BSSocialModuleDepths": "\\BlueSpice\\Social\\WikiPage\\Hook\\BSSocialModuleDepths\\AddModules::callback",
 		"PageSaveComplete": "\\BlueSpice\\Social\\WikiPage\\Hook\\PageSaveComplete\\CreateWikiPageEntity::callback",
-		"ChameleonSkinTemplateOutputPageBeforeExec": "\\BlueSpice\\Social\\WikiPage\\Hook\\ChameleonSkinTemplateOutputPageBeforeExec\\AddTimeline::callback",
 		"GetDoubleUnderscoreIDs": "\\BlueSpice\\Social\\WikiPage\\Hook\\GetDoubleUnderscoreIDs\\AddStash::callback",
 		"MWStakeCommonUIRegisterSkinSlotComponents": "common-user-interface"
 	},
