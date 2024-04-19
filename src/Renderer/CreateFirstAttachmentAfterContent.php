@@ -110,6 +110,10 @@ class CreateFirstAttachmentAfterContent extends \BlueSpice\Renderer {
 			return $content;
 		}
 
+		$specialPage = $this->specialPageFactory->getPage( 'WikiPageStash' );
+		if ( !$specialPage ) {
+			return $content;
+		}
 		$label = $this->msg(
 			'bs-socialwikipage-entitywikipage-header-create'
 		)->plain();
@@ -124,8 +128,7 @@ class CreateFirstAttachmentAfterContent extends \BlueSpice\Renderer {
 				'primary',
 				'progressive'
 			],
-			'href' => $this->specialPageFactory->getPage( 'WikiPageStash' )
-				->getTitleFor( 'WikiPageStash', $title->getFullText() )->getFullURL(),
+			'href' => $specialPage->getTitleFor( 'WikiPageStash', $title->getFullText() )->getFullURL(),
 		] );
 		$btn->addClasses( [
 			'bs-socialwikipage-attachment-create-first'
