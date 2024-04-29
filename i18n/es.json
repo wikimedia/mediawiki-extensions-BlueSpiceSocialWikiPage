@@ -5,20 +5,20 @@
 			"Fitoschido"
 		]
 	},
-	"bs-socialwikipage-type": "P\u00e1gina de wiki",
-	"bs-socialwikipage-noattachmentsadded": "A\u00fan no se ha a\u00f1adido ning\u00fan adjunto",
+	"bs-socialwikipage-type": "Página de wiki",
+	"bs-socialwikipage-noattachmentsadded": "Aún no se ha añadido ningún adjunto",
 	"bs-socialwikipage-stashtype": "Archivos adjuntos",
 	"bs-socialwikipage-entitystash-header-create": "Adjunto nuevo",
 	"bs-socialwikipage-special-stash-heading": "Archivos adjuntos",
 	"bs-socialwikipage-aftercontent-heading": "Adjuntos",
 	"wikipagestash": "Adjuntos",
-	"bs-socialwikipage-var-wikipageid": "P\u00e1gina asignada",
-	"bs-socialwikipage-switch-nostash-description": "Oculta el \u00e1rea de adjuntos de esta p\u00e1gina.",
-	"bs-socialwikipage-stash-insertfiledialog-title": "A\u00f1adir archivo",
-	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "A\u00f1adir",
+	"bs-socialwikipage-var-wikipageid": "Página asignada",
+	"bs-socialwikipage-switch-nostash-description": "Oculta el área de adjuntos de esta página.",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Añadir archivo",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Añadir",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Archivos adjuntos",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Eliminar",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "A\u00f1adir",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Añadir",
 	"action-social-stash": "crear y editar archivos adjuntos",
 	"right-social-stash": "Crear y editar archivos adjuntos"
 }
