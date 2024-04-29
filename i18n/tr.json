@@ -4,11 +4,11 @@
 			"BaRaN6161 TURK"
 		]
 	},
-	"bs-socialwikipage-desc": "BlueSpiceSocial için WikiPage varlığı ve işlevselliği",
+	"bs-socialwikipage-desc": "BlueSpiceSocial i\u00e7in WikiPage varl\u0131\u011f\u0131 ve i\u015flevselli\u011fi",
 	"bs-socialwikipage-type": "Vikisayfa",
-	"bs-socialwikipage-entitywikipage-header-create": "Yeni ek alanı oluştur",
-	"bs-socialwikipage-nowikipageentity": "Henüz hiçbir ek alanı oluşturulmadı",
-	"bs-socialwikipage-noattachmentsadded": "Henüz ek eklenmedi",
+	"bs-socialwikipage-entitywikipage-header-create": "Yeni ek alan\u0131 olu\u015ftur",
+	"bs-socialwikipage-nowikipageentity": "Hen\u00fcz hi\u00e7bir ek alan\u0131 olu\u015fturulmad\u0131",
+	"bs-socialwikipage-noattachmentsadded": "Hen\u00fcz ek eklenmedi",
 	"bs-socialwikipage-stashtype": "Ekler",
 	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] ekli",
 	"bs-socialwikipage-entitystash-header-create": "Yeni ek",
@@ -16,11 +16,11 @@
 	"bs-socialwikipage-aftercontent-heading": "Ekler",
 	"wikipagestash": "Ekler",
 	"bs-socialwikipage-var-wikipageid": "Atanan sayfa",
-	"bs-socialwikipage-switch-nostash-description": "Bu sayfanın ek alanını gizler.",
+	"bs-socialwikipage-switch-nostash-description": "Bu sayfan\u0131n ek alan\u0131n\u0131 gizler.",
 	"bs-socialwikipage-stash-insertfiledialog-title": "Dosya ekle",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Ekle",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Ekli dosyalar",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "Sil",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "Ekle",
-	"apihelp-bs-socialstash-tasks-summary": "Bağlantılı varlık sayfalarını düzenlemek için görevler sağlar"
+	"apihelp-bs-socialstash-tasks-summary": "Ba\u011flant\u0131l\u0131 varl\u0131k sayfalar\u0131n\u0131 d\u00fczenlemek i\u00e7in g\u00f6revler sa\u011flar"
 }

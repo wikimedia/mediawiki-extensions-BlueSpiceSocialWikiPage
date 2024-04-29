@@ -5,14 +5,14 @@
 			"Vfc"
 		]
 	},
-	"bs-socialwikipage-noattachmentsadded": "Encara no s’ha afegit cap adjunció",
+	"bs-socialwikipage-noattachmentsadded": "Encara no s\u2019ha afegit cap adjunci\u00f3",
 	"bs-socialwikipage-stashtype": "Adjuncions",
-	"bs-socialwikipage-entitystash-header-create": "Adjunció nova",
+	"bs-socialwikipage-entitystash-header-create": "Adjunci\u00f3 nova",
 	"bs-socialwikipage-special-stash-heading": "Adjuncions",
 	"bs-socialwikipage-aftercontent-heading": "Adjuncions",
 	"wikipagestash": "Adjuncions",
-	"bs-socialwikipage-var-wikipageid": "Pàgina assignada",
-	"bs-socialwikipage-switch-nostash-description": "Amaga l’àrea d’adjuncions d’aquesta pàgina.",
+	"bs-socialwikipage-var-wikipageid": "P\u00e0gina assignada",
+	"bs-socialwikipage-switch-nostash-description": "Amaga l\u2019\u00e0rea d\u2019adjuncions d\u2019aquesta p\u00e0gina.",
 	"bs-socialwikipage-stash-insertfiledialog-title": "Afegeix un fitxer",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Afegeix",
 	"bs-socialwikipage-stash-editor-attachedfiles": "Fitxers adjunts",
