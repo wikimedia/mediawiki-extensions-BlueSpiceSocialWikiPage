@@ -5,5 +5,10 @@
 		]
 	},
 	"bs-socialwikipage-stash-insertfiledialog-title": "Lasit fiilla",
-	"bs-socialwikipage-stash-editor-attachedfile-delete": "Sihko"
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Sihko",
+	"bs-socialwikipage-stashtype": "Mildosat",
+	"bs-socialwikipage-entitystash-header-create": "Ođđa mieldus",
+	"bs-socialwikipage-special-stash-heading": "Mildosat",
+	"bs-socialwikipage-aftercontent-heading": "Mildosat",
+	"wikipagestash": "Mildosat"
 }
