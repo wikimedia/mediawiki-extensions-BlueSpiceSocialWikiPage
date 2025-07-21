@@ -5,8 +5,17 @@
 		]
 	},
 	"bs-socialwikipage-type": "Вики-агӀо",
+	"bs-socialwikipage-stashtype": "ТӀетохарш",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] тӀетоьхна тӀетохар",
+	"bs-socialwikipage-entitystash-header-create": "Керла тӀетохар",
+	"bs-socialwikipage-special-stash-heading": "ТӀетохарш",
+	"bs-socialwikipage-aftercontent-heading": "ТӀетохарш",
+	"wikipagestash": "ТӀетохарш",
+	"bs-socialwikipage-var-wikipageid": "ТӀедиллина агӀо",
 	"bs-socialwikipage-stash-insertfiledialog-title": "ТӀетоха файл",
 	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "ТӀетоха",
+	"bs-socialwikipage-stash-editor-attachedfiles": "ТӀетоьхна файлаш",
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "ДӀайаккха",
-	"bs-socialwikipage-stash-editor-attachedfile-add": "ТӀетоха"
+	"bs-socialwikipage-stash-editor-attachedfile-add": "ТӀетоха",
+	"apihelp-bs-socialstash-tasks-summary": "Йоьзна коьрта хаамийн агӀонаш хийца бакъо ло"
 }
