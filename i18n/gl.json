@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"bs-socialwikipage-desc": "Entidade e funcionalidade WikiPage para BlueSpiceSocial",
+	"bs-socialwikipage-type": "Páxina wiki",
+	"bs-socialwikipage-entitywikipage-header-create": "Crear unha nova área de anexos",
+	"bs-socialwikipage-nowikipageentity": "Aínda non se creou ningunha área de anexos",
+	"bs-socialwikipage-noattachmentsadded": "Aínda non se engadiu ningún anexo",
+	"bs-socialwikipage-stashtype": "Anexos",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] anexado",
+	"bs-socialwikipage-entitystash-header-create": "Novo anexo",
+	"bs-socialwikipage-special-stash-heading": "Anexos",
+	"bs-socialwikipage-aftercontent-heading": "Anexos",
+	"wikipagestash": "Anexos",
+	"bs-socialwikipage-var-wikipageid": "Páxina asignada",
+	"bs-socialwikipage-stash-insertfiledialog-title": "Engadir un ficheiro",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "Engadir",
+	"bs-socialwikipage-stash-editor-attachedfiles": "Ficheiros anexados",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "Eliminar",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "Engadir",
+	"apihelp-bs-socialstash-tasks-summary": "Ofrece tarefas para editar as páxinas ligadas das entidades",
+	"action-social-stash": "crear e editar anexos",
+	"right-social-stash": "Crear e editar anexos"
+}
