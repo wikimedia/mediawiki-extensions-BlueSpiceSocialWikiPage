@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -19,5 +20,9 @@
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "삭제",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "추가",
 	"action-social-stash": "첨부 파일을 만들고 편집할",
-	"right-social-stash": "첨부 파일 만들기 및 편집"
+	"right-social-stash": "첨부 파일 만들기 및 편집",
+	"bs-socialwikipage-desc": "BlueSpiceSocial의 WikiPage 개체 및 기능",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] 첨부함",
+	"bs-socialwikipage-var-wikipageid": "할당된 문서",
+	"apihelp-bs-socialstash-tasks-summary": "엔티티의 링크된 문서를 편집하기 위한 작업을 제공합니다"
 }
