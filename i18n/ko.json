@@ -23,6 +23,6 @@
 	"bs-socialwikipage-stash-editor-attachedfile-delete": "삭제",
 	"bs-socialwikipage-stash-editor-attachedfile-add": "추가",
 	"apihelp-bs-socialstash-tasks-summary": "엔티티의 링크된 문서를 편집하기 위한 작업을 제공합니다",
-	"action-social-stash": "첨부 파일을 만들고 편집할",
-	"right-social-stash": "첨부 파일 만들기 및 편집"
+	"action-social-stash": "첨부 파일을 만들고 편집",
+	"right-social-stash": "첨부 파일을 만들고 편집"
 }
