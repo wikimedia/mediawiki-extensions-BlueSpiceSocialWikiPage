@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"bs-socialwikipage-desc": "BlueSpiceSocial لپاره د ويکي‌مخ شتونتيا او کړنچارولي",
+	"bs-socialwikipage-type": "ويکي‌مخ",
+	"bs-socialwikipage-entitywikipage-header-create": "د مښلن يوه نوې سيمه جوړه کړئ",
+	"bs-socialwikipage-nowikipageentity": "تراوسه د مښلن هېڅ نوې سيمه نه ده جوړه شوې",
+	"bs-socialwikipage-noattachmentsadded": "تراوسه هېڅ مښلن ورگډ شوی نه دی",
+	"bs-socialwikipage-stashtype": "مښلنونه",
+	"bs-socialwikipage-entitystash-header": "[[User:$1|$2]] مښلېدلی",
+	"bs-socialwikipage-entitystash-header-create": "نوی مښلن",
+	"bs-socialwikipage-special-stash-heading": "مښلنونه",
+	"bs-socialwikipage-aftercontent-heading": "مښلنونه",
+	"wikipagestash": "مښلنونه",
+	"bs-socialwikipage-var-wikipageid": "ورسپارل‌شوی مخ",
+	"bs-socialwikipage-stash-insertfiledialog-title": "دوتنه ورگډول",
+	"bs-socialwikipage-stash-insertfiledialog-btn-save-label": "ورگډول",
+	"bs-socialwikipage-stash-editor-attachedfiles": "مښلېدلې دوتنې",
+	"bs-socialwikipage-stash-editor-attachedfile-delete": "ړنگول",
+	"bs-socialwikipage-stash-editor-attachedfile-add": "ورگډول",
+	"apihelp-bs-socialstash-tasks-summary": "د شتونتياوو د تړوني‌شويو مخونو د سمولو لپاره کاردندې چمتو کوي",
+	"action-social-stash": "مښلنونه جوړول او سمول",
+	"right-social-stash": "مښلنونه جوړول او سمول"
+}
